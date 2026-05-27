@@ -37,12 +37,12 @@ docker compose up --build
 Services:
 
 - App via Django: `http://localhost:8009/`
-- Vite dev server: `http://localhost:5173`
+- Vite dev server: `http://localhost:6174`
 - Backend API: `http://localhost:8009/api/`
 - Health endpoint: `http://localhost:8009/api/health/`
 - PostgreSQL: `localhost:5433`
 
-The app is configured for live reload in development through bind mounts. Django serves the built frontend from `frontend/dist` at `/`, while the Vite dev server remains available separately on port `5173`.
+The app is configured for live reload in development through bind mounts. Django serves the built frontend from `frontend/dist` at `/`, while the Vite dev server remains available separately on port `6174`.
 
 ## Local Development
 

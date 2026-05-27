@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
     base: finalBasePath,
     server: {
       host: "0.0.0.0",
-      port: 5173,
+      port: 6174,
     },
     resolve: {
       alias: {
