@@ -87,6 +87,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOWED_ORIGINS = env.list(
     "CORS_ALLOWED_ORIGINS",
     default=[
+        "https://proxyfaux.net",
+        "https://www.proxyfaux.net",
         "http://localhost:6174",
         "http://127.0.0.1:6174",
     ],
