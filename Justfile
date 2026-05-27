@@ -11,6 +11,15 @@ up:
 logs:
     {{ compose }} logs -f
 
+prod-up:
+    docker compose --env-file deploy/.env.prod -f docker-compose.prod.yml up --build -d
+
+prod-logs:
+    docker compose --env-file deploy/.env.prod -f docker-compose.prod.yml logs -f
+
+prod-down:
+    docker compose --env-file deploy/.env.prod -f docker-compose.prod.yml down
+
 backend:
     {{ compose }} up --build backend db
 

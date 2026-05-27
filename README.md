@@ -127,6 +127,88 @@ just manage shell
 just manage showmigrations
 ```
 
+## Production on Hetzner
+
+This repo includes a single-server production setup for a Hetzner VM using:
+
+- Docker Compose
+- PostgreSQL
+- Django served by Gunicorn
+- Caddy for HTTPS and reverse proxy
+
+### What runs in production
+
+- `db`: PostgreSQL 17
+- `app`: Django in `config.settings.prod`
+- `caddy`: TLS termination, HTTP to HTTPS redirect, reverse proxy to Django
+
+The production backend image builds the React app during the Docker build and copies `frontend/dist` into the Django container. There is no separate frontend runtime in production.
+
+### Server prerequisites
+
+On the Hetzner server:
+
+1. Install Docker Engine and the Compose plugin.
+2. Point your domain DNS at the server IP.
+3. Open ports `80` and `443` in the firewall.
+4. Clone this repository onto the server.
+
+### Production env files
+
+Create these files on the server:
+
+```bash
+cp deploy/.env.prod.example deploy/.env.prod
+cp backend/.env.prod.example backend/.env.prod
+```
+
+Set at minimum:
+
+- `deploy/.env.prod`
+  - `DOMAIN`
+  - `POSTGRES_DB`
+  - `POSTGRES_USER`
+  - `POSTGRES_PASSWORD`
+- `backend/.env.prod`
+  - `DJANGO_SECRET_KEY`
+  - `DJANGO_ALLOWED_HOSTS`
+  - `CSRF_TRUSTED_ORIGINS`
+  - `DATABASE_URL`
+  - `CORS_ALLOWED_ORIGINS`
+
+`DATABASE_URL` should point to the internal Compose database service, for example:
+
+```bash
+DATABASE_URL=postgresql://proxyfaux:replace-db-password@db:5432/proxyfaux
+```
+
+### Deploy
+
+From the repo root on the server:
+
+```bash
+just prod-up
+```
+
+View logs:
+
+```bash
+just prod-logs
+```
+
+Stop the production stack:
+
+```bash
+just prod-down
+```
+
+### Notes
+
+- Caddy automatically provisions TLS certificates once the domain resolves to the server.
+- The production container runs migrations and `collectstatic` on startup.
+- Django serves the built SPA and WhiteNoise serves Django static assets.
+- Keep `DJANGO_DEBUG=False` in production.
+
 ## Environment Variables
 
 ### Backend
@@ -139,6 +221,11 @@ just manage showmigrations
 - `DATABASE_URL`
 - `CORS_ALLOWED_ORIGINS`
 - `FRONTEND_DIST_DIR`
+
+`backend/.env.prod.example` also includes:
+
+- `CSRF_TRUSTED_ORIGINS`
+- `SECURE_SSL_REDIRECT`
 
 ### Frontend
 
