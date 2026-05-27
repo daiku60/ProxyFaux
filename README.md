@@ -187,6 +187,18 @@ DATABASE_URL=postgresql://proxyfaux:replace-db-password@db:5432/proxyfaux
 From the repo root on the server:
 
 ```bash
+./deploy.sh
+```
+
+or:
+
+```bash
+just server-deploy
+```
+
+Direct Compose still works:
+
+```bash
 just prod-up
 ```
 
@@ -208,6 +220,39 @@ just prod-down
 - The production container runs migrations and `collectstatic` on startup.
 - Django serves the built SPA and WhiteNoise serves Django static assets.
 - Keep `DJANGO_DEBUG=False` in production.
+- `deploy.sh` expects `deploy/.env.prod` and `backend/.env.prod` to already exist.
+
+### Deploy From Your Local Machine
+
+If you want one local command that connects to the Hetzner machine, installs Docker if needed, clones or updates the repo there, uploads the production env files, and deploys, use:
+
+```bash
+./deploy-remote.sh
+```
+
+or:
+
+```bash
+just deploy
+```
+
+Optional arguments:
+
+```bash
+./deploy-remote.sh [user@host] [repo_url] [branch] [app_dir]
+```
+
+Defaults:
+
+- `user@host`: `root@178.105.254.109`
+- `repo_url`: current local `git remote.origin.url`
+- `branch`: current local branch
+- `app_dir`: `/srv/proxyfaux`
+
+This command expects these local files to exist before running:
+
+- `deploy/.env.prod`
+- `backend/.env.prod`
 
 ## Environment Variables
 

@@ -14,6 +14,12 @@ logs:
 prod-up:
     docker compose --env-file deploy/.env.prod -f docker-compose.prod.yml up --build -d
 
+server-deploy:
+    ./deploy.sh
+
+deploy *args:
+    ./deploy-remote.sh {{ args }}
+
 prod-logs:
     docker compose --env-file deploy/.env.prod -f docker-compose.prod.yml logs -f
 
