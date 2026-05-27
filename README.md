@@ -253,6 +253,7 @@ This command expects these local files to exist before running:
 
 - `deploy/.env.prod`
 - `backend/.env.prod`
+- `frontend/.env.prod`
 
 ## Environment Variables
 

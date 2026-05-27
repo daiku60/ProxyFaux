@@ -18,6 +18,7 @@ Requirements on the local machine:
   - git
   - deploy/.env.prod
   - backend/.env.prod
+  - frontend/.env.prod
 EOF
 }
 
@@ -36,6 +37,7 @@ APP_DIR="${4:-/srv/proxyfaux}"
 
 DEPLOY_ENV_FILE="deploy/.env.prod"
 BACKEND_ENV_FILE="backend/.env.prod"
+FRONTEND_ENV_FILE="frontend/.env.prod"
 
 if [ -z "$REPO_URL" ]; then
   echo "Unable to determine repo URL."
@@ -52,6 +54,12 @@ fi
 if [ ! -f "$BACKEND_ENV_FILE" ]; then
   echo "Missing $BACKEND_ENV_FILE"
   echo "Create it from backend/.env.prod.example before deploying."
+  exit 1
+fi
+
+if [ ! -f "$FRONTEND_ENV_FILE" ]; then
+  echo "Missing $FRONTEND_ENV_FILE"
+  echo "Create it before deploying so the production frontend build has its env values."
   exit 1
 fi
 
@@ -106,5 +114,6 @@ rm -f "$REMOTE_SCRIPT"
 
 scp "$DEPLOY_ENV_FILE" "$TARGET:$APP_DIR/deploy/.env.prod"
 scp "$BACKEND_ENV_FILE" "$TARGET:$APP_DIR/backend/.env.prod"
+scp "$FRONTEND_ENV_FILE" "$TARGET:$APP_DIR/frontend/.env.prod"
 
 ssh "$TARGET" "cd '$APP_DIR' && chmod +x deploy.sh && ./deploy.sh"
