@@ -1,0 +1,157 @@
+# proxyfaux
+
+Modern full-stack starter template with Django REST Framework, React, Vite, PostgreSQL, `uv`, TailwindCSS, and Docker Compose.
+
+## Stack
+
+- Backend: Django 5, Django REST Framework, PostgreSQL, `uv`, Ruff, pytest
+- Frontend: React, Vite, TypeScript, React Router, Axios, TailwindCSS
+- Infrastructure: Docker Compose with separate `db`, `backend`, and `frontend` services
+
+## Project Layout
+
+```text
+proxyfaux/
+├── backend/
+├── frontend/
+├── docker-compose.yml
+├── Justfile
+└── README.md
+```
+
+## Prerequisites
+
+- Docker + Docker Compose
+- `just`: https://github.com/casey/just
+- `uv` for local Python workflows: https://docs.astral.sh/uv/getting-started/installation/
+- Node.js 20+ if you want to run the frontend outside Docker
+
+## Quick Start
+
+Run the full stack with Docker:
+
+```bash
+docker compose up --build
+```
+
+Services:
+
+- App via Django: `http://localhost:8009/`
+- Vite dev server: `http://localhost:5173`
+- Backend API: `http://localhost:8009/api/`
+- Health endpoint: `http://localhost:8009/api/health/`
+- PostgreSQL: `localhost:5433`
+
+The app is configured for live reload in development through bind mounts. Django serves the built frontend from `frontend/dist` at `/`, while the Vite dev server remains available separately on port `5173`.
+
+## Local Development
+
+### Backend
+
+```bash
+cd backend
+cp .env.example .env
+uv sync
+uv run python manage.py migrate
+uv run python manage.py runserver
+```
+
+Useful commands:
+
+```bash
+uv run pytest
+uv run ruff check .
+uv run ruff format .
+```
+
+### Frontend
+
+```bash
+cd frontend
+cp .env.example .env
+npm install
+npm run dev
+npm run build
+```
+
+The frontend expects `VITE_API_BASE_URL` to point to the backend API root. By default it uses `http://localhost:8009/api`.
+
+## Docker Workflow
+
+Start everything:
+
+```bash
+just dev
+```
+
+Start everything in the background:
+
+```bash
+just up
+```
+
+Tail the container logs:
+
+```bash
+just logs
+```
+
+Run backend only:
+
+```bash
+just backend
+```
+
+Run frontend only:
+
+```bash
+just frontend
+```
+
+Apply database migrations:
+
+```bash
+just migrate
+```
+
+Run backend tests:
+
+```bash
+just test
+```
+
+Run Django management commands:
+
+```bash
+just manage shell
+just manage showmigrations
+```
+
+## Environment Variables
+
+### Backend
+
+`backend/.env.example` includes:
+
+- `DJANGO_SECRET_KEY`
+- `DJANGO_DEBUG`
+- `DJANGO_ALLOWED_HOSTS`
+- `DATABASE_URL`
+- `CORS_ALLOWED_ORIGINS`
+- `FRONTEND_DIST_DIR`
+
+### Frontend
+
+`frontend/.env.example` includes:
+
+- `VITE_API_BASE_URL`
+
+## Notes
+
+- Django settings are split into `base.py`, `dev.py`, and `prod.py`.
+- Django serves the SPA from `frontend/dist` at `/`.
+- Rebuild the frontend with `npm run build` after frontend changes if you want Django to serve the latest bundle.
+- In Docker, `frontend/dist` is mounted into the backend container so Django can read the built files.
+- `uv` manages Python dependencies via `pyproject.toml`.
+- PostgreSQL is the default database in both Docker and local development.
+- The starter intentionally keeps architecture simple while leaving room for production hardening.
