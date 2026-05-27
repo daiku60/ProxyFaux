@@ -6,6 +6,10 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   const basePath = env.VITE_BASE_PATH || "/";
 
+  if (mode === "prod" && !env.VITE_API_BASE_URL) {
+    throw new Error("VITE_API_BASE_URL must be set for prod builds.");
+  }
+
   // Ensure base path starts with slash and ends with slash.
   const normalizedBasePath = basePath.startsWith("/") ? basePath : `/${basePath}`;
   const finalBasePath = normalizedBasePath.endsWith("/")
