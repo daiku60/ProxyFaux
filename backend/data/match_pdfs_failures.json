@@ -1,5 +1,38 @@
 [
   {
+    "source_id": "ArikSchttemer",
+    "name": "Arik Sch\u00f6ttemer",
+    "title": "",
+    "faction": "Outcasts",
+    "keywords": [
+      "Freikorps"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "AuntiyMel",
+    "name": "Auntiy Mel",
+    "title": "",
+    "faction": "Bayou",
+    "keywords": [
+      "Angler"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "Bookkeeper",
+    "name": "Bookkeeper",
+    "title": "",
+    "faction": "Ten Thunders",
+    "keywords": [
+      "Red Library"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
     "source_id": "Drumstick",
     "name": "Drumstick",
     "title": "",
@@ -9,7 +42,7 @@
       "Jockey"
     ],
     "reason": "No matching PDF found",
-    "shoud_map_to": "M4E_Stat_Byu-Versatile_Big_Hat_Jockey_Drunstick.pdf"
+    "shoud_map_to": ""
   },
   {
     "source_id": "EddieClark",
