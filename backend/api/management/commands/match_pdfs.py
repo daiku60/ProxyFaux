@@ -37,6 +37,24 @@ def load_manual_overrides(report_path: Path) -> dict[str, str]:
     return overrides
 
 
+def build_failure_entry(
+    model: Model,
+    reason: str,
+    should_map_to: str = "",
+) -> dict[str, object]:
+    entry: dict[str, object] = {
+        "source_id": model.source_id,
+        "name": model.name,
+        "title": model.title,
+        "faction": model.faction,
+        "reason": reason,
+        "should_map_to": should_map_to,
+    }
+    if model.keywords:
+        entry["keywords"] = model.keywords
+    return entry
+
+
 def normalize_text(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", value.lower()).strip()
 
@@ -181,23 +199,38 @@ def iter_search_dirs(model: Model, pdf_root: Path, faction_dir: Path) -> list[Pa
             seen.add(path)
             search_dirs.append(path)
 
-    keywords = model.keywords if isinstance(model.keywords, list) else []
-    first_keyword = next((keyword for keyword in keywords if isinstance(keyword, str) and keyword.strip()), None)
-
+    keywords = [
+        keyword.strip()
+        for keyword in (model.keywords if isinstance(model.keywords, list) else [])
+        if isinstance(keyword, str) and keyword.strip()
+    ]
+    chosen_keyword: str | None = None
     keyword_dir_exists = False
-    if first_keyword:
-        keyword_dir = faction_dir / first_keyword
-        keyword_dir_exists = keyword_dir.exists() and keyword_dir.is_dir()
-        add_dir(keyword_dir if keyword_dir_exists else None)
+    for keyword in keywords:
+        keyword_dir = faction_dir / keyword
+        if keyword_dir.exists() and keyword_dir.is_dir():
+            add_dir(keyword_dir)
+            chosen_keyword = keyword
+            keyword_dir_exists = True
+            break
 
     versatile_dir = faction_dir / f"Versatile - {faction_dir.name}"
     add_dir(versatile_dir)
 
-    if first_keyword and not keyword_dir_exists:
+    if keywords and not keyword_dir_exists:
+        first_keyword = keywords[0]
         for other_faction_dir in sorted(path for path in pdf_root.iterdir() if path.is_dir()):
             if other_faction_dir == faction_dir:
                 continue
             add_dir(other_faction_dir / first_keyword)
+
+    if len(keywords) > 1:
+        alternate_keywords = [keyword for keyword in keywords if keyword != chosen_keyword]
+        for alternate_keyword in alternate_keywords:
+            for other_faction_dir in sorted(path for path in pdf_root.iterdir() if path.is_dir()):
+                if other_faction_dir == faction_dir:
+                    continue
+                add_dir(other_faction_dir / alternate_keyword)
 
     return search_dirs
 
@@ -223,14 +256,11 @@ class Command(BaseCommand):
                     model.pdf = ""
                     model.save(update_fields=["pdf"])
                 failures.append(
-                    {
-                        "source_id": model.source_id,
-                        "name": model.name,
-                        "title": model.title,
-                        "faction": model.faction,
-                        "reason": f"Faction directory not found: {model.faction}",
-                        "shoud_map_to": manual_overrides.get(model.source_id, ""),
-                    }
+                    build_failure_entry(
+                        model,
+                        f"Faction directory not found: {model.faction}",
+                        manual_overrides.get(model.source_id, ""),
+                    )
                 )
                 continue
 
@@ -240,15 +270,11 @@ class Command(BaseCommand):
                     model.pdf = ""
                     model.save(update_fields=["pdf"])
                 failures.append(
-                    {
-                        "source_id": model.source_id,
-                        "name": model.name,
-                        "title": model.title,
-                        "faction": model.faction,
-                        "keywords": model.keywords,
-                        "reason": "Keyword directory not found",
-                        "shoud_map_to": manual_overrides.get(model.source_id, ""),
-                    }
+                    build_failure_entry(
+                        model,
+                        "Keyword directory not found",
+                        manual_overrides.get(model.source_id, ""),
+                    )
                 )
                 continue
 
@@ -268,21 +294,24 @@ class Command(BaseCommand):
                     model.pdf = str(resolved_override.relative_to(pdf_data_root))
                     model.save(update_fields=["pdf"])
                     matched += 1
+                    failures.append(
+                        build_failure_entry(
+                            model,
+                            "Matched manually",
+                            manual_override,
+                        )
+                    )
                     continue
 
                 if not model.pdf:
                     model.pdf = ""
                     model.save(update_fields=["pdf"])
                 failures.append(
-                    {
-                        "source_id": model.source_id,
-                        "name": model.name,
-                        "title": model.title,
-                        "faction": model.faction,
-                        "keywords": model.keywords,
-                        "reason": f"Manual override did not resolve to a PDF: {manual_override}",
-                        "shoud_map_to": manual_override,
-                    }
+                    build_failure_entry(
+                        model,
+                        f"Manual override did not resolve to a PDF: {manual_override}",
+                        manual_override,
+                    )
                 )
                 continue
 
@@ -304,15 +333,7 @@ class Command(BaseCommand):
                     model.pdf = ""
                     model.save(update_fields=["pdf"])
                 failures.append(
-                    {
-                        "source_id": model.source_id,
-                        "name": model.name,
-                        "title": model.title,
-                        "faction": model.faction,
-                        "keywords": model.keywords,
-                        "reason": "No matching PDF found",
-                        "shoud_map_to": "",
-                    }
+                    build_failure_entry(model, "No matching PDF found")
                 )
                 continue
 

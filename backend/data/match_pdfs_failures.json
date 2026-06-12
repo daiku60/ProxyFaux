@@ -4,253 +4,240 @@
     "name": "Arik Sch\u00f6ttemer",
     "title": "",
     "faction": "Outcasts",
+    "reason": "Matched manually",
+    "should_map_to": "M4E_Stat_Freikorps_Arik_Schottemer.pdf",
     "keywords": [
       "Freikorps"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "AuntiyMel",
     "name": "Auntiy Mel",
     "title": "",
     "faction": "Bayou",
+    "reason": "No matching PDF found",
+    "should_map_to": "",
     "keywords": [
       "Angler"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "Bookkeeper",
     "name": "Bookkeeper",
     "title": "",
     "faction": "Ten Thunders",
+    "reason": "Matched manually",
+    "should_map_to": "M4E_Stat_Red-Library_Bookeeper_A.pdf",
     "keywords": [
       "Red Library"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "Drumstick",
     "name": "Drumstick",
     "title": "",
     "faction": "Bayou",
+    "reason": "Matched manually",
+    "should_map_to": "M4E_Stat_Byu-Versatile_Big_Hat_Jockey_Drunstick.pdf",
     "keywords": [
       "Big Hat",
       "Jockey"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "EddieClark",
     "name": "Eddie Clark",
     "title": "",
     "faction": "Guild",
+    "reason": "Matched manually",
+    "should_map_to": "M4E_Stat_Augmented_Edie_Clark.pdf",
     "keywords": [
       "Augmented"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "Fitzsimmons",
     "name": "Fitzsimmons",
     "title": "",
     "faction": "Arcanists",
+    "reason": "Matched manually",
+    "should_map_to": "M4E_Stat_MSU_Fizsimmons.pdf",
     "keywords": [
       "M&SU"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "FransciscoOrtega",
     "name": "Franscisco Ortega",
     "title": "",
     "faction": "Guild",
+    "reason": "Matched manually",
+    "should_map_to": "M4E_Stat_Family_Francisco_Ortega.pdf",
     "keywords": [
       "Family"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "Ikjas",
     "name": "Ikjas",
     "title": "",
     "faction": "Neverborn",
+    "reason": "No matching PDF found",
+    "should_map_to": "",
     "keywords": [
       "Brood"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "IntrepidEffigy",
     "name": "Intrepid Effigy",
     "title": "",
     "faction": "Explorer's Society",
-    "keywords": [],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    "reason": "Matched manually",
+    "should_map_to": "M4E_Stat_Exs-Versatile_Intrepid_Fate_Efifgy.pdf"
   },
   {
     "source_id": "Kaltgist",
     "name": "Kaltgist",
     "title": "",
     "faction": "Arcanists",
+    "reason": "Matched manually",
+    "should_map_to": "M4E_Stat_December_Kaltgeist_A.pdf",
     "keywords": [
       "December"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "KOTO",
     "name": "K.O.T.O.",
     "title": "",
     "faction": "Ten Thunders",
+    "reason": "Matched manually",
+    "should_map_to": "M4E_Stat_Honeypot_Qi_and_Gong_KOTO.pdf",
     "keywords": [
       "Honeypot",
       "Qi and Gong"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "LadyYumi",
     "name": "Lady Yumi",
     "title": "",
     "faction": "Ten Thunders",
+    "reason": "Matched manually",
+    "should_map_to": "M4E_Stat_Oni_Lady_Yume.pdf",
     "keywords": [
       "Oni"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "Lucy",
     "name": "Lucy",
     "title": "",
     "faction": "Bayou",
+    "reason": "No matching PDF found",
+    "should_map_to": "",
     "keywords": [
       "Swampfiend"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "MariyaXXXXX",
     "name": "Mariya XXXXX",
     "title": "",
     "faction": "Guild",
+    "reason": "No matching PDF found",
+    "should_map_to": "",
     "keywords": [
       "Cavalier"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "MelissaKORE",
     "name": "Melissa K.O.R.E.",
     "title": "",
     "faction": "Guild",
+    "reason": "Matched manually",
+    "should_map_to": "M4E_Stat_Augmented_Melissa_KORE.pdf",
     "keywords": [
       "Augmented"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "Necropunk",
-    "name": "Necropunk",
-    "title": "",
-    "faction": "Resurrectionist",
-    "keywords": [
-      "Amalgam",
-      "Transmortis"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "PhilipandtheNanny",
     "name": "Philip and the Nanny",
     "title": "",
     "faction": "Resurrectionist",
+    "reason": "Matched manually",
+    "should_map_to": "M4E_Stat_Forgotten_Philiip_and_the_Nanny.pdf",
     "keywords": [
       "Forgotten"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "RepurposedMonstrosity",
     "name": "Repurposed Monstrosity",
     "title": "",
     "faction": "Guild",
+    "reason": "No matching PDF found",
+    "should_map_to": "",
     "keywords": [
       "Marshal"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "Riotbreaker",
     "name": "Riotbreaker",
     "title": "",
     "faction": "Guild",
+    "reason": "No matching PDF found",
+    "should_map_to": "",
     "keywords": [
       "Augmented"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "TheDreamer_FastAsleep",
     "name": "The Dreamer",
     "title": "Fast Asleep",
     "faction": "Neverborn",
+    "reason": "No matching PDF found",
+    "should_map_to": "",
     "keywords": [
       "Nightmare"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "TheDreamer_Insomniac",
     "name": "The Dreamer",
     "title": "Insomniac",
     "faction": "Neverborn",
+    "reason": "Matched manually",
+    "should_map_to": "M4E_Crew_Nightmare_Dreamer_Fast_Asleep.pdf",
     "keywords": [
       "Nightmare"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "TheSilentSiren",
     "name": "The Silent Siren",
     "title": "",
     "faction": "Neverborn",
+    "reason": "Matched manually",
+    "should_map_to": "M4E_Stat_Banished_Silent_Siren.pdf",
     "keywords": [
       "Banished"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   },
   {
     "source_id": "Waldgeist",
     "name": "Waldgeist",
     "title": "",
     "faction": "Bayou",
+    "reason": "Matched manually",
+    "should_map_to": "M4E_Stat_Swampfiend_Waldegeist_A.pdf",
     "keywords": [
       "Swampfiend"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    ]
   }
 ]
