@@ -1,72 +1,5 @@
 [
   {
-    "source_id": "ArikSchttemer",
-    "name": "Arik Sch\u00f6ttemer",
-    "title": "",
-    "faction": "Outcasts",
-    "keywords": [
-      "Freikorps"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": "M4E_Stat_Freikorps_Arik_Schottemer.pdf"
-  },
-  {
-    "source_id": "AuntiyMel",
-    "name": "Auntiy Mel",
-    "title": "",
-    "faction": "Bayou",
-    "keywords": [
-      "Angler"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": "M4E_Stat_Angler_Aunty_Mel.pdf"
-  },
-  {
-    "source_id": "Bookkeeper",
-    "name": "Bookkeeper",
-    "title": "",
-    "faction": "Ten Thunders",
-    "keywords": [
-      "Red Library"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": "M4E_Stat_Red-Library_Bookeeper_A.pdf"
-  },
-  {
-    "source_id": "Changeling",
-    "name": "Changeling",
-    "title": "",
-    "faction": "Neverborn",
-    "keywords": [
-      "Elite"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "Crookskin",
-    "name": "Crookskin",
-    "title": "",
-    "faction": "Neverborn",
-    "keywords": [
-      "Elite",
-      "Savage"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "Doppelganger",
-    "name": "Doppelganger",
-    "title": "",
-    "faction": "Neverborn",
-    "keywords": [
-      "Elite"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
     "source_id": "Drumstick",
     "name": "Drumstick",
     "title": "",
@@ -199,18 +132,6 @@
     "shoud_map_to": ""
   },
   {
-    "source_id": "Mossbeard",
-    "name": "Mossbeard",
-    "title": "",
-    "faction": "Bayou",
-    "keywords": [
-      "Infamous",
-      "Angler"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
     "source_id": "Necropunk",
     "name": "Necropunk",
     "title": "",
@@ -251,18 +172,6 @@
     "faction": "Guild",
     "keywords": [
       "Augmented"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "Swashbuckler",
-    "name": "Swashbuckler",
-    "title": "",
-    "faction": "Bayou",
-    "keywords": [
-      "Infamous",
-      "Angler"
     ],
     "reason": "No matching PDF found",
     "shoud_map_to": ""

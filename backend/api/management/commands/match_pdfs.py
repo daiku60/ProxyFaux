@@ -172,6 +172,36 @@ def resolve_search_dir(model: Model, faction_dir: Path) -> Path | None:
     return None
 
 
+def iter_search_dirs(model: Model, pdf_root: Path, faction_dir: Path) -> list[Path]:
+    search_dirs: list[Path] = []
+    seen: set[Path] = set()
+
+    def add_dir(path: Path | None) -> None:
+        if path and path.exists() and path.is_dir() and path not in seen:
+            seen.add(path)
+            search_dirs.append(path)
+
+    keywords = model.keywords if isinstance(model.keywords, list) else []
+    first_keyword = next((keyword for keyword in keywords if isinstance(keyword, str) and keyword.strip()), None)
+
+    keyword_dir_exists = False
+    if first_keyword:
+        keyword_dir = faction_dir / first_keyword
+        keyword_dir_exists = keyword_dir.exists() and keyword_dir.is_dir()
+        add_dir(keyword_dir if keyword_dir_exists else None)
+
+    versatile_dir = faction_dir / f"Versatile - {faction_dir.name}"
+    add_dir(versatile_dir)
+
+    if first_keyword and not keyword_dir_exists:
+        for other_faction_dir in sorted(path for path in pdf_root.iterdir() if path.is_dir()):
+            if other_faction_dir == faction_dir:
+                continue
+            add_dir(other_faction_dir / first_keyword)
+
+    return search_dirs
+
+
 class Command(BaseCommand):
     help = "Match Model rows to PDFs in backend/data/pdfs and store the relative PDF path."
 
@@ -203,8 +233,8 @@ class Command(BaseCommand):
                 )
                 continue
 
-            search_dir = resolve_search_dir(model, faction_dir)
-            if not search_dir:
+            search_dirs = iter_search_dirs(model, pdf_root, faction_dir)
+            if not search_dirs:
                 model.pdf = ""
                 model.save(update_fields=["pdf"])
                 failures.append(
@@ -222,7 +252,16 @@ class Command(BaseCommand):
 
             manual_override = manual_overrides.get(model.source_id, "")
             if manual_override:
-                resolved_override = resolve_manual_override(manual_override, search_dir, faction_dir, pdf_data_root)
+                resolved_override = None
+                for search_dir in search_dirs:
+                    resolved_override = resolve_manual_override(
+                        manual_override,
+                        search_dir,
+                        faction_dir,
+                        pdf_data_root,
+                    )
+                    if resolved_override:
+                        break
                 if resolved_override:
                     model.pdf = str(resolved_override.relative_to(pdf_data_root))
                     model.save(update_fields=["pdf"])
@@ -247,14 +286,15 @@ class Command(BaseCommand):
             best_match: Path | None = None
             best_score = -1
 
-            for pdf_path in sorted(search_dir.glob("*.pdf")):
-                if not pdf_path.name.startswith("M4E_Stat_"):
-                    continue
+            for search_dir in search_dirs:
+                for pdf_path in sorted(search_dir.glob("*.pdf")):
+                    if not pdf_path.name.startswith("M4E_Stat_"):
+                        continue
 
-                score, _ = score_pdf(model, pdf_path.stem)
-                if score > best_score:
-                    best_score = score
-                    best_match = pdf_path
+                    score, _ = score_pdf(model, pdf_path.stem)
+                    if score > best_score:
+                        best_score = score
+                        best_match = pdf_path
 
             if not best_match:
                 model.pdf = ""
