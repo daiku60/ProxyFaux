@@ -23,3 +23,4 @@ backend/data/pdfs/
 frontend/node_modules/
 frontend/dist/
 .devnotes
+backend/data/pdfs_old

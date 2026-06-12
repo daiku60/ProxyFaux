@@ -8,7 +8,7 @@ from django.core.management.base import BaseCommand
 from api.models import Model
 
 FACTION_DIRECTORY_OVERRIDES = {
-    "Explorer's Society": "Explorers Society",
+    "Resurrectionist": "Resurrectionists",
 }
 
 
@@ -90,6 +90,7 @@ def score_pdf(model: Model, pdf_stem: str) -> tuple[int, str | None]:
 
 def resolve_manual_override(
     override_value: str,
+    search_dir: Path,
     faction_dir: Path,
     pdf_data_root: Path,
 ) -> Path | None:
@@ -99,12 +100,42 @@ def resolve_manual_override(
     if candidate.is_absolute():
         possible_paths.append(candidate)
     else:
+        possible_paths.append(search_dir / override_value)
         possible_paths.append(faction_dir / override_value)
         possible_paths.append(pdf_data_root / override_value)
 
     for path in possible_paths:
         if path.exists() and path.is_file() and path.suffix.lower() == ".pdf":
             return path
+
+    return None
+
+
+def resolve_faction_dir(pdf_root: Path, faction: str) -> Path | None:
+    direct_dir = pdf_root / faction
+    if direct_dir.exists():
+        return direct_dir
+
+    override_dir = pdf_root / FACTION_DIRECTORY_OVERRIDES.get(faction, faction)
+    if override_dir.exists():
+        return override_dir
+
+    return None
+
+
+def resolve_search_dir(model: Model, faction_dir: Path) -> Path | None:
+    keywords = model.keywords if isinstance(model.keywords, list) else []
+    first_keyword = next((keyword for keyword in keywords if isinstance(keyword, str) and keyword.strip()), None)
+
+    if first_keyword:
+        keyword_dir = faction_dir / first_keyword
+        if keyword_dir.exists():
+            return keyword_dir
+        return None
+
+    versatile_dir = faction_dir / f"Versatile - {faction_dir.name}"
+    if versatile_dir.exists():
+        return versatile_dir
 
     return None
 
@@ -123,10 +154,9 @@ class Command(BaseCommand):
         matched = 0
 
         for model in Model.objects.all():
-            faction_dir_name = FACTION_DIRECTORY_OVERRIDES.get(model.faction, model.faction)
-            faction_dir = pdf_root / faction_dir_name
+            faction_dir = resolve_faction_dir(pdf_root, model.faction)
 
-            if not faction_dir.exists():
+            if not faction_dir:
                 model.pdf = ""
                 model.save(update_fields=["pdf"])
                 failures.append(
@@ -135,7 +165,24 @@ class Command(BaseCommand):
                         "name": model.name,
                         "title": model.title,
                         "faction": model.faction,
-                        "reason": f"Faction directory not found: {faction_dir_name}",
+                        "reason": f"Faction directory not found: {model.faction}",
+                        "shoud_map_to": manual_overrides.get(model.source_id, ""),
+                    }
+                )
+                continue
+
+            search_dir = resolve_search_dir(model, faction_dir)
+            if not search_dir:
+                model.pdf = ""
+                model.save(update_fields=["pdf"])
+                failures.append(
+                    {
+                        "source_id": model.source_id,
+                        "name": model.name,
+                        "title": model.title,
+                        "faction": model.faction,
+                        "keywords": model.keywords,
+                        "reason": "Keyword directory not found",
                         "shoud_map_to": manual_overrides.get(model.source_id, ""),
                     }
                 )
@@ -143,7 +190,7 @@ class Command(BaseCommand):
 
             manual_override = manual_overrides.get(model.source_id, "")
             if manual_override:
-                resolved_override = resolve_manual_override(manual_override, faction_dir, pdf_data_root)
+                resolved_override = resolve_manual_override(manual_override, search_dir, faction_dir, pdf_data_root)
                 if resolved_override:
                     model.pdf = str(resolved_override.relative_to(pdf_data_root))
                     model.save(update_fields=["pdf"])
@@ -168,7 +215,7 @@ class Command(BaseCommand):
             best_match: Path | None = None
             best_score = -1
 
-            for pdf_path in sorted(faction_dir.glob("*.pdf")):
+            for pdf_path in sorted(search_dir.glob("*.pdf")):
                 if not pdf_path.name.startswith("M4E_Stat_"):
                     continue
 
