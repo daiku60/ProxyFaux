@@ -131,7 +131,6 @@ def resolve_search_dir(model: Model, faction_dir: Path) -> Path | None:
         keyword_dir = faction_dir / first_keyword
         if keyword_dir.exists():
             return keyword_dir
-        return None
 
     versatile_dir = faction_dir / f"Versatile - {faction_dir.name}"
     if versatile_dir.exists():

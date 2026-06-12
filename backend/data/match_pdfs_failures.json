@@ -1,38 +1,5 @@
 [
   {
-    "source_id": "AltusKeene",
-    "name": "Altus Keene",
-    "title": "",
-    "faction": "Arcanists",
-    "keywords": [
-      "Syndicate"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "Amai",
-    "name": "Amai",
-    "title": "",
-    "faction": "Ten Thunders",
-    "keywords": [
-      "Sayuri"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "AngelEyes",
-    "name": "Angel Eyes",
-    "title": "",
-    "faction": "Outcasts",
-    "keywords": [
-      "Half-Blood"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
     "source_id": "ArcaneEffigy",
     "name": "Arcane Effigy",
     "title": "",
@@ -73,17 +40,6 @@
     "shoud_map_to": ""
   },
   {
-    "source_id": "Bashe",
-    "name": "Bashe",
-    "title": "",
-    "faction": "Bayou",
-    "keywords": [
-      "December"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
     "source_id": "BatschAmalie",
     "name": "Batsch & Amalie",
     "title": "",
@@ -91,40 +47,7 @@
     "keywords": [
       "Fungal"
     ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "BatteringRam",
-    "name": "Battering Ram",
-    "title": "",
-    "faction": "Guild",
-    "keywords": [
-      "Vanguard"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "BayouSmuggler",
-    "name": "Bayou Smuggler",
-    "title": "",
-    "faction": "Bayou",
-    "keywords": [
-      "Infamous"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "Bloodwretch",
-    "name": "Bloodwretch",
-    "title": "",
-    "faction": "Outcasts",
-    "keywords": [
-      "Half-Blood"
-    ],
-    "reason": "Keyword directory not found",
+    "reason": "No matching PDF found",
     "shoud_map_to": ""
   },
   {
@@ -136,17 +59,6 @@
       "Red Library"
     ],
     "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "Bracer",
-    "name": "Bracer",
-    "title": "",
-    "faction": "Guild",
-    "keywords": [
-      "Vanguard"
-    ],
-    "reason": "Keyword directory not found",
     "shoud_map_to": ""
   },
   {
@@ -193,18 +105,7 @@
     "keywords": [
       "Elite"
     ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "CommanderBura",
-    "name": "Commander Bura",
-    "title": "",
-    "faction": "Guild",
-    "keywords": [
-      "Vanguard"
-    ],
-    "reason": "Keyword directory not found",
+    "reason": "No matching PDF found",
     "shoud_map_to": ""
   },
   {
@@ -216,29 +117,7 @@
       "Elite",
       "Savage"
     ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "Dapperling",
-    "name": "Dapperling",
-    "title": "",
-    "faction": "Resurrectionist",
-    "keywords": [
-      "Fungal"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "DeadRider",
-    "name": "Dead Rider",
-    "title": "",
-    "faction": "Resurrectionist",
-    "keywords": [
-      "Horseman"
-    ],
-    "reason": "Keyword directory not found",
+    "reason": "No matching PDF found",
     "shoud_map_to": ""
   },
   {
@@ -249,7 +128,7 @@
     "keywords": [
       "Elite"
     ],
-    "reason": "Keyword directory not found",
+    "reason": "No matching PDF found",
     "shoud_map_to": ""
   },
   {
@@ -276,39 +155,6 @@
     "shoud_map_to": ""
   },
   {
-    "source_id": "Envy",
-    "name": "Envy",
-    "title": "",
-    "faction": "Arcanists",
-    "keywords": [
-      "Crossroads"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "FerdinandVogel_SelfRighteousMan",
-    "name": "Ferdinand Vogel",
-    "title": "Self-Righteous Man",
-    "faction": "Arcanists",
-    "keywords": [
-      "Chimera"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "FerdinandVogel_TheBeastWithin",
-    "name": "Ferdinand Vogel",
-    "title": "The Beast Within",
-    "faction": "Arcanists",
-    "keywords": [
-      "Chimera"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
     "source_id": "Fitzsimmons",
     "name": "Fitzsimmons",
     "title": "",
@@ -331,72 +177,6 @@
     "shoud_map_to": ""
   },
   {
-    "source_id": "Gearling",
-    "name": "Gearling",
-    "title": "",
-    "faction": "Arcanists",
-    "keywords": [
-      "Watchmen"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "Gluttony",
-    "name": "Gluttony",
-    "title": "",
-    "faction": "Bayou",
-    "keywords": [
-      "Crossroads"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "Greed",
-    "name": "Greed",
-    "title": "",
-    "faction": "Guild",
-    "keywords": [
-      "Crossroads"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "HarrisJ5",
-    "name": "Harris J-5",
-    "title": "",
-    "faction": "Arcanists",
-    "keywords": [
-      "Watchmen"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "HarrisonFrodsham",
-    "name": "Harrison Frodsham",
-    "title": "",
-    "faction": "Arcanists",
-    "keywords": [
-      "Watchmen"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "Hildegard",
-    "name": "Hildegard",
-    "title": "",
-    "faction": "Neverborn",
-    "keywords": [
-      "Grim"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
     "source_id": "HodgepodgeEffigy",
     "name": "Hodgepodge Effigy",
     "title": "",
@@ -412,28 +192,6 @@
     "faction": "Outcasts",
     "keywords": [],
     "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "HoodedRider",
-    "name": "Hooded Rider",
-    "title": "",
-    "faction": "Neverborn",
-    "keywords": [
-      "Horseman"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "HopefulProspect",
-    "name": "Hopeful Prospect",
-    "title": "",
-    "faction": "Explorer's Society",
-    "keywords": [
-      "Society"
-    ],
-    "reason": "Keyword directory not found",
     "shoud_map_to": ""
   },
   {
@@ -466,17 +224,6 @@
     "shoud_map_to": ""
   },
   {
-    "source_id": "IrenaKeene",
-    "name": "Irena Keene",
-    "title": "",
-    "faction": "Arcanists",
-    "keywords": [
-      "Syndicate"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
     "source_id": "JuddHoney",
     "name": "Judd & Honey",
     "title": "",
@@ -496,39 +243,6 @@
       "December"
     ],
     "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "Kara",
-    "name": "Kara",
-    "title": "",
-    "faction": "Ten Thunders",
-    "keywords": [
-      "Sayuri"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "KlausNorwood",
-    "name": "Klaus Norwood",
-    "title": "",
-    "faction": "Neverborn",
-    "keywords": [
-      "Grim"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "Koji",
-    "name": "Koji",
-    "title": "",
-    "faction": "Ten Thunders",
-    "keywords": [
-      "Sayuri"
-    ],
-    "reason": "Keyword directory not found",
     "shoud_map_to": ""
   },
   {
@@ -584,28 +298,6 @@
     "shoud_map_to": ""
   },
   {
-    "source_id": "Lust",
-    "name": "Lust",
-    "title": "",
-    "faction": "Ten Thunders",
-    "keywords": [
-      "Crossroads"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "MalisaurusRex",
-    "name": "Malisaurus Rex",
-    "title": "",
-    "faction": "Neverborn",
-    "keywords": [
-      "Apex"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
     "source_id": "MariyaXXXXX",
     "name": "Mariya XXXXX",
     "title": "",
@@ -614,28 +306,6 @@
       "Cavalier"
     ],
     "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "Maurice",
-    "name": "Maurice",
-    "title": "",
-    "faction": "Outcasts",
-    "keywords": [
-      "Half-Blood"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "MechanicalRider",
-    "name": "Mechanical Rider",
-    "title": "",
-    "faction": "Arcanists",
-    "keywords": [
-      "Horseman"
-    ],
-    "reason": "Keyword directory not found",
     "shoud_map_to": ""
   },
   {
@@ -658,18 +328,7 @@
       "Infamous",
       "Angler"
     ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "MrNgaatoro",
-    "name": "Mr. Ngaatoro",
-    "title": "",
-    "faction": "Explorer's Society",
-    "keywords": [
-      "Society"
-    ],
-    "reason": "Keyword directory not found",
+    "reason": "No matching PDF found",
     "shoud_map_to": ""
   },
   {
@@ -699,40 +358,7 @@
       "Amalgam",
       "Transmortis"
     ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "ObsidianStatue",
-    "name": "Obsidian Statue",
-    "title": "",
-    "faction": "Ten Thunders",
-    "keywords": [
-      "Ancestor"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "Oskar",
-    "name": "Oskar",
-    "title": "",
-    "faction": "Resurrectionist",
-    "keywords": [
-      "Fungal"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "PaleRider",
-    "name": "Pale Rider",
-    "title": "",
-    "faction": "Guild",
-    "keywords": [
-      "Horseman"
-    ],
-    "reason": "Keyword directory not found",
+    "reason": "No matching PDF found",
     "shoud_map_to": ""
   },
   {
@@ -744,28 +370,6 @@
       "Forgotten"
     ],
     "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "Pride",
-    "name": "Pride",
-    "title": "",
-    "faction": "Outcasts",
-    "keywords": [
-      "Crossroads"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "Redcap",
-    "name": "Red Cap",
-    "title": "",
-    "faction": "Neverborn",
-    "keywords": [
-      "Grim"
-    ],
-    "reason": "Keyword directory not found",
     "shoud_map_to": ""
   },
   {
@@ -791,17 +395,6 @@
     "shoud_map_to": ""
   },
   {
-    "source_id": "Sloth",
-    "name": "Sloth",
-    "title": "",
-    "faction": "Resurrectionist",
-    "keywords": [
-      "Crossroads"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
     "source_id": "Swashbuckler",
     "name": "Swashbuckler",
     "title": "",
@@ -810,29 +403,7 @@
       "Infamous",
       "Angler"
     ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "Tannenbaum",
-    "name": "Tannenbaum",
-    "title": "",
-    "faction": "Explorer's Society",
-    "keywords": [
-      "Society"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "TerracottaWarrior",
-    "name": "Terracotta Warrior",
-    "title": "",
-    "faction": "Ten Thunders",
-    "keywords": [
-      "Ancestor"
-    ],
-    "reason": "Keyword directory not found",
+    "reason": "No matching PDF found",
     "shoud_map_to": ""
   },
   {
@@ -869,29 +440,6 @@
     "shoud_map_to": ""
   },
   {
-    "source_id": "Toast",
-    "name": "Toast",
-    "title": "",
-    "faction": "Bayou",
-    "keywords": [
-      "Infamous",
-      "Jockey"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "TucoOrtega",
-    "name": "Tuco Ortega",
-    "title": "",
-    "faction": "Outcasts",
-    "keywords": [
-      "Half-Blood"
-    ],
-    "reason": "Keyword directory not found",
-    "shoud_map_to": ""
-  },
-  {
     "source_id": "Waldgeist",
     "name": "Waldgeist",
     "title": "",
@@ -900,17 +448,6 @@
       "Swampfiend"
     ],
     "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "Wrath",
-    "name": "Wrath",
-    "title": "",
-    "faction": "Neverborn",
-    "keywords": [
-      "Crossroads"
-    ],
-    "reason": "Keyword directory not found",
     "shoud_map_to": ""
   }
 ]
