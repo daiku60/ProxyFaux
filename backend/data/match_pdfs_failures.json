@@ -1,23 +1,5 @@
 [
   {
-    "source_id": "ArcaneEffigy",
-    "name": "Arcane Effigy",
-    "title": "",
-    "faction": "Arcanists",
-    "keywords": [],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "ArcaneEmissary",
-    "name": "Arcane Emissary",
-    "title": "",
-    "faction": "Arcanists",
-    "keywords": [],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
     "source_id": "ArikSchttemer",
     "name": "Arik Sch\u00f6ttemer",
     "title": "",
@@ -26,7 +8,7 @@
       "Freikorps"
     ],
     "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    "shoud_map_to": "M4E_Stat_Freikorps_Arik_Schottemer.pdf"
   },
   {
     "source_id": "AuntiyMel",
@@ -37,18 +19,7 @@
       "Angler"
     ],
     "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "BatschAmalie",
-    "name": "Batsch & Amalie",
-    "title": "",
-    "faction": "Resurrectionist",
-    "keywords": [
-      "Fungal"
-    ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    "shoud_map_to": "M4E_Stat_Angler_Aunty_Mel.pdf"
   },
   {
     "source_id": "Bookkeeper",
@@ -59,43 +30,7 @@
       "Red Library"
     ],
     "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "BrutalEffigy",
-    "name": "Brutal Effigy",
-    "title": "",
-    "faction": "Guild",
-    "keywords": [],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "BrutalEmissary",
-    "name": "Brutal Emissary",
-    "title": "",
-    "faction": "Guild",
-    "keywords": [],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "CarrionEffigy",
-    "name": "Carrion Effigy",
-    "title": "",
-    "faction": "Resurrectionist",
-    "keywords": [],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "CarrionEmissary",
-    "name": "Carrion Emissary",
-    "title": "",
-    "faction": "Resurrectionist",
-    "keywords": [],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
+    "shoud_map_to": "M4E_Stat_Red-Library_Bookeeper_A.pdf"
   },
   {
     "source_id": "Changeling",
@@ -177,24 +112,6 @@
     "shoud_map_to": ""
   },
   {
-    "source_id": "HodgepodgeEffigy",
-    "name": "Hodgepodge Effigy",
-    "title": "",
-    "faction": "Outcasts",
-    "keywords": [],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "HodgepodgeEmissary",
-    "name": "Hodgepodge Emissary",
-    "title": "",
-    "faction": "Outcasts",
-    "keywords": [],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
     "source_id": "Ikjas",
     "name": "Ikjas",
     "title": "",
@@ -211,26 +128,6 @@
     "title": "",
     "faction": "Explorer's Society",
     "keywords": [],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "IntrepidEmissary",
-    "name": "Intrepid Emissary",
-    "title": "",
-    "faction": "Explorer's Society",
-    "keywords": [],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "JuddHoney",
-    "name": "Judd & Honey",
-    "title": "",
-    "faction": "Bayou",
-    "keywords": [
-      "Angler"
-    ],
     "reason": "No matching PDF found",
     "shoud_map_to": ""
   },
@@ -265,24 +162,6 @@
     "keywords": [
       "Oni"
     ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "LuckyEffigy",
-    "name": "Lucky Effigy",
-    "title": "",
-    "faction": "Bayou",
-    "keywords": [],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "LuckyEmissary",
-    "name": "Lucky Emissary",
-    "title": "",
-    "faction": "Bayou",
-    "keywords": [],
     "reason": "No matching PDF found",
     "shoud_map_to": ""
   },
@@ -328,24 +207,6 @@
       "Infamous",
       "Angler"
     ],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "MysteriousEffigy",
-    "name": "Mysterious Effigy",
-    "title": "",
-    "faction": "Neverborn",
-    "keywords": [],
-    "reason": "No matching PDF found",
-    "shoud_map_to": ""
-  },
-  {
-    "source_id": "MysteriousEmissary",
-    "name": "Mysterious Emissary",
-    "title": "",
-    "faction": "Neverborn",
-    "keywords": [],
     "reason": "No matching PDF found",
     "shoud_map_to": ""
   },

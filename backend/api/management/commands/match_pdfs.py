@@ -47,6 +47,23 @@ def phrase_in_text(phrase: str, text: str) -> bool:
     return bool(normalized_phrase) and normalized_phrase in normalized_text
 
 
+def words_in_order(phrase: str, text: str) -> bool:
+    phrase_words = [word for word in normalize_text(phrase).split() if word]
+    text_words = [word for word in normalize_text(text).split() if word]
+    if not phrase_words:
+        return False
+
+    text_index = 0
+    for phrase_word in phrase_words:
+        while text_index < len(text_words) and text_words[text_index] != phrase_word:
+            text_index += 1
+        if text_index == len(text_words):
+            return False
+        text_index += 1
+
+    return True
+
+
 def build_model_name_candidates(model: Model) -> list[str]:
     candidates: list[str] = []
 
@@ -77,14 +94,30 @@ def build_model_name_candidates(model: Model) -> list[str]:
 
 def score_pdf(model: Model, pdf_stem: str) -> tuple[int, str | None]:
     name_candidates = build_model_name_candidates(model)
-    matching_name = next((candidate for candidate in name_candidates if phrase_in_text(candidate, pdf_stem)), None)
+    matching_name = next(
+        (candidate for candidate in name_candidates if phrase_in_text(candidate, pdf_stem)),
+        None,
+    )
+    partial_name_match = False
+    if not matching_name:
+        matching_name = next(
+            (
+                candidate
+                for candidate in name_candidates
+                if len(normalize_text(candidate).split()) > 1 and words_in_order(candidate, pdf_stem)
+            ),
+            None,
+        )
+        partial_name_match = matching_name is not None
+
     if not matching_name:
         return (-1, None)
 
     keywords = model.keywords if isinstance(model.keywords, list) else []
     keyword_score = sum(1 for keyword in keywords if isinstance(keyword, str) and phrase_in_text(keyword, pdf_stem))
 
-    score = 100 + keyword_score * 10 + len(normalize_text(matching_name))
+    score = 80 if partial_name_match else 100
+    score += keyword_score * 10 + len(normalize_text(matching_name))
     return (score, matching_name)
 
 
