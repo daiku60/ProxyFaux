@@ -219,8 +219,9 @@ class Command(BaseCommand):
             faction_dir = resolve_faction_dir(pdf_root, model.faction)
 
             if not faction_dir:
-                model.pdf = ""
-                model.save(update_fields=["pdf"])
+                if not model.pdf:
+                    model.pdf = ""
+                    model.save(update_fields=["pdf"])
                 failures.append(
                     {
                         "source_id": model.source_id,
@@ -235,8 +236,9 @@ class Command(BaseCommand):
 
             search_dirs = iter_search_dirs(model, pdf_root, faction_dir)
             if not search_dirs:
-                model.pdf = ""
-                model.save(update_fields=["pdf"])
+                if not model.pdf:
+                    model.pdf = ""
+                    model.save(update_fields=["pdf"])
                 failures.append(
                     {
                         "source_id": model.source_id,
@@ -268,8 +270,9 @@ class Command(BaseCommand):
                     matched += 1
                     continue
 
-                model.pdf = ""
-                model.save(update_fields=["pdf"])
+                if not model.pdf:
+                    model.pdf = ""
+                    model.save(update_fields=["pdf"])
                 failures.append(
                     {
                         "source_id": model.source_id,
@@ -297,8 +300,9 @@ class Command(BaseCommand):
                         best_match = pdf_path
 
             if not best_match:
-                model.pdf = ""
-                model.save(update_fields=["pdf"])
+                if not model.pdf:
+                    model.pdf = ""
+                    model.save(update_fields=["pdf"])
                 failures.append(
                     {
                         "source_id": model.source_id,
