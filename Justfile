@@ -20,6 +20,9 @@ server-deploy:
 deploy *args:
     ./deploy-remote.sh {{ args }}
 
+sync-pdfs *args:
+    ./sync-pdfs.sh {{ args }}
+
 prod-logs:
     docker compose --env-file deploy/.env.prod -f docker-compose.prod.yml logs -f
 

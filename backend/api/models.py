@@ -5,6 +5,7 @@ class Model(models.Model):
     source_id = models.CharField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
     faction = models.CharField(max_length=255)
+    pdf = models.CharField(max_length=512, blank=True)
     station = models.CharField(max_length=255, blank=True)
     text = models.TextField(blank=True)
     title = models.CharField(max_length=255, blank=True)
@@ -23,3 +24,7 @@ class Model(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+
+class Card(models.Model):
+    model = models.ForeignKey

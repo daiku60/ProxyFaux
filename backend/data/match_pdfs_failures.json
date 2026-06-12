@@ -1,0 +1,394 @@
+[
+  {
+    "source_id": "ArcaneEffigy",
+    "name": "Arcane Effigy",
+    "title": "",
+    "faction": "Arcanists",
+    "keywords": [],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "ArcaneEmissary",
+    "name": "Arcane Emissary",
+    "title": "",
+    "faction": "Arcanists",
+    "keywords": [],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "ArikSchttemer",
+    "name": "Arik Sch\u00f6ttemer",
+    "title": "",
+    "faction": "Outcasts",
+    "keywords": [
+      "Freikorps"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "AuntiyMel",
+    "name": "Auntiy Mel",
+    "title": "",
+    "faction": "Bayou",
+    "keywords": [
+      "Angler"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "BatschAmalie",
+    "name": "Batsch & Amalie",
+    "title": "",
+    "faction": "Resurrectionist",
+    "keywords": [
+      "Fungal"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "Bookkeeper",
+    "name": "Bookkeeper",
+    "title": "",
+    "faction": "Ten Thunders",
+    "keywords": [
+      "Red Library"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "BrutalEffigy",
+    "name": "Brutal Effigy",
+    "title": "",
+    "faction": "Guild",
+    "keywords": [],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "BrutalEmissary",
+    "name": "Brutal Emissary",
+    "title": "",
+    "faction": "Guild",
+    "keywords": [],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "CarrionEffigy",
+    "name": "Carrion Effigy",
+    "title": "",
+    "faction": "Resurrectionist",
+    "keywords": [],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "CarrionEmissary",
+    "name": "Carrion Emissary",
+    "title": "",
+    "faction": "Resurrectionist",
+    "keywords": [],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "Changeling",
+    "name": "Changeling",
+    "title": "",
+    "faction": "Neverborn",
+    "keywords": [
+      "Elite"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "Drumstick",
+    "name": "Drumstick",
+    "title": "",
+    "faction": "Bayou",
+    "keywords": [
+      "Big Hat",
+      "Jockey"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "EddieClark",
+    "name": "Eddie Clark",
+    "title": "",
+    "faction": "Guild",
+    "keywords": [
+      "Augmented"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "Fitzsimmons",
+    "name": "Fitzsimmons",
+    "title": "",
+    "faction": "Arcanists",
+    "keywords": [
+      "M&SU"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "FransciscoOrtega",
+    "name": "Franscisco Ortega",
+    "title": "",
+    "faction": "Guild",
+    "keywords": [
+      "Family"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "HodgepodgeEffigy",
+    "name": "Hodgepodge Effigy",
+    "title": "",
+    "faction": "Outcasts",
+    "keywords": [],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "HodgepodgeEmissary",
+    "name": "Hodgepodge Emissary",
+    "title": "",
+    "faction": "Outcasts",
+    "keywords": [],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "Ikjas",
+    "name": "Ikjas",
+    "title": "",
+    "faction": "Neverborn",
+    "keywords": [
+      "Brood"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "IntrepidEffigy",
+    "name": "Intrepid Effigy",
+    "title": "",
+    "faction": "Explorer's Society",
+    "keywords": [],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "IntrepidEmissary",
+    "name": "Intrepid Emissary",
+    "title": "",
+    "faction": "Explorer's Society",
+    "keywords": [],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "JuddHoney",
+    "name": "Judd & Honey",
+    "title": "",
+    "faction": "Bayou",
+    "keywords": [
+      "Angler"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "Kaltgist",
+    "name": "Kaltgist",
+    "title": "",
+    "faction": "Arcanists",
+    "keywords": [
+      "December"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "KOTO",
+    "name": "K.O.T.O.",
+    "title": "",
+    "faction": "Ten Thunders",
+    "keywords": [
+      "Honeypot",
+      "Qi and Gong"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "LadyYumi",
+    "name": "Lady Yumi",
+    "title": "",
+    "faction": "Ten Thunders",
+    "keywords": [
+      "Oni"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "LuckyEffigy",
+    "name": "Lucky Effigy",
+    "title": "",
+    "faction": "Bayou",
+    "keywords": [],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "LuckyEmissary",
+    "name": "Lucky Emissary",
+    "title": "",
+    "faction": "Bayou",
+    "keywords": [],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "Lucy",
+    "name": "Lucy",
+    "title": "",
+    "faction": "Bayou",
+    "keywords": [
+      "Swampfiend"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "MariyaXXXXX",
+    "name": "Mariya XXXXX",
+    "title": "",
+    "faction": "Guild",
+    "keywords": [
+      "Cavalier"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "MelissaKORE",
+    "name": "Melissa K.O.R.E.",
+    "title": "",
+    "faction": "Guild",
+    "keywords": [
+      "Augmented"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "MysteriousEffigy",
+    "name": "Mysterious Effigy",
+    "title": "",
+    "faction": "Neverborn",
+    "keywords": [],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "MysteriousEmissary",
+    "name": "Mysterious Emissary",
+    "title": "",
+    "faction": "Neverborn",
+    "keywords": [],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "PhilipandtheNanny",
+    "name": "Philip and the Nanny",
+    "title": "",
+    "faction": "Resurrectionist",
+    "keywords": [
+      "Forgotten"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "RepurposedMonstrosity",
+    "name": "Repurposed Monstrosity",
+    "title": "",
+    "faction": "Guild",
+    "keywords": [
+      "Marshal"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "Riotbreaker",
+    "name": "Riotbreaker",
+    "title": "",
+    "faction": "Guild",
+    "keywords": [
+      "Augmented"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "TheDreamer_FastAsleep",
+    "name": "The Dreamer",
+    "title": "Fast Asleep",
+    "faction": "Neverborn",
+    "keywords": [
+      "Nightmare"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "TheDreamer_Insomniac",
+    "name": "The Dreamer",
+    "title": "Insomniac",
+    "faction": "Neverborn",
+    "keywords": [
+      "Nightmare"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "TheSilentSiren",
+    "name": "The Silent Siren",
+    "title": "",
+    "faction": "Neverborn",
+    "keywords": [
+      "Banished"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  },
+  {
+    "source_id": "Waldgeist",
+    "name": "Waldgeist",
+    "title": "",
+    "faction": "Bayou",
+    "keywords": [
+      "Swampfiend"
+    ],
+    "reason": "No matching PDF found",
+    "shoud_map_to": ""
+  }
+]

@@ -169,12 +169,14 @@ Set at minimum:
   - `POSTGRES_DB`
   - `POSTGRES_USER`
   - `POSTGRES_PASSWORD`
+  - `PDF_SERVER_DIR`
 - `backend/.env.prod`
   - `DJANGO_SECRET_KEY`
   - `DJANGO_ALLOWED_HOSTS`
   - `CSRF_TRUSTED_ORIGINS`
   - `DATABASE_URL`
   - `CORS_ALLOWED_ORIGINS`
+  - `PDF_ROOT`
 
 `DATABASE_URL` should point to the internal Compose database service, for example:
 
@@ -212,6 +214,41 @@ Stop the production stack:
 
 ```bash
 just prod-down
+```
+
+### PDFs In Production
+
+Large PDF datasets should stay out of Git and out of the app image.
+
+Recommended setup:
+
+- keep local PDFs in `backend/data/pdfs`
+- sync them separately to the server
+- mount them into the app container
+
+The production stack expects:
+
+- server-side PDF directory from `deploy/.env.prod`
+  - `PDF_SERVER_DIR=/srv/proxyfaux-data/pdfs`
+- container-side path from `backend/.env.prod`
+  - `PDF_ROOT=/app/data/pdfs`
+
+Sync PDFs from your local machine:
+
+```bash
+./sync-pdfs.sh
+```
+
+or:
+
+```bash
+just sync-pdfs
+```
+
+Then deploy normally:
+
+```bash
+just deploy
 ```
 
 ### Notes
@@ -271,6 +308,7 @@ This command expects these local files to exist before running:
 `backend/.env.prod.example` also includes:
 
 - `CSRF_TRUSTED_ORIGINS`
+- `PDF_ROOT`
 - `SECURE_SSL_REDIRECT`
 
 ### Frontend
