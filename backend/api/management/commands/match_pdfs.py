@@ -162,6 +162,26 @@ def resolve_manual_override(
     return None
 
 
+def build_pdf_storage_path(pdf_path: Path, pdf_data_root: Path) -> str:
+    match = re.match(r"^(?P<prefix>.+)_([A-Z])$", pdf_path.stem)
+    if not match:
+        return str(pdf_path.relative_to(pdf_data_root))
+
+    prefix = match.group("prefix")
+    variant_paths = sorted(pdf_path.parent.glob(f"{prefix}_[A-Z].pdf"))
+    variant_letters = [
+        variant_path.stem.rsplit("_", 1)[-1]
+        for variant_path in variant_paths
+        if re.match(rf"^{re.escape(prefix)}_[A-Z]$", variant_path.stem)
+    ]
+
+    if len(variant_letters) <= 1:
+        return str(pdf_path.relative_to(pdf_data_root))
+
+    grouped_name = f"{prefix}_{{{'|'.join(variant_letters)}}}.pdf"
+    return str((pdf_path.parent / grouped_name).relative_to(pdf_data_root))
+
+
 def resolve_faction_dir(pdf_root: Path, faction: str) -> Path | None:
     direct_dir = pdf_root / faction
     if direct_dir.exists():
@@ -291,7 +311,7 @@ class Command(BaseCommand):
                     if resolved_override:
                         break
                 if resolved_override:
-                    model.pdf = str(resolved_override.relative_to(pdf_data_root))
+                    model.pdf = build_pdf_storage_path(resolved_override, pdf_data_root)
                     model.save(update_fields=["pdf"])
                     matched += 1
                     failures.append(
@@ -337,7 +357,7 @@ class Command(BaseCommand):
                 )
                 continue
 
-            model.pdf = str(best_match.relative_to(pdf_data_root))
+            model.pdf = build_pdf_storage_path(best_match, pdf_data_root)
             model.save(update_fields=["pdf"])
             matched += 1
 
