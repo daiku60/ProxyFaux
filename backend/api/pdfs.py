@@ -5,6 +5,8 @@ from pathlib import Path
 
 from django.conf import settings
 from pypdf import PdfReader, PdfWriter, Transformation
+from reportlab.lib.colors import black
+from reportlab.pdfgen import canvas
 
 from api.models import Model
 
@@ -154,10 +156,10 @@ def resolve_requested_model(raw_name: str, lookup: dict[str, Model]) -> Requeste
     return RequestedModel(raw_name=raw_name, model=model, variant=variant)
 
 
-def compose_model_pdf(text: str) -> bytes:
+def compose_model_pdf(text: str, *, border: bool = False, cut_lines: bool = False) -> bytes:
     requested_models = parse_requested_models(text, list(Model.objects.exclude(pdf="")))
     placements = resolve_pdf_placements(requested_models)
-    return render_composed_pdf(placements)
+    return render_composed_pdf(placements, border=border, cut_lines=cut_lines)
 
 
 def resolve_pdf_placements(requested_models: list[RequestedModel]) -> list[PdfPlacement]:
@@ -237,13 +239,19 @@ def build_variant_pdf_path(path_with_pattern: Path, variant: str | None) -> Path
     return path_with_pattern.with_name(resolved_name)
 
 
-def render_composed_pdf(placements: list[PdfPlacement]) -> bytes:
+def render_composed_pdf(
+    placements: list[PdfPlacement],
+    *,
+    border: bool = False,
+    cut_lines: bool = False,
+) -> bytes:
     writer = PdfWriter()
     readers: list[PdfReader] = []
 
     for start_index in range(0, len(placements), 2):
+        page_placements = placements[start_index : start_index + 2]
         output_page = writer.add_blank_page(width=PAGE_WIDTH, height=PAGE_HEIGHT)
-        for row_index, placement in enumerate(placements[start_index : start_index + 2]):
+        for row_index, placement in enumerate(page_placements):
             reader = PdfReader(str(placement.source_path))
             readers.append(reader)
             for column_index, page_index in enumerate(placement.page_indexes):
@@ -254,6 +262,14 @@ def render_composed_pdf(placements: list[PdfPlacement]) -> bytes:
                     row_index=row_index,
                     column_index=column_index,
                 )
+
+        overlay_page = build_overlay_page(
+            len(page_placements),
+            border=border,
+            cut_lines=cut_lines,
+        )
+        if overlay_page is not None:
+            output_page.merge_page(overlay_page)
 
     buffer = BytesIO()
     writer.write(buffer)
@@ -272,3 +288,49 @@ def place_page_on_sheet(output_page, source_page, *, row_index: int, column_inde
 
     transformation = Transformation().scale(scale).translate(translate_x, translate_y)
     output_page.merge_transformed_page(source_page, transformation)
+
+
+def build_overlay_page(
+    pair_count: int,
+    *,
+    border: bool = False,
+    cut_lines: bool = False,
+):
+    if not border and not cut_lines:
+        return None
+
+    buffer = BytesIO()
+    pdf_canvas = canvas.Canvas(buffer, pagesize=(PAGE_WIDTH, PAGE_HEIGHT))
+    pdf_canvas.setStrokeColor(black)
+    pdf_canvas.setLineWidth(1)
+
+    for row_index in range(pair_count):
+        x = LEFT_RIGHT_MARGIN
+        y = PAGE_HEIGHT - TOP_BOTTOM_MARGIN - ((row_index + 1) * CARD_HEIGHT)
+        pair_width = CARD_WIDTH * 2
+
+        if border:
+            pdf_canvas.rect(x, y, pair_width, CARD_HEIGHT, stroke=1, fill=0)
+
+        if cut_lines:
+            draw_cut_lines(pdf_canvas, x=x, y=y, width=pair_width, height=CARD_HEIGHT)
+
+    pdf_canvas.showPage()
+    pdf_canvas.save()
+    buffer.seek(0)
+    return PdfReader(buffer).pages[0]
+
+
+def draw_cut_lines(pdf_canvas, *, x: float, y: float, width: float, height: float) -> None:
+    right = x + width
+    top = y + height
+
+    pdf_canvas.line(0, top, x, top)
+    pdf_canvas.line(right, top, PAGE_WIDTH, top)
+    pdf_canvas.line(0, y, x, y)
+    pdf_canvas.line(right, y, PAGE_WIDTH, y)
+
+    pdf_canvas.line(x, top, x, PAGE_HEIGHT)
+    pdf_canvas.line(right, top, right, PAGE_HEIGHT)
+    pdf_canvas.line(x, 0, x, y)
+    pdf_canvas.line(right, 0, right, y)

@@ -9,6 +9,7 @@ from api.models import Model
 from api.pdfs import (
     PAGE_HEIGHT,
     PAGE_WIDTH,
+    build_overlay_page,
     clean_input_line,
     normalize_pdf_storage_path,
     parse_requested_models,
@@ -126,7 +127,9 @@ def test_create_pdf_endpoint_returns_a4_pdf_with_expected_page_count(db, tmp_pat
                   Kaltgeist
                   Kaltgeist
                   Kaltgeist
-                """
+                """,
+                "border": False,
+                "cut_lines": False,
             },
             format="json",
         )
@@ -193,3 +196,43 @@ def test_normalize_pdf_storage_path_accepts_relative_prefixed_and_absolute_paths
         pdf_root,
     ) == absolute
     assert normalize_pdf_storage_path(absolute, pdf_root) == absolute
+
+
+def test_build_overlay_page_respects_border_and_cut_line_flags() -> None:
+    assert build_overlay_page(1, border=False, cut_lines=False) is None
+
+    border_only = build_overlay_page(1, border=True, cut_lines=False)
+    border_and_cut_lines = build_overlay_page(1, border=True, cut_lines=True)
+    cut_lines_only = build_overlay_page(1, border=False, cut_lines=True)
+
+    assert border_only is not None
+    assert border_and_cut_lines is not None
+    assert cut_lines_only is not None
+
+    border_content = border_only.get_contents().get_data().decode("latin-1")
+    border_and_cut_lines_content = border_and_cut_lines.get_contents().get_data().decode("latin-1")
+    cut_lines_only_content = cut_lines_only.get_contents().get_data().decode("latin-1")
+
+    assert " re" in border_content
+    assert border_content.count(" m") == 0
+
+    assert " re" in border_and_cut_lines_content
+    assert border_and_cut_lines_content.count(" m") >= 8
+
+    assert " re" not in cut_lines_only_content
+    assert cut_lines_only_content.count(" m") >= 8
+
+
+def test_create_pdf_endpoint_rejects_non_boolean_flags(db) -> None:
+    response = APIClient().post(
+        "/api/create-pdf/",
+        {
+            "text": "Mara",
+            "border": "yes",
+            "cut_lines": False,
+        },
+        format="json",
+    )
+
+    assert response.status_code == 400
+    assert response.json() == {"detail": "The `border` field must be true or false."}

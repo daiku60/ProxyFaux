@@ -28,7 +28,16 @@ class CreatePdfView(APIView):
             return Response({"detail": "The `text` field is required."}, status=400)
 
         try:
-            pdf_bytes = compose_model_pdf(text)
+            border = parse_bool_param(request.data.get("border"), field_name="border")
+            cut_lines = parse_bool_param(
+                request.data.get("cut_lines"),
+                field_name="cut_lines",
+            )
+        except ValueError as exc:
+            return Response({"detail": str(exc)}, status=400)
+
+        try:
+            pdf_bytes = compose_model_pdf(text, border=border, cut_lines=cut_lines)
         except PdfCompositionError as exc:
             return Response({"detail": str(exc)}, status=400)
 
@@ -58,3 +67,13 @@ class GeneratedPdfDownloadView(APIView):
         response = FileResponse(file_path.open("rb"), content_type="application/pdf")
         response["Content-Disposition"] = f'attachment; filename="{filename}"'
         return response
+
+
+def parse_bool_param(value, *, field_name: str) -> bool:
+    if value is None:
+        return False
+
+    if isinstance(value, bool):
+        return value
+
+    raise ValueError(f"The `{field_name}` field must be true or false.")
