@@ -83,6 +83,39 @@ def test_parse_requested_models_supports_titles_and_repeated_variants(db) -> Non
     ]
 
 
+def test_parse_requested_models_ignores_trailing_roster_parenthetical(db) -> None:
+    rasputina = Model.objects.create(
+        source_id="rasputina_winters_teeth",
+        name="Rasputina",
+        title="Winter's Teeth",
+        faction="Arcanists",
+        pdf="December/Rasputina.pdf",
+    )
+    wendigo = Model.objects.create(
+        source_id="wendigo",
+        name="Wendigo",
+        faction="Arcanists",
+        pdf="December/Wendigo.pdf",
+    )
+
+    requested = parse_requested_models(
+        """
+        Rasputina, Winter's Teeth (Arcanists)
+        Leader:
+          Rasputina, Winter's Teeth
+        Totem(s):
+          Wendigo
+        """,
+        [rasputina, wendigo],
+    )
+
+    assert [entry.model.name for entry in requested] == [
+        "Rasputina",
+        "Rasputina",
+        "Wendigo",
+    ]
+
+
 def test_create_pdf_endpoint_returns_a4_pdf_with_expected_page_count(db, tmp_path) -> None:
     pdf_root = tmp_path / "pdfs"
     generated_pdf_root = tmp_path / "generated-pdfs"

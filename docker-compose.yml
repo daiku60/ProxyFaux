@@ -26,6 +26,7 @@ services:
       FRONTEND_DIST_DIR: /frontend-dist
     volumes:
       - ./backend:/app
+      - backend_venv:/app/.venv
       - ./frontend/dist:/frontend-dist:ro
     ports:
       - "8009:8009"
@@ -48,5 +49,6 @@ services:
       - backend
 
 volumes:
+  backend_venv:
   postgres_data:
   frontend_node_modules:

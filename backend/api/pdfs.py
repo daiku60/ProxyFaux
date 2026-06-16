@@ -25,6 +25,7 @@ TOP_BOTTOM_MARGIN = ((A4_HEIGHT_MM - (CARD_HEIGHT_MM * 2)) / 2) * MM_TO_POINTS
 
 VARIANT_PATTERN = re.compile(r"\{([A-Z](?:\|[A-Z])*)\}")
 TRAILING_VARIANT_PATTERN = re.compile(r"^(?P<name>.+?)\s+(?P<variant>[A-Z])$")
+TRAILING_PARENTHETICAL_PATTERN = re.compile(r"^(?P<name>.+?)\s+\([^)]*\)$")
 
 
 class PdfCompositionError(ValueError):
@@ -145,15 +146,30 @@ def resolve_requested_model(raw_name: str, lookup: dict[str, Model]) -> Requeste
 
     match = TRAILING_VARIANT_PATTERN.match(raw_name)
     if not match:
-        return None
+        return resolve_requested_model_without_parenthetical(raw_name, lookup)
 
     variant = match.group("variant")
     base_name = match.group("name").strip()
     model = lookup.get(normalize_name(base_name))
     if model is None:
-        return None
+        return resolve_requested_model_without_parenthetical(raw_name, lookup)
 
     return RequestedModel(raw_name=raw_name, model=model, variant=variant)
+
+
+def resolve_requested_model_without_parenthetical(
+    raw_name: str,
+    lookup: dict[str, Model],
+) -> RequestedModel | None:
+    match = TRAILING_PARENTHETICAL_PATTERN.match(raw_name)
+    if not match:
+        return None
+
+    stripped_name = match.group("name").strip()
+    if stripped_name == raw_name:
+        return None
+
+    return resolve_requested_model(stripped_name, lookup)
 
 
 def compose_model_pdf(text: str, *, border: bool = False, cut_lines: bool = False) -> bytes:
