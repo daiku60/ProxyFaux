@@ -24,7 +24,3 @@ class Model(models.Model):
 
     def __str__(self) -> str:
         return self.name
-
-
-class Card(models.Model):
-    model = models.ForeignKey
