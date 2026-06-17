@@ -6,6 +6,7 @@ COPY frontend/package.json frontend/package-lock.json ./
 RUN npm ci
 
 COPY frontend/ ./
+COPY backend/data/cards.json /backend/data/cards.json
 RUN npm run build
 
 
