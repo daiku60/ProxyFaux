@@ -24,6 +24,7 @@ services:
     env_file:
       - ./backend/.env.prod
     volumes:
+      - ${CARDS_SERVER_DIR}:/app/data/cards:ro
       - ${PDF_SERVER_DIR}:/app/data/pdfs:ro
     depends_on:
       db:

@@ -169,6 +169,7 @@ Set at minimum:
   - `POSTGRES_DB`
   - `POSTGRES_USER`
   - `POSTGRES_PASSWORD`
+  - `CARDS_SERVER_DIR`
   - `PDF_SERVER_DIR`
 - `backend/.env.prod`
   - `DJANGO_SECRET_KEY`
@@ -228,8 +229,12 @@ Recommended setup:
 
 The production stack expects:
 
+- server-side card image directory from `deploy/.env.prod`
+  - `CARDS_SERVER_DIR=/srv/proxyfaux-data/cards`
 - server-side PDF directory from `deploy/.env.prod`
   - `PDF_SERVER_DIR=/srv/proxyfaux-data/pdfs`
+- container-side card image path
+  - `/app/data/cards`
 - container-side path from `backend/.env.prod`
   - `PDF_ROOT=/app/data/pdfs`
 
