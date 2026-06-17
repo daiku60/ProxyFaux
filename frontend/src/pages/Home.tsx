@@ -1,4 +1,4 @@
-import { useDeferredValue, useState } from "react";
+import { useDeferredValue, useMemo, useState } from "react";
 import { LoaderCircle, Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -42,7 +42,10 @@ export default function Home() {
   const [isExporting, setIsExporting] = useState(false);
 
   const deferredRosterText = useDeferredValue(rosterText);
-  const previewCards = parseRosterPreview(deferredRosterText);
+  const previewCards = useMemo(
+    () => parseRosterPreview(deferredRosterText),
+    [deferredRosterText],
+  );
 
   async function handleExport() {
     setIsExporting(true);
@@ -169,13 +172,14 @@ export default function Home() {
                 {previewCards.map((previewCard) => (
                   <figure
                     key={previewCard.id}
-                    className="overflow-hidden rounded-[1.4rem] border border-border bg-card shadow-card"
+                    className="preview-card overflow-hidden rounded-[1.4rem] border border-border bg-card shadow-card"
                   >
                     <div className="aspect-[5/7] bg-muted">
                       <img
                         src={buildCardImageUrl(previewCard.frontPath)}
                         alt={previewCard.label}
                         className="h-full w-full object-cover"
+                        decoding="async"
                         loading="lazy"
                       />
                     </div>

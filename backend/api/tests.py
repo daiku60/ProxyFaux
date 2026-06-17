@@ -115,6 +115,40 @@ def test_parse_requested_models_ignores_trailing_roster_parenthetical(db) -> Non
     ]
 
 
+def test_parse_requested_models_ignores_unmatched_lines(db) -> None:
+    brewmaster = Model.objects.create(
+        source_id="brewmaster_proof_prophet",
+        name="Brewmaster",
+        title="Proof Prophet",
+        faction="Bayou",
+        pdf="Bayou/Brewmaster.pdf",
+    )
+    wesley = Model.objects.create(
+        source_id="apprentice_wesley",
+        name="Apprentice Wesley",
+        faction="Bayou",
+        pdf="Bayou/Wesley.pdf",
+    )
+
+    requested = parse_requested_models(
+        """
+        Brew @ Informants (Bayou)
+        Leader:
+          Brewmaster, Proof Prophet
+        Totem(s):
+          Apprentice Wesley
+        Hires:
+          Not A Real Card
+        """,
+        [brewmaster, wesley],
+    )
+
+    assert [entry.model.name for entry in requested] == [
+        "Brewmaster",
+        "Apprentice Wesley",
+    ]
+
+
 def test_create_pdf_endpoint_returns_a4_pdf_with_expected_page_count(db, tmp_path) -> None:
     pdf_root = tmp_path / "pdfs"
     generated_pdf_root = tmp_path / "generated-pdfs"

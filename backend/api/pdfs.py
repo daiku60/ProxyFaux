@@ -93,7 +93,6 @@ def iter_model_name_candidates(model: Model) -> list[str]:
 def parse_requested_models(text: str, models: list[Model]) -> list[RequestedModel]:
     lookup = build_model_lookup(models)
     requested: list[RequestedModel] = []
-    unresolved: list[str] = []
 
     for raw_line in text.splitlines():
         cleaned_line = clean_input_line(raw_line)
@@ -115,12 +114,6 @@ def parse_requested_models(text: str, models: list[Model]) -> list[RequestedMode
                     if resolved_part is not None
                 )
                 continue
-
-        unresolved.append(cleaned_line)
-
-    if unresolved:
-        unresolved_display = ", ".join(unresolved)
-        raise PdfCompositionError(f"Could not resolve model names from: {unresolved_display}")
 
     if not requested:
         raise PdfCompositionError("No model names were found in the provided text.")

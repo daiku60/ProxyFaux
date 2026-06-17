@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 export default function Layout() {
   return (
     <div className="min-h-screen bg-transparent text-foreground">
-      <header className="border-b border-border/70 bg-background/50 backdrop-blur-sm">
+      <header className="border-b border-border/70 bg-background/85">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-primary/70">proxyfaux</p>

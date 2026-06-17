@@ -47,6 +47,16 @@ body {
   min-height: 100vh;
 }
 
+img {
+  display: block;
+}
+
+.preview-card {
+  content-visibility: auto;
+  contain: layout paint style;
+  contain-intrinsic-size: 360px 560px;
+}
+
 ::selection {
   background: rgba(167, 34, 51, 0.18);
 }
