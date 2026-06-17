@@ -113,7 +113,14 @@ fi
 \$SUDO mkdir -p "\$APP_DIR/deploy" "\$APP_DIR/backend"
 \$SUDO chown -R "\$(id -un):\$(id -gn)" "\$APP_DIR"
 git -C "\$APP_DIR" lfs install --local
-git -C "\$APP_DIR" lfs pull
+git -C "\$APP_DIR" lfs fetch origin "\$BRANCH"
+git -C "\$APP_DIR" lfs checkout
+git -C "\$APP_DIR" lfs pull origin "\$BRANCH"
+
+if [ ! -d "\$APP_DIR/backend/data/cards" ]; then
+  echo "Git LFS assets were not materialized at \$APP_DIR/backend/data/cards"
+  exit 1
+fi
 EOF
 
 ssh "$TARGET" 'sh -s' < "$REMOTE_SCRIPT"
