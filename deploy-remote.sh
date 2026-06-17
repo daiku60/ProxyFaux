@@ -78,6 +78,11 @@ if ! command -v git >/dev/null 2>&1; then
   \$SUDO apt-get install -y git ca-certificates curl
 fi
 
+if ! command -v git-lfs >/dev/null 2>&1; then
+  \$SUDO apt-get update
+  \$SUDO apt-get install -y git-lfs
+fi
+
 if ! command -v docker >/dev/null 2>&1; then
   \$SUDO apt-get update
   \$SUDO apt-get install -y ca-certificates curl gnupg
@@ -107,6 +112,8 @@ fi
 
 \$SUDO mkdir -p "\$APP_DIR/deploy" "\$APP_DIR/backend"
 \$SUDO chown -R "\$(id -un):\$(id -gn)" "\$APP_DIR"
+git -C "\$APP_DIR" lfs install --local
+git -C "\$APP_DIR" lfs pull
 EOF
 
 ssh "$TARGET" 'sh -s' < "$REMOTE_SCRIPT"

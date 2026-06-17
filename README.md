@@ -229,12 +229,8 @@ Recommended setup:
 
 The production stack expects:
 
-- server-side card image directory from `deploy/.env.prod`
-  - `CARDS_SERVER_DIR=/srv/proxyfaux-data/cards`
 - server-side PDF directory from `deploy/.env.prod`
   - `PDF_SERVER_DIR=/srv/proxyfaux-data/pdfs`
-- container-side card image path
-  - `/app/data/cards`
 - container-side path from `backend/.env.prod`
   - `PDF_ROOT=/app/data/pdfs`
 
@@ -296,6 +292,8 @@ This command expects these local files to exist before running:
 - `deploy/.env.prod`
 - `backend/.env.prod`
 - `frontend/.env.prod`
+
+It also installs `git-lfs` on the server if needed and runs `git lfs pull` before the production image build, so card assets tracked with Git LFS are available to the `/api/card-images/...` endpoint.
 
 ## Environment Variables
 
