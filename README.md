@@ -219,34 +219,17 @@ just prod-down
 
 ### PDFs In Production
 
-Large PDF datasets should stay out of Git and out of the app image.
-
-Recommended setup:
-
-- keep local PDFs in `backend/data/pdfs`
-- sync them separately to the server
-- mount them into the app container
+PDFs are served from the app image and are expected to be present in the repository,
+typically via Git LFS.
 
 The production stack expects:
 
-- server-side PDF directory from `deploy/.env.prod`
-  - `PDF_SERVER_DIR=/srv/proxyfaux-data/pdfs`
+- repository-side PDF path
+  - `backend/data/pdfs`
 - container-side path from `backend/.env.prod`
   - `PDF_ROOT=/app/data/pdfs`
 
-Sync PDFs from your local machine:
-
-```bash
-./sync-pdfs.sh
-```
-
-or:
-
-```bash
-just sync-pdfs
-```
-
-Then deploy normally:
+Deploy normally:
 
 ```bash
 just deploy
@@ -293,7 +276,7 @@ This command expects these local files to exist before running:
 - `backend/.env.prod`
 - `frontend/.env.prod`
 
-It also installs `git-lfs` on the server if needed and runs `git lfs pull` before the production image build, so card assets tracked with Git LFS are available to the `/api/card-images/...` endpoint.
+It also installs `git-lfs` on the server if needed and runs `git lfs pull` before the production image build, so card and PDF assets tracked with Git LFS are available inside the app image.
 
 ## Environment Variables
 
