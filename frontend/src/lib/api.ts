@@ -1,7 +1,14 @@
 import axios from "axios";
 
-export type HealthResponse = {
-  status: string;
+export type CreatePdfPayload = {
+  border: boolean;
+  cut_lines: boolean;
+  sheet_size: "a4" | "letter";
+  text: string;
+};
+
+export type CreatePdfResponse = {
+  url: string;
 };
 
 export const api = axios.create({
@@ -9,7 +16,17 @@ export const api = axios.create({
   timeout: 5000,
 });
 
-export async function fetchHealth(): Promise<HealthResponse> {
-  const response = await api.get<HealthResponse>("/health/");
+export function buildCardImageUrl(relativePath: string): string {
+  const encodedPath = relativePath
+    .split("/")
+    .map((part) => encodeURIComponent(part))
+    .join("/");
+  const apiBase = api.defaults.baseURL ?? "/api";
+  const root = apiBase.toString().replace(/\/api\/?$/, "");
+  return `${root}/api/card-images/${encodedPath}`;
+}
+
+export async function createPdf(payload: CreatePdfPayload): Promise<CreatePdfResponse> {
+  const response = await api.post<CreatePdfResponse>("/create-pdf/", payload);
   return response.data;
 }

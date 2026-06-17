@@ -7,9 +7,8 @@ from rest_framework.test import APIClient
 
 from api.models import Model
 from api.pdfs import (
-    PAGE_HEIGHT,
-    PAGE_WIDTH,
     build_overlay_page,
+    build_sheet_layout,
     clean_input_line,
     normalize_pdf_storage_path,
     parse_requested_models,
@@ -179,9 +178,10 @@ def test_create_pdf_endpoint_returns_a4_pdf_with_expected_page_count(db, tmp_pat
     assert download_response["Content-Type"] == "application/pdf"
 
     reader = PdfReader(BytesIO(b"".join(download_response.streaming_content)))
+    sheet_layout = build_sheet_layout("a4")
     assert len(reader.pages) == 3
-    assert round(float(reader.pages[0].mediabox.width), 4) == round(PAGE_WIDTH, 4)
-    assert round(float(reader.pages[0].mediabox.height), 4) == round(PAGE_HEIGHT, 4)
+    assert round(float(reader.pages[0].mediabox.width), 4) == round(sheet_layout.page_width, 4)
+    assert round(float(reader.pages[0].mediabox.height), 4) == round(sheet_layout.page_height, 4)
 
 
 def test_resolve_pdf_placements_uses_explicit_and_sequential_variants(db, tmp_path) -> None:
@@ -232,11 +232,22 @@ def test_normalize_pdf_storage_path_accepts_relative_prefixed_and_absolute_paths
 
 
 def test_build_overlay_page_respects_border_and_cut_line_flags() -> None:
-    assert build_overlay_page(1, border=False, cut_lines=False) is None
+    sheet_layout = build_sheet_layout("a4")
+    assert build_overlay_page(1, sheet_layout=sheet_layout, border=False, cut_lines=False) is None
 
-    border_only = build_overlay_page(1, border=True, cut_lines=False)
-    border_and_cut_lines = build_overlay_page(1, border=True, cut_lines=True)
-    cut_lines_only = build_overlay_page(1, border=False, cut_lines=True)
+    border_only = build_overlay_page(1, sheet_layout=sheet_layout, border=True, cut_lines=False)
+    border_and_cut_lines = build_overlay_page(
+        1,
+        sheet_layout=sheet_layout,
+        border=True,
+        cut_lines=True,
+    )
+    cut_lines_only = build_overlay_page(
+        1,
+        sheet_layout=sheet_layout,
+        border=False,
+        cut_lines=True,
+    )
 
     assert border_only is not None
     assert border_and_cut_lines is not None
@@ -269,3 +280,53 @@ def test_create_pdf_endpoint_rejects_non_boolean_flags(db) -> None:
 
     assert response.status_code == 400
     assert response.json() == {"detail": "The `border` field must be true or false."}
+
+
+def test_create_pdf_endpoint_supports_letter_sheet_size(db, tmp_path) -> None:
+    pdf_root = tmp_path / "pdfs"
+    generated_pdf_root = tmp_path / "generated-pdfs"
+
+    create_test_pdf(pdf_root / "December" / "Mara.pdf", width=220, height=300)
+    Model.objects.create(
+        source_id="mara",
+        name="Mara",
+        faction="Arcanists",
+        pdf="December/Mara.pdf",
+    )
+
+    with override_settings(PDF_ROOT=pdf_root, GENERATED_PDF_ROOT=generated_pdf_root):
+        response = APIClient().post(
+            "/api/create-pdf/",
+            {
+                "text": "Mara",
+                "sheet_size": "letter",
+            },
+            format="json",
+        )
+        download_response = APIClient().get(response.json()["url"])
+
+    reader = PdfReader(BytesIO(b"".join(download_response.streaming_content)))
+    sheet_layout = build_sheet_layout("letter")
+    assert round(float(reader.pages[0].mediabox.width), 4) == round(sheet_layout.page_width, 4)
+    assert round(float(reader.pages[0].mediabox.height), 4) == round(sheet_layout.page_height, 4)
+
+
+def test_card_image_endpoint_serves_cards_from_backend_data(tmp_path, settings) -> None:
+    data_root = tmp_path / "data" / "cards" / "Arcanists"
+    data_root.mkdir(parents=True, exist_ok=True)
+    card_path = data_root / "Mara-front-0.jpg"
+    card_path.write_bytes(b"fake-jpg")
+    settings.BASE_DIR = tmp_path
+
+    response = APIClient().get("/api/card-images/cards/Arcanists/Mara-front-0.jpg")
+
+    assert response.status_code == 200
+    assert b"".join(response.streaming_content) == b"fake-jpg"
+
+
+def test_card_image_endpoint_rejects_path_traversal(settings, tmp_path) -> None:
+    settings.BASE_DIR = tmp_path
+
+    response = APIClient().get("/api/card-images/../secret.txt")
+
+    assert response.status_code == 404

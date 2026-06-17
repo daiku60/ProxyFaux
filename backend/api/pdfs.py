@@ -11,17 +11,14 @@ from reportlab.pdfgen import canvas
 from api.models import Model
 
 MM_TO_POINTS = 72 / 25.4
-A4_WIDTH_MM = 210
-A4_HEIGHT_MM = 297
 CARD_WIDTH_MM = 70
 CARD_HEIGHT_MM = 120
-
-PAGE_WIDTH = A4_WIDTH_MM * MM_TO_POINTS
-PAGE_HEIGHT = A4_HEIGHT_MM * MM_TO_POINTS
 CARD_WIDTH = CARD_WIDTH_MM * MM_TO_POINTS
 CARD_HEIGHT = CARD_HEIGHT_MM * MM_TO_POINTS
-LEFT_RIGHT_MARGIN = ((A4_WIDTH_MM - (CARD_WIDTH_MM * 2)) / 2) * MM_TO_POINTS
-TOP_BOTTOM_MARGIN = ((A4_HEIGHT_MM - (CARD_HEIGHT_MM * 2)) / 2) * MM_TO_POINTS
+SHEET_SIZES_MM = {
+    "a4": (210, 297),
+    "letter": (215.9, 279.4),
+}
 
 VARIANT_PATTERN = re.compile(r"\{([A-Z](?:\|[A-Z])*)\}")
 TRAILING_VARIANT_PATTERN = re.compile(r"^(?P<name>.+?)\s+(?P<variant>[A-Z])$")
@@ -43,6 +40,14 @@ class RequestedModel:
 class PdfPlacement:
     source_path: Path
     page_indexes: tuple[int, int]
+
+
+@dataclass(frozen=True)
+class SheetLayout:
+    page_width: float
+    page_height: float
+    left_right_margin: float
+    top_bottom_margin: float
 
 
 def normalize_name(value: str) -> str:
@@ -172,10 +177,21 @@ def resolve_requested_model_without_parenthetical(
     return resolve_requested_model(stripped_name, lookup)
 
 
-def compose_model_pdf(text: str, *, border: bool = False, cut_lines: bool = False) -> bytes:
+def compose_model_pdf(
+    text: str,
+    *,
+    border: bool = False,
+    cut_lines: bool = False,
+    sheet_size: str = "a4",
+) -> bytes:
     requested_models = parse_requested_models(text, list(Model.objects.exclude(pdf="")))
     placements = resolve_pdf_placements(requested_models)
-    return render_composed_pdf(placements, border=border, cut_lines=cut_lines)
+    return render_composed_pdf(
+        placements,
+        sheet_layout=build_sheet_layout(sheet_size),
+        border=border,
+        cut_lines=cut_lines,
+    )
 
 
 def resolve_pdf_placements(requested_models: list[RequestedModel]) -> list[PdfPlacement]:
@@ -255,9 +271,30 @@ def build_variant_pdf_path(path_with_pattern: Path, variant: str | None) -> Path
     return path_with_pattern.with_name(resolved_name)
 
 
+def build_sheet_layout(sheet_size: str) -> SheetLayout:
+    try:
+        page_width_mm, page_height_mm = SHEET_SIZES_MM[sheet_size.lower()]
+    except KeyError as exc:
+        raise PdfCompositionError(
+            f"Unsupported sheet size `{sheet_size}`. Use `a4` or `letter`."
+        ) from exc
+
+    page_width = page_width_mm * MM_TO_POINTS
+    page_height = page_height_mm * MM_TO_POINTS
+    left_right_margin = ((page_width_mm - (CARD_WIDTH_MM * 2)) / 2) * MM_TO_POINTS
+    top_bottom_margin = ((page_height_mm - (CARD_HEIGHT_MM * 2)) / 2) * MM_TO_POINTS
+    return SheetLayout(
+        page_width=page_width,
+        page_height=page_height,
+        left_right_margin=left_right_margin,
+        top_bottom_margin=top_bottom_margin,
+    )
+
+
 def render_composed_pdf(
     placements: list[PdfPlacement],
     *,
+    sheet_layout: SheetLayout,
     border: bool = False,
     cut_lines: bool = False,
 ) -> bytes:
@@ -266,7 +303,10 @@ def render_composed_pdf(
 
     for start_index in range(0, len(placements), 2):
         page_placements = placements[start_index : start_index + 2]
-        output_page = writer.add_blank_page(width=PAGE_WIDTH, height=PAGE_HEIGHT)
+        output_page = writer.add_blank_page(
+            width=sheet_layout.page_width,
+            height=sheet_layout.page_height,
+        )
         for row_index, placement in enumerate(page_placements):
             reader = PdfReader(str(placement.source_path))
             readers.append(reader)
@@ -275,12 +315,14 @@ def render_composed_pdf(
                 place_page_on_sheet(
                     output_page,
                     source_page,
+                    sheet_layout=sheet_layout,
                     row_index=row_index,
                     column_index=column_index,
                 )
 
         overlay_page = build_overlay_page(
             len(page_placements),
+            sheet_layout=sheet_layout,
             border=border,
             cut_lines=cut_lines,
         )
@@ -292,13 +334,20 @@ def render_composed_pdf(
     return buffer.getvalue()
 
 
-def place_page_on_sheet(output_page, source_page, *, row_index: int, column_index: int) -> None:
+def place_page_on_sheet(
+    output_page,
+    source_page,
+    *,
+    sheet_layout: SheetLayout,
+    row_index: int,
+    column_index: int,
+) -> None:
     source_width = float(source_page.mediabox.width)
     source_height = float(source_page.mediabox.height)
     scale = min(CARD_WIDTH / source_width, CARD_HEIGHT / source_height)
 
-    x = LEFT_RIGHT_MARGIN + (column_index * CARD_WIDTH)
-    y = PAGE_HEIGHT - TOP_BOTTOM_MARGIN - ((row_index + 1) * CARD_HEIGHT)
+    x = sheet_layout.left_right_margin + (column_index * CARD_WIDTH)
+    y = sheet_layout.page_height - sheet_layout.top_bottom_margin - ((row_index + 1) * CARD_HEIGHT)
     translate_x = x + ((CARD_WIDTH - (source_width * scale)) / 2)
     translate_y = y + ((CARD_HEIGHT - (source_height * scale)) / 2)
 
@@ -309,6 +358,7 @@ def place_page_on_sheet(output_page, source_page, *, row_index: int, column_inde
 def build_overlay_page(
     pair_count: int,
     *,
+    sheet_layout: SheetLayout,
     border: bool = False,
     cut_lines: bool = False,
 ):
@@ -316,20 +366,31 @@ def build_overlay_page(
         return None
 
     buffer = BytesIO()
-    pdf_canvas = canvas.Canvas(buffer, pagesize=(PAGE_WIDTH, PAGE_HEIGHT))
+    pdf_canvas = canvas.Canvas(buffer, pagesize=(sheet_layout.page_width, sheet_layout.page_height))
     pdf_canvas.setStrokeColor(black)
     pdf_canvas.setLineWidth(1)
 
     for row_index in range(pair_count):
-        x = LEFT_RIGHT_MARGIN
-        y = PAGE_HEIGHT - TOP_BOTTOM_MARGIN - ((row_index + 1) * CARD_HEIGHT)
+        x = sheet_layout.left_right_margin
+        y = (
+            sheet_layout.page_height
+            - sheet_layout.top_bottom_margin
+            - ((row_index + 1) * CARD_HEIGHT)
+        )
         pair_width = CARD_WIDTH * 2
 
         if border:
             pdf_canvas.rect(x, y, pair_width, CARD_HEIGHT, stroke=1, fill=0)
 
         if cut_lines:
-            draw_cut_lines(pdf_canvas, x=x, y=y, width=pair_width, height=CARD_HEIGHT)
+            draw_cut_lines(
+                pdf_canvas,
+                sheet_layout=sheet_layout,
+                x=x,
+                y=y,
+                width=pair_width,
+                height=CARD_HEIGHT,
+            )
 
     pdf_canvas.showPage()
     pdf_canvas.save()
@@ -337,16 +398,24 @@ def build_overlay_page(
     return PdfReader(buffer).pages[0]
 
 
-def draw_cut_lines(pdf_canvas, *, x: float, y: float, width: float, height: float) -> None:
+def draw_cut_lines(
+    pdf_canvas,
+    *,
+    sheet_layout: SheetLayout,
+    x: float,
+    y: float,
+    width: float,
+    height: float,
+) -> None:
     right = x + width
     top = y + height
 
     pdf_canvas.line(0, top, x, top)
-    pdf_canvas.line(right, top, PAGE_WIDTH, top)
+    pdf_canvas.line(right, top, sheet_layout.page_width, top)
     pdf_canvas.line(0, y, x, y)
-    pdf_canvas.line(right, y, PAGE_WIDTH, y)
+    pdf_canvas.line(right, y, sheet_layout.page_width, y)
 
-    pdf_canvas.line(x, top, x, PAGE_HEIGHT)
-    pdf_canvas.line(right, top, right, PAGE_HEIGHT)
+    pdf_canvas.line(x, top, x, sheet_layout.page_height)
+    pdf_canvas.line(right, top, right, sheet_layout.page_height)
     pdf_canvas.line(x, 0, x, y)
     pdf_canvas.line(right, 0, right, y)

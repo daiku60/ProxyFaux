@@ -1,1 +1,1 @@
-{"root":["./src/constants.ts","./src/main.tsx","./src/vite-env.d.ts","./src/components/layout.tsx","./src/lib/api.ts","./src/pages/home.tsx"],"version":"5.8.3"}
+{"root":["./src/main.tsx","./src/vite-env.d.ts","./src/components/layout.tsx","./src/components/ui/button.tsx","./src/components/ui/card.tsx","./src/components/ui/checkbox.tsx","./src/components/ui/label.tsx","./src/components/ui/select.tsx","./src/components/ui/textarea.tsx","./src/lib/api.ts","./src/lib/card-catalog.ts","./src/lib/utils.ts","./src/pages/home.tsx","../backend/data/cards.json"],"version":"5.8.3"}
