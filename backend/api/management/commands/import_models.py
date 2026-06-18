@@ -33,6 +33,7 @@ class Command(BaseCommand):
             defaults = {
                 "name": payload.get("name", ""),
                 "faction": payload.get("faction", ""),
+                "pdf": payload.get("pdf", ""),
                 "station": payload.get("station", ""),
                 "text": payload.get("text", ""),
                 "title": payload.get("title", ""),
