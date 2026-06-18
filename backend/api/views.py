@@ -72,7 +72,7 @@ class GeneratedPdfDownloadView(APIView):
             raise Http404
 
         response = FileResponse(file_path.open("rb"), content_type="application/pdf")
-        response["Content-Disposition"] = f'attachment; filename="{filename}"'
+        response["Content-Disposition"] = f'inline; filename="{filename}"'
         return response
 
 

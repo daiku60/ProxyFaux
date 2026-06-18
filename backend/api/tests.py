@@ -210,6 +210,7 @@ def test_create_pdf_endpoint_returns_a4_pdf_with_expected_page_count(db, tmp_pat
 
     assert download_response.status_code == 200
     assert download_response["Content-Type"] == "application/pdf"
+    assert download_response["Content-Disposition"].startswith("inline;")
 
     reader = PdfReader(BytesIO(b"".join(download_response.streaming_content)))
     sheet_layout = build_sheet_layout("a4")
