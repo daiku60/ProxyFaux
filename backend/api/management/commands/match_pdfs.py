@@ -146,6 +146,20 @@ def prefer_pdf_candidate(candidate: Path, current_best: Path | None) -> bool:
     return candidate.name.startswith("M4E_Stat_") and not current_best.name.startswith("M4E_Stat_")
 
 
+def prefer_stat_pdf_path(path: Path) -> Path:
+    if path.name.startswith("M4E_Stat_"):
+        return path
+
+    if not path.name.startswith("M4E_Crew_"):
+        return path
+
+    stat_candidate = path.with_name(path.name.replace("M4E_Crew_", "M4E_Stat_", 1))
+    if stat_candidate.exists() and stat_candidate.is_file():
+        return stat_candidate
+
+    return path
+
+
 def resolve_manual_override(
     override_value: str,
     search_dir: Path,
@@ -164,7 +178,7 @@ def resolve_manual_override(
 
     for path in possible_paths:
         if path.exists() and path.is_file() and path.suffix.lower() == ".pdf":
-            return path
+            return prefer_stat_pdf_path(path)
 
     return None
 
@@ -367,7 +381,7 @@ class Command(BaseCommand):
                 )
                 continue
 
-            model.pdf = build_pdf_storage_path(best_match, pdf_data_root)
+            model.pdf = build_pdf_storage_path(prefer_stat_pdf_path(best_match), pdf_data_root)
             model.save(update_fields=["pdf"])
             matched += 1
 
