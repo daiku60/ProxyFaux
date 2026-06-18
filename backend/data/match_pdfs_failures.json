@@ -197,17 +197,6 @@
     ]
   },
   {
-    "source_id": "TheDreamer_FastAsleep",
-    "name": "The Dreamer",
-    "title": "Fast Asleep",
-    "faction": "Neverborn",
-    "reason": "Matched manually",
-    "should_map_to": "M4E_Crew_Nightmare_Dreamer_Fast_Asleep.pdf",
-    "keywords": [
-      "Nightmare"
-    ]
-  },
-  {
     "source_id": "TheSilentSiren",
     "name": "The Silent Siren",
     "title": "",
