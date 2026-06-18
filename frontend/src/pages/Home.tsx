@@ -48,6 +48,14 @@ export default function Home() {
   );
 
   async function handleExport() {
+    const previewWindow = window.open("", "_blank");
+    if (previewWindow) {
+      previewWindow.document.write(
+        "<!doctype html><title>Preparing PDF...</title><body style=\"font-family: sans-serif; padding: 24px;\">Preparing PDF...</body>",
+      );
+      previewWindow.document.close();
+    }
+
     setIsExporting(true);
     setErrorMessage("");
 
@@ -58,8 +66,15 @@ export default function Home() {
         sheet_size: sheetSize,
         text: rosterText,
       });
-      window.open(response.url, "_blank", "noopener,noreferrer");
+      if (previewWindow && !previewWindow.closed) {
+        previewWindow.location.href = response.url;
+      } else {
+        window.location.href = response.url;
+      }
     } catch (error) {
+      if (previewWindow && !previewWindow.closed) {
+        previewWindow.close();
+      }
       setErrorMessage("The export could not be created. Check the roster text and try again.");
       console.error(error);
     } finally {
