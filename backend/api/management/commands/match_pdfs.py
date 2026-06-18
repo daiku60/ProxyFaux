@@ -139,6 +139,13 @@ def score_pdf(model: Model, pdf_stem: str) -> tuple[int, str | None]:
     return (score, matching_name)
 
 
+def prefer_pdf_candidate(candidate: Path, current_best: Path | None) -> bool:
+    if current_best is None:
+        return True
+
+    return candidate.name.startswith("M4E_Stat_") and not current_best.name.startswith("M4E_Stat_")
+
+
 def resolve_manual_override(
     override_value: str,
     search_dir: Path,
@@ -340,12 +347,15 @@ class Command(BaseCommand):
 
             for search_dir in search_dirs:
                 for pdf_path in sorted(search_dir.glob("*.pdf")):
-                    if not pdf_path.name.startswith("M4E_Stat_"):
-                        continue
-
                     score, _ = score_pdf(model, pdf_path.stem)
                     if score > best_score:
                         best_score = score
+                        best_match = pdf_path
+                    elif (
+                        score == best_score
+                        and score >= 0
+                        and prefer_pdf_candidate(pdf_path, best_match)
+                    ):
                         best_match = pdf_path
 
             if not best_match:

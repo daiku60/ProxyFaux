@@ -8578,7 +8578,7 @@
             "title": "Smuggler",
             "tokens": [],
             "totemId": "AngelicaDurand",
-            "pdf": "pdfs/Arcanists/Performer/M4E_Stat_Performer_Colette_du_Bois_Star_of_the_Show.pdf"
+            "pdf": "pdfs/Arcanists/Performer/M4E_Crew_Performer_Colette_Du_Bois_Smuggler.pdf"
         },
         "ColetteduBois_StaroftheShow": {
             "alternates": [
@@ -10654,7 +10654,7 @@
             "title": "Insanitary",
             "tokens": [],
             "totemId": "CorpseCurator",
-            "pdf": "pdfs/Resurrectionists/Experimental/M4E_Stat_Experimental_Dr_McMourning_Malpractitioner.pdf"
+            "pdf": "pdfs/Resurrectionists/Experimental/M4E_Crew_Experimental_Dr_McMourning_Insanitary.pdf"
         },
         "DrMcMourning_Malpractitioner": {
             "alternates": [
@@ -18934,7 +18934,7 @@
             "title": "Manhunter",
             "tokens": [],
             "totemId": "Runaway",
-            "pdf": "pdfs/Explorer's Society/Apex/M4E_Stat_Apex_Lord_Cooper_Huntmaster.pdf"
+            "pdf": "pdfs/Explorer's Society/Apex/M4E_Crew_Apex_Lord_Cooper_Manhunter.pdf"
         },
         "LostLove": {
             "characteristics": [
@@ -30228,7 +30228,7 @@
             "title": "Fast Asleep",
             "tokens": [],
             "totemId": "LordChompyBits_Dreamlord",
-            "pdf": ""
+            "pdf": "pdfs/Neverborn/Nightmare/M4E_Crew_Nightmare_Dreamer_Fast_Asleep.pdf"
         },
         "TheDreamer_Insomniac": {
             "alternates": [
@@ -30269,7 +30269,7 @@
             "title": "Insomniac",
             "tokens": [],
             "totemId": "LordChompyBits_LurkingLullaby",
-            "pdf": "pdfs/Neverborn/Nightmare/M4E_Crew_Nightmare_Dreamer_Fast_Asleep.pdf"
+            "pdf": "pdfs/Neverborn/Nightmare/M4E_Crew_Nightmare_Dreamer_Insomniac.pdf"
         },
         "TheFerryman": {
             "characteristics": [],
