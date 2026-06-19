@@ -1,5 +1,5 @@
 import { useDeferredValue, useMemo, useState } from "react";
-import { LoaderCircle } from "lucide-react";
+import { LoaderCircle, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -100,7 +100,21 @@ export default function Home() {
           </CardHeader>
           <CardContent className="space-y-6 p-6">
             <div className="space-y-3">
-              <Label htmlFor="roster-text">Roster text</Label>
+              <div className="flex items-center justify-between gap-3">
+                <Label htmlFor="roster-text">Roster text</Label>
+                {rosterText ? (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setRosterText("")}
+                    aria-label="Clear roster text"
+                  >
+                    <X className="h-4 w-4" />
+                    Clear
+                  </Button>
+                ) : null}
+              </div>
               <Textarea
                 id="roster-text"
                 placeholder={SAMPLE_TEXT}
