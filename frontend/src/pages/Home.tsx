@@ -1,5 +1,5 @@
 import { useDeferredValue, useMemo, useState } from "react";
-import { LoaderCircle, Sparkles } from "lucide-react";
+import { LoaderCircle } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -34,7 +34,7 @@ References:
   Lucky Fate, Emissary`;
 
 export default function Home() {
-  const [rosterText, setRosterText] = useState(SAMPLE_TEXT);
+  const [rosterText, setRosterText] = useState("");
   const [sheetSize, setSheetSize] = useState<SheetSize>("a4");
   const [border, setBorder] = useState(false);
   const [cutLines, setCutLines] = useState(false);
@@ -85,10 +85,9 @@ export default function Home() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-10 md:py-14">
       <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
-        <Card className="overflow-hidden bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(247,236,224,0.92))]">
-          <CardHeader className="border-b border-border/60 bg-[radial-gradient(circle_at_top_left,rgba(206,111,87,0.18),transparent_42%)]">
+        <Card className="overflow-hidden">
+          <CardHeader>
             <div className="flex items-center gap-3 text-primary">
-              <Sparkles className="h-5 w-5" />
               <span className="text-xs font-semibold uppercase tracking-[0.28em]">
                 Main Sheet
               </span>
@@ -104,6 +103,7 @@ export default function Home() {
               <Label htmlFor="roster-text">Roster text</Label>
               <Textarea
                 id="roster-text"
+                placeholder={SAMPLE_TEXT}
                 value={rosterText}
                 onChange={(event) => setRosterText(event.target.value)}
                 className="min-h-[360px] resize-y bg-background/90"
@@ -169,7 +169,7 @@ export default function Home() {
           </CardContent>
         </Card>
 
-        <Card className="overflow-hidden bg-[linear-gradient(180deg,rgba(247,240,234,0.94),rgba(255,255,255,0.92))]">
+        <Card className="overflow-hidden bg-[image:var(--panel-gradient)]">
           <CardHeader className="border-b border-border/60">
             <CardTitle>Front-side preview</CardTitle>
             <CardDescription>

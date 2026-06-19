@@ -5,6 +5,7 @@
 @tailwind utilities;
 
 :root {
+  color-scheme: light;
   --background: 36 62% 96%;
   --foreground: 350 22% 13%;
   --card: 0 0% 100%;
@@ -25,6 +26,41 @@
   --input: 24 28% 82%;
   --ring: 351 53% 31%;
   --radius: 1.2rem;
+  --page-gradient:
+    radial-gradient(circle at top, rgba(186, 114, 77, 0.18), transparent 36%),
+    linear-gradient(180deg, #fbf4ee 0%, #f4ece5 50%, #efe5dc 100%);
+  --panel-gradient: linear-gradient(180deg, rgba(247, 240, 234, 0.94), rgba(255, 255, 255, 0.92));
+  --selection: rgba(167, 34, 51, 0.18);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --background: 18 20% 10%;
+    --foreground: 32 36% 92%;
+    --card: 14 18% 14%;
+    --card-foreground: 32 36% 92%;
+    --popover: 14 18% 14%;
+    --popover-foreground: 32 36% 92%;
+    --primary: 19 76% 63%;
+    --primary-foreground: 10 18% 10%;
+    --secondary: 16 14% 20%;
+    --secondary-foreground: 32 36% 92%;
+    --muted: 16 14% 17%;
+    --muted-foreground: 31 15% 72%;
+    --accent: 351 53% 44%;
+    --accent-foreground: 32 36% 96%;
+    --destructive: 0 72% 58%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 18 14% 27%;
+    --input: 18 14% 27%;
+    --ring: 19 76% 63%;
+    --page-gradient:
+      radial-gradient(circle at top, rgba(186, 114, 77, 0.16), transparent 34%),
+      linear-gradient(180deg, #181112 0%, #120f11 52%, #0d0b0c 100%);
+    --panel-gradient: linear-gradient(180deg, rgba(45, 34, 34, 0.92), rgba(24, 20, 21, 0.96));
+    --selection: rgba(231, 126, 82, 0.28);
+  }
 }
 
 * {
@@ -35,10 +71,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background:
-    radial-gradient(circle at 12% 18%, rgba(206, 111, 87, 0.22), transparent 24%),
-    radial-gradient(circle at 88% 10%, rgba(167, 34, 51, 0.18), transparent 22%),
-    linear-gradient(180deg, #faf4ed 0%, #f2e4d5 48%, #ecd8c7 100%);
+  background: var(--page-gradient);
   color: hsl(var(--foreground));
   font-family: "Space Grotesk", ui-sans-serif, system-ui;
 }
@@ -58,5 +91,5 @@ img {
 }
 
 ::selection {
-  background: rgba(167, 34, 51, 0.18);
+  background: var(--selection);
 }
