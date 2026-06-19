@@ -1,5 +1,5 @@
-import { useDeferredValue, useMemo, useState } from "react";
-import { LoaderCircle, X } from "lucide-react";
+import { useDeferredValue, useEffect, useMemo, useState } from "react";
+import { Check, LoaderCircle, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -40,14 +40,30 @@ export default function Home() {
   const [cutLines, setCutLines] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isExporting, setIsExporting] = useState(false);
+  const [selectedPreviewIds, setSelectedPreviewIds] = useState<Record<string, boolean>>({});
 
   const deferredRosterText = useDeferredValue(rosterText);
   const previewCards = useMemo(
     () => parseRosterPreview(deferredRosterText),
     [deferredRosterText],
   );
+  const selectedPreviewCards = useMemo(
+    () => previewCards.filter((previewCard) => selectedPreviewIds[previewCard.id] !== false),
+    [previewCards, selectedPreviewIds],
+  );
+
+  useEffect(() => {
+    setSelectedPreviewIds((currentSelection) => {
+      const nextSelection: Record<string, boolean> = {};
+      for (const previewCard of previewCards) {
+        nextSelection[previewCard.id] = currentSelection[previewCard.id] ?? true;
+      }
+      return nextSelection;
+    });
+  }, [previewCards]);
 
   async function handleExport() {
+    const exportText = selectedPreviewCards.map((previewCard) => previewCard.label).join("\n");
     const previewWindow = window.open("", "_blank");
     if (previewWindow) {
       previewWindow.document.write(
@@ -64,7 +80,7 @@ export default function Home() {
         border,
         cut_lines: cutLines,
         sheet_size: sheetSize,
-        text: rosterText,
+        text: exportText,
       });
       if (previewWindow && !previewWindow.closed) {
         previewWindow.location.href = response.url;
@@ -82,6 +98,13 @@ export default function Home() {
     }
   }
 
+  function togglePreviewSelection(previewId: string) {
+    setSelectedPreviewIds((currentSelection) => ({
+      ...currentSelection,
+      [previewId]: currentSelection[previewId] === false,
+    }));
+  }
+
   return (
     <section className="mx-auto max-w-7xl px-6 py-10 md:py-14">
       <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
@@ -95,7 +118,7 @@ export default function Home() {
             <CardTitle>Paste a crew list and export printable proxies</CardTitle>
             <CardDescription>
               The text parser matches model names and titles, previews the front cards,
-              and sends the selected export options to the PDF API.
+              and sends only the checked cards with the selected export options to the PDF API.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6 p-6">
@@ -165,7 +188,7 @@ export default function Home() {
               <Button
                 size="lg"
                 onClick={() => void handleExport()}
-                disabled={isExporting || !rosterText.trim()}
+                disabled={isExporting || selectedPreviewCards.length === 0}
               >
                 {isExporting ? (
                   <>
@@ -177,7 +200,7 @@ export default function Home() {
                 )}
               </Button>
               <p className="text-sm text-muted-foreground">
-                The generated PDF opens in a new tab once the API returns its URL.
+                The generated PDF includes only the checked preview cards and opens in a new tab once the API returns its URL.
               </p>
             </div>
           </CardContent>
@@ -197,17 +220,57 @@ export default function Home() {
                 Paste a roster on the left to see matching front-card previews here.
               </div>
             ) : (
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between gap-3 rounded-[1.25rem] border border-border/70 bg-background/55 px-4 py-3 text-sm text-muted-foreground">
+                  <span>{selectedPreviewCards.length} of {previewCards.length} selected</span>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() =>
+                      setSelectedPreviewIds(
+                        Object.fromEntries(previewCards.map((previewCard) => [previewCard.id, true])),
+                      )
+                    }
+                    disabled={selectedPreviewCards.length === previewCards.length}
+                  >
+                    Select all
+                  </Button>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2">
                 {previewCards.map((previewCard) => (
                   <figure
                     key={previewCard.id}
-                    className="preview-card overflow-hidden rounded-[1.4rem] border border-border bg-card shadow-card"
+                    className="preview-card group relative overflow-hidden rounded-[1.4rem] border border-border bg-card shadow-card"
                   >
+                    <button
+                      type="button"
+                      onClick={() => togglePreviewSelection(previewCard.id)}
+                      aria-label={
+                        selectedPreviewIds[previewCard.id] === false
+                          ? `Select ${previewCard.label}`
+                          : `Deselect ${previewCard.label}`
+                      }
+                      aria-pressed={selectedPreviewIds[previewCard.id] !== false}
+                      className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-white/60 bg-background/88 text-foreground shadow-lg backdrop-blur transition hover:scale-105 hover:bg-background"
+                    >
+                      {selectedPreviewIds[previewCard.id] !== false ? (
+                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                          <Check className="h-3.5 w-3.5" />
+                        </span>
+                      ) : (
+                        <span className="h-5 w-5 rounded-full border border-border/80 bg-card" />
+                      )}
+                    </button>
                     <div className="aspect-[5/7] bg-muted">
                       <img
                         src={buildCardImageUrl(previewCard.frontPath)}
                         alt={previewCard.label}
-                        className="h-full w-full object-cover"
+                        className={
+                          selectedPreviewIds[previewCard.id] === false
+                            ? "h-full w-full object-cover opacity-45 grayscale transition"
+                            : "h-full w-full object-cover transition"
+                        }
                         decoding="async"
                         loading="lazy"
                       />
@@ -217,6 +280,7 @@ export default function Home() {
                     </figcaption>
                   </figure>
                 ))}
+                </div>
               </div>
             )}
           </CardContent>
