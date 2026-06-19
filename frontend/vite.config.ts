@@ -1,11 +1,29 @@
 import path from "path";
+import fs from "fs";
 import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
+
+function resolveCardsDataPath(): string {
+  const candidates = [
+    path.resolve(__dirname, "../backend/data/cards.json"),
+    path.resolve(__dirname, "backend-data/cards.json"),
+  ];
+
+  const match = candidates.find((candidate) => fs.existsSync(candidate));
+  if (!match) {
+    throw new Error(
+      `Could not find cards.json. Checked: ${candidates.join(", ")}`,
+    );
+  }
+
+  return match;
+}
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   const basePath = env.VITE_BASE_PATH || "/";
   const workspaceRoot = path.resolve(__dirname, "..");
+  const cardsDataPath = resolveCardsDataPath();
 
   if (mode === "prod" && !env.VITE_API_BASE_URL) {
     throw new Error("VITE_API_BASE_URL must be set for prod builds.");
@@ -30,7 +48,7 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "src"),
-        "@cards-data": path.resolve(__dirname, "../backend/data/cards.json"),
+        "@cards-data": cardsDataPath,
       },
     },
     build: {

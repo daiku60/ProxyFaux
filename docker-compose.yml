@@ -42,6 +42,7 @@ services:
       - ./frontend/.env.example
     volumes:
       - ./frontend:/app
+      - ./backend/data:/app/backend-data:ro
       - frontend_node_modules:/app/node_modules
     ports:
       - "6174:6174"
