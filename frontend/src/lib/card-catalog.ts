@@ -38,6 +38,12 @@ export type PreviewCard = {
   label: string;
 };
 
+export type CatalogSuggestion = {
+  id: string;
+  kind: "crewCard" | "model" | "upgrade";
+  label: string;
+};
+
 type CatalogEntry = {
   aliases: string[];
   crewCardId?: string;
@@ -51,6 +57,8 @@ type CatalogEntry = {
 
 const rawCatalog = cardsData as RawCatalog;
 const { entriesById, lookup, upgradeIdsByKeyword } = buildCatalog(rawCatalog);
+
+const searchableEntries = Array.from(entriesById.values());
 
 export function parseRosterPreview(
   text: string,
@@ -109,6 +117,32 @@ export function parseRosterPreview(
   }
 
   return previews;
+}
+
+export function searchCatalog(query: string, limit = 8): CatalogSuggestion[] {
+  const normalizedQuery = normalize(query);
+  if (!normalizedQuery) {
+    return [];
+  }
+
+  return searchableEntries
+    .map((entry) => ({
+      entry,
+      score: scoreSuggestion(entry, normalizedQuery),
+    }))
+    .filter(({ score }) => score > 0)
+    .sort((left, right) => {
+      if (right.score !== left.score) {
+        return right.score - left.score;
+      }
+      return left.entry.label.localeCompare(right.entry.label);
+    })
+    .slice(0, limit)
+    .map(({ entry }) => ({
+      id: entry.id,
+      kind: entry.kind,
+      label: entry.label,
+    }));
 }
 
 function buildCatalog(rawCatalog: RawCatalog): {
@@ -226,6 +260,34 @@ function buildAliases(model: RawCatalogModel): string[] {
     candidates.push(model.name);
   }
   return candidates;
+}
+
+function scoreSuggestion(entry: CatalogEntry, normalizedQuery: string): number {
+  let bestScore = 0;
+
+  for (const alias of entry.aliases) {
+    const normalizedAlias = normalize(alias);
+    if (!normalizedAlias) {
+      continue;
+    }
+    if (normalizedAlias === normalizedQuery) {
+      bestScore = Math.max(bestScore, 500);
+      continue;
+    }
+    if (normalizedAlias.startsWith(normalizedQuery)) {
+      bestScore = Math.max(bestScore, 400 - normalizedAlias.length);
+      continue;
+    }
+    if (normalizedAlias.includes(normalizedQuery)) {
+      bestScore = Math.max(bestScore, 250 - normalizedAlias.length);
+      continue;
+    }
+    if (normalizedQuery.split(" ").every((part) => normalizedAlias.includes(part))) {
+      bestScore = Math.max(bestScore, 150 - normalizedAlias.length);
+    }
+  }
+
+  return bestScore;
 }
 
 function cleanInputLine(rawLine: string): string {

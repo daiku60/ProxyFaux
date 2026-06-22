@@ -1,5 +1,5 @@
-import { useDeferredValue, useEffect, useMemo, useState } from "react";
-import { Check, LoaderCircle, X } from "lucide-react";
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
+import { Check, ChevronsUpDown, LoaderCircle, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -14,7 +14,12 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { createPdf, buildCardImageUrl } from "@/lib/api";
-import { parseRosterPreview, type SheetSize } from "@/lib/card-catalog";
+import {
+  parseRosterPreview,
+  searchCatalog,
+  type CatalogSuggestion,
+  type SheetSize,
+} from "@/lib/card-catalog";
 
 const SAMPLE_TEXT = `Brew @ Informants (Bayou)
 Leader:
@@ -34,6 +39,7 @@ References:
   Lucky Fate, Emissary`;
 
 export default function Home() {
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const [rosterText, setRosterText] = useState("");
   const [sheetSize, setSheetSize] = useState<SheetSize>("a4");
   const [border, setBorder] = useState(false);
@@ -43,6 +49,9 @@ export default function Home() {
   const [errorMessage, setErrorMessage] = useState("");
   const [isExporting, setIsExporting] = useState(false);
   const [selectedPreviewIds, setSelectedPreviewIds] = useState<Record<string, boolean>>({});
+  const [suggestions, setSuggestions] = useState<CatalogSuggestion[]>([]);
+  const [highlightedSuggestionIndex, setHighlightedSuggestionIndex] = useState(0);
+  const [suggestionPosition, setSuggestionPosition] = useState({ left: 20, top: 20 });
 
   const deferredRosterText = useDeferredValue(rosterText);
   const previewCards = useMemo(
@@ -67,6 +76,12 @@ export default function Home() {
       return nextSelection;
     });
   }, [previewCards]);
+
+  useEffect(() => {
+    if (highlightedSuggestionIndex >= suggestions.length) {
+      setHighlightedSuggestionIndex(0);
+    }
+  }, [highlightedSuggestionIndex, suggestions.length]);
 
   async function handleExport() {
     const exportText = selectedPreviewCards.map((previewCard) => previewCard.label).join("\n");
@@ -111,6 +126,52 @@ export default function Home() {
     }));
   }
 
+  function updateSuggestions(
+    value: string,
+    selectionStart: number,
+    textarea: HTMLTextAreaElement | null,
+  ) {
+    const lineInfo = getCurrentLineInfo(value, selectionStart);
+    if (!lineInfo) {
+      setSuggestions([]);
+      return;
+    }
+
+    const nextSuggestions = searchCatalog(lineInfo.query);
+    setSuggestions(nextSuggestions);
+    setHighlightedSuggestionIndex(0);
+
+    if (textarea && nextSuggestions.length > 0) {
+      setSuggestionPosition(getSuggestionPosition(textarea, selectionStart));
+    }
+  }
+
+  function applySuggestion(suggestion: CatalogSuggestion) {
+    const textarea = textareaRef.current;
+    const selectionStart = textarea?.selectionStart ?? rosterText.length;
+    const lineInfo = getCurrentLineInfo(rosterText, selectionStart);
+    if (!lineInfo) {
+      return;
+    }
+
+    const nextValue =
+      rosterText.slice(0, lineInfo.lineStart) +
+      `${lineInfo.prefix}${suggestion.label}` +
+      rosterText.slice(lineInfo.lineEnd);
+    const nextCaretPosition = lineInfo.lineStart + lineInfo.prefix.length + suggestion.label.length;
+
+    setRosterText(nextValue);
+    setSuggestions([]);
+
+    window.requestAnimationFrame(() => {
+      if (!textareaRef.current) {
+        return;
+      }
+      textareaRef.current.focus();
+      textareaRef.current.setSelectionRange(nextCaretPosition, nextCaretPosition);
+    });
+  }
+
   return (
     <section className="mx-auto max-w-7xl px-6 py-10 md:py-14">
       <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
@@ -144,13 +205,102 @@ export default function Home() {
                   </Button>
                 ) : null}
               </div>
-              <Textarea
-                id="roster-text"
-                placeholder={SAMPLE_TEXT}
-                value={rosterText}
-                onChange={(event) => setRosterText(event.target.value)}
-                className="min-h-[360px] resize-y bg-background/90"
-              />
+              <div className="relative">
+                <Textarea
+                  id="roster-text"
+                  ref={textareaRef}
+                  placeholder={SAMPLE_TEXT}
+                  value={rosterText}
+                  onChange={(event) => {
+                    setRosterText(event.target.value);
+                    updateSuggestions(
+                      event.target.value,
+                      event.target.selectionStart,
+                      event.target,
+                    );
+                  }}
+                  onClick={(event) =>
+                    updateSuggestions(
+                      event.currentTarget.value,
+                      event.currentTarget.selectionStart,
+                      event.currentTarget,
+                    )
+                  }
+                  onKeyUp={(event) =>
+                    updateSuggestions(
+                      event.currentTarget.value,
+                      event.currentTarget.selectionStart,
+                      event.currentTarget,
+                    )
+                  }
+                  onBlur={() => {
+                    window.setTimeout(() => setSuggestions([]), 120);
+                  }}
+                  onKeyDown={(event) => {
+                    if (suggestions.length === 0) {
+                      return;
+                    }
+                    if (event.key === "ArrowDown") {
+                      event.preventDefault();
+                      setHighlightedSuggestionIndex((currentIndex) =>
+                        (currentIndex + 1) % suggestions.length,
+                      );
+                    } else if (event.key === "ArrowUp") {
+                      event.preventDefault();
+                      setHighlightedSuggestionIndex((currentIndex) =>
+                        (currentIndex - 1 + suggestions.length) % suggestions.length,
+                      );
+                    } else if (event.key === "Enter" || event.key === "Tab") {
+                      event.preventDefault();
+                      const suggestion = suggestions[highlightedSuggestionIndex];
+                      if (suggestion) {
+                        applySuggestion(suggestion);
+                      }
+                    } else if (event.key === "Escape") {
+                      setSuggestions([]);
+                    }
+                  }}
+                  className="min-h-[360px] resize-y bg-background/90"
+                />
+                {suggestions.length > 0 ? (
+                  <div
+                    className="absolute z-20 w-[min(24rem,calc(100%-1rem))] overflow-hidden rounded-[1.2rem] border border-border bg-popover shadow-card"
+                    style={{
+                      left: Math.max(8, suggestionPosition.left),
+                      top: suggestionPosition.top,
+                    }}
+                  >
+                    <div className="border-b border-border/70 px-3 py-2 text-xs uppercase tracking-[0.22em] text-muted-foreground">
+                      Suggestions
+                    </div>
+                    <div className="max-h-72 overflow-y-auto py-1">
+                      {suggestions.map((suggestion, index) => (
+                        <button
+                          key={`${suggestion.kind}-${suggestion.id}`}
+                          type="button"
+                          onMouseDown={(event) => {
+                            event.preventDefault();
+                            applySuggestion(suggestion);
+                          }}
+                          className={
+                            index === highlightedSuggestionIndex
+                              ? "flex w-full items-center justify-between gap-3 bg-secondary px-3 py-2 text-left text-sm text-secondary-foreground"
+                              : "flex w-full items-center justify-between gap-3 px-3 py-2 text-left text-sm transition hover:bg-secondary hover:text-secondary-foreground"
+                          }
+                        >
+                          <span className="truncate">{suggestion.label}</span>
+                          <span className="rounded-full border border-border/80 px-2 py-0.5 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                            {suggestion.kind}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+                <div className="pointer-events-none absolute bottom-4 right-4 text-muted-foreground/60">
+                  <ChevronsUpDown className="h-4 w-4" />
+                </div>
+              </div>
             </div>
 
             <div className="flex flex-col gap-4">
@@ -343,4 +493,105 @@ function OptionToggle({
       </div>
     </div>
   );
+}
+
+type LineInfo = {
+  lineEnd: number;
+  lineStart: number;
+  prefix: string;
+  query: string;
+};
+
+function getCurrentLineInfo(value: string, selectionStart: number): LineInfo | null {
+  const lineStart = value.lastIndexOf("\n", Math.max(selectionStart - 1, 0)) + 1;
+  const rawLineEnd = value.indexOf("\n", selectionStart);
+  const lineEnd = rawLineEnd === -1 ? value.length : rawLineEnd;
+  const line = value.slice(lineStart, lineEnd);
+  const prefixMatch = line.match(/^(\s*[-*\u2022]?\s*)/);
+  const prefix = prefixMatch?.[1] ?? "";
+  const query = line.slice(prefix.length).trim();
+
+  if (!query || query.endsWith(":")) {
+    return null;
+  }
+  if (query.includes("@") && query.endsWith(")")) {
+    return null;
+  }
+  if (query.startsWith("(") && query.endsWith(")")) {
+    return null;
+  }
+
+  return {
+    lineEnd,
+    lineStart,
+    prefix,
+    query,
+  };
+}
+
+function getSuggestionPosition(
+  textarea: HTMLTextAreaElement,
+  selectionStart: number,
+): { left: number; top: number } {
+  const computed = window.getComputedStyle(textarea);
+  const mirror = document.createElement("div");
+  const marker = document.createElement("span");
+
+  mirror.style.position = "absolute";
+  mirror.style.visibility = "hidden";
+  mirror.style.whiteSpace = "pre-wrap";
+  mirror.style.wordWrap = "break-word";
+  mirror.style.overflow = "hidden";
+  mirror.style.top = "0";
+  mirror.style.left = "0";
+  mirror.style.width = `${textarea.clientWidth}px`;
+
+  const mirroredStyles = [
+    "borderTopWidth",
+    "borderRightWidth",
+    "borderBottomWidth",
+    "borderLeftWidth",
+    "boxSizing",
+    "fontFamily",
+    "fontSize",
+    "fontStyle",
+    "fontWeight",
+    "letterSpacing",
+    "lineHeight",
+    "paddingTop",
+    "paddingRight",
+    "paddingBottom",
+    "paddingLeft",
+    "textIndent",
+    "textTransform",
+  ] as const;
+
+  for (const styleName of mirroredStyles) {
+    mirror.style[styleName] = computed[styleName];
+  }
+
+  mirror.textContent = textarea.value.slice(0, selectionStart);
+  marker.textContent = "\u200b";
+  mirror.appendChild(marker);
+  document.body.appendChild(mirror);
+
+  const left = marker.offsetLeft - textarea.scrollLeft + 12;
+  const top = marker.offsetTop - textarea.scrollTop + getLineHeight(computed.lineHeight, computed.fontSize) + 12;
+
+  document.body.removeChild(mirror);
+
+  return {
+    left,
+    top,
+  };
+}
+
+function getLineHeight(lineHeight: string, fontSize: string): number {
+  if (lineHeight.endsWith("px")) {
+    return Number.parseFloat(lineHeight);
+  }
+  if (fontSize.endsWith("px")) {
+    return Number.parseFloat(fontSize) * 1.4;
+  }
+  return 22;
 }
