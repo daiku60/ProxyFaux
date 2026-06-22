@@ -16,6 +16,7 @@ type RawCatalogModel = {
   crewCard?: string;
   faction?: string;
   files?: CardFiles;
+  keywords?: string[];
   name?: string;
   title?: string;
 };
@@ -28,6 +29,7 @@ type RawCatalog = {
 
 type ParseRosterPreviewOptions = {
   includeCrewCards?: boolean;
+  includeUpgradesFromKeywords?: boolean;
 };
 
 export type PreviewCard = {
@@ -42,20 +44,23 @@ type CatalogEntry = {
   fronts: string[];
   id: string;
   kind: "crewCard" | "model" | "upgrade";
+  keywords: string[];
   label: string;
   title?: string;
 };
 
 const rawCatalog = cardsData as RawCatalog;
-const { entriesById, lookup } = buildCatalog(rawCatalog);
+const { entriesById, lookup, upgradeIdsByKeyword } = buildCatalog(rawCatalog);
 
 export function parseRosterPreview(
   text: string,
   options: ParseRosterPreviewOptions = {},
 ): PreviewCard[] {
-  const { includeCrewCards = false } = options;
+  const { includeCrewCards = false, includeUpgradesFromKeywords = false } = options;
   const previews: PreviewCard[] = [];
   const counters = new Map<string, number>();
+  const autoUpgradeIds = new Set<string>();
+  const modelKeywordSet = new Set<string>();
 
   for (const rawLine of text.split("\n")) {
     const cleanedLine = cleanInputLine(rawLine);
@@ -70,10 +75,35 @@ export function parseRosterPreview(
 
     previews.push(buildPreviewCard(entry, counters));
 
+    if (entry.kind === "model") {
+      for (const keyword of entry.keywords) {
+        modelKeywordSet.add(keyword);
+      }
+    } else if (entry.kind === "upgrade") {
+      autoUpgradeIds.add(entry.id);
+    }
+
     if (includeCrewCards && entry.kind === "model" && entry.crewCardId) {
       const crewCardEntry = entriesById.get(entry.crewCardId);
       if (crewCardEntry && crewCardEntry.fronts.length > 0) {
         previews.push(buildPreviewCard(crewCardEntry, counters));
+      }
+    }
+  }
+
+  if (includeUpgradesFromKeywords) {
+    for (const keyword of modelKeywordSet) {
+      const upgradeIds = upgradeIdsByKeyword.get(normalize(keyword)) ?? [];
+      for (const upgradeId of upgradeIds) {
+        if (autoUpgradeIds.has(upgradeId)) {
+          continue;
+        }
+        const upgradeEntry = entriesById.get(upgradeId);
+        if (!upgradeEntry || upgradeEntry.kind !== "upgrade" || upgradeEntry.fronts.length === 0) {
+          continue;
+        }
+        previews.push(buildPreviewCard(upgradeEntry, counters));
+        autoUpgradeIds.add(upgradeId);
       }
     }
   }
@@ -84,9 +114,11 @@ export function parseRosterPreview(
 function buildCatalog(rawCatalog: RawCatalog): {
   entriesById: Map<string, CatalogEntry>;
   lookup: Map<string, CatalogEntry>;
+  upgradeIdsByKeyword: Map<string, string[]>;
 } {
   const entriesById = new Map<string, CatalogEntry>();
   const lookup = new Map<string, CatalogEntry>();
+  const upgradeIdsByKeyword = new Map<string, string[]>();
 
   for (const [id, model] of Object.entries(rawCatalog.models ?? {})) {
     const entry = buildCatalogEntry(id, model, "model");
@@ -119,9 +151,20 @@ function buildCatalog(rawCatalog: RawCatalog): {
         lookup.set(normalized, entry);
       }
     }
+    if (entry.kind === "upgrade") {
+      for (const keyword of entry.keywords) {
+        const normalizedKeyword = normalize(keyword);
+        if (!normalizedKeyword) {
+          continue;
+        }
+        const existingUpgradeIds = upgradeIdsByKeyword.get(normalizedKeyword) ?? [];
+        existingUpgradeIds.push(entry.id);
+        upgradeIdsByKeyword.set(normalizedKeyword, existingUpgradeIds);
+      }
+    }
   }
 
-  return { entriesById, lookup };
+  return { entriesById, lookup, upgradeIdsByKeyword };
 }
 
 function buildCatalogEntry(
@@ -142,6 +185,9 @@ function buildCatalogEntry(
     fronts,
     id,
     kind,
+    keywords: Array.isArray(model.keywords)
+      ? model.keywords.filter((keyword): keyword is string => typeof keyword === "string" && keyword.trim().length > 0)
+      : [],
     label: model.title ? `${model.name}, ${model.title}` : model.name,
     title: model.title,
   };

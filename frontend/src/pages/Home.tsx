@@ -39,14 +39,19 @@ export default function Home() {
   const [border, setBorder] = useState(false);
   const [cutLines, setCutLines] = useState(false);
   const [includeCrewCards, setIncludeCrewCards] = useState(false);
+  const [includeUpgradesFromKeywords, setIncludeUpgradesFromKeywords] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isExporting, setIsExporting] = useState(false);
   const [selectedPreviewIds, setSelectedPreviewIds] = useState<Record<string, boolean>>({});
 
   const deferredRosterText = useDeferredValue(rosterText);
   const previewCards = useMemo(
-    () => parseRosterPreview(deferredRosterText, { includeCrewCards }),
-    [deferredRosterText, includeCrewCards],
+    () =>
+      parseRosterPreview(deferredRosterText, {
+        includeCrewCards,
+        includeUpgradesFromKeywords,
+      }),
+    [deferredRosterText, includeCrewCards, includeUpgradesFromKeywords],
   );
   const selectedPreviewCards = useMemo(
     () => previewCards.filter((previewCard) => selectedPreviewIds[previewCard.id] !== false),
@@ -184,6 +189,14 @@ export default function Home() {
                 id="include-crew-cards"
                 label="Include crew cards"
                 onCheckedChange={setIncludeCrewCards}
+              />
+
+              <OptionToggle
+                checked={includeUpgradesFromKeywords}
+                description="Automatically add upgrades tied to the keywords of included models."
+                id="include-upgrades-from-keywords"
+                label="Include upgrades from keywords"
+                onCheckedChange={setIncludeUpgradesFromKeywords}
               />
             </div>
 
