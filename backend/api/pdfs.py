@@ -8,7 +8,7 @@ from pypdf import PdfReader, PdfWriter, Transformation
 from reportlab.lib.colors import black
 from reportlab.pdfgen import canvas
 
-from api.models import Model
+from api.models import CrewCard, Model
 
 MM_TO_POINTS = 72 / 25.4
 CARD_WIDTH_MM = 70
@@ -30,9 +30,9 @@ class PdfCompositionError(ValueError):
 
 
 @dataclass(frozen=True)
-class RequestedModel:
+class RequestedCard:
     raw_name: str
-    model: Model
+    card: Model | CrewCard
     variant: str | None = None
 
 
@@ -54,18 +54,18 @@ def normalize_name(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", value.lower()).strip()
 
 
-def build_model_lookup(models: list[Model]) -> dict[str, Model]:
-    lookup: dict[str, Model] = {}
-    for model in models:
-        for candidate in iter_model_name_candidates(model):
-            lookup.setdefault(normalize_name(candidate), model)
+def build_card_lookup(cards: list[Model | CrewCard]) -> dict[str, Model | CrewCard]:
+    lookup: dict[str, Model | CrewCard] = {}
+    for card in cards:
+        for candidate in iter_card_name_candidates(card):
+            lookup.setdefault(normalize_name(candidate), card)
     return lookup
 
 
-def iter_model_name_candidates(model: Model) -> list[str]:
+def iter_card_name_candidates(card: Model | CrewCard) -> list[str]:
     candidates: list[str] = []
 
-    files = model.files if isinstance(model.files, dict) else {}
+    files = card.files if isinstance(card.files, dict) else {}
     versions = files.get("versions")
     if isinstance(versions, list):
         for version in versions:
@@ -74,11 +74,13 @@ def iter_model_name_candidates(model: Model) -> list[str]:
                 if isinstance(display_name, str) and display_name.strip():
                     candidates.append(display_name.strip())
 
-    if model.name and model.title:
-        candidates.append(f"{model.name}, {model.title}")
-        candidates.append(f"{model.name} {model.title}")
-    if model.name:
-        candidates.append(model.name)
+    name = getattr(card, "name", "")
+    title = getattr(card, "title", "")
+    if name and title:
+        candidates.append(f"{name}, {title}")
+        candidates.append(f"{name} {title}")
+    if name:
+        candidates.append(name)
 
     deduped: list[str] = []
     seen: set[str] = set()
@@ -90,23 +92,23 @@ def iter_model_name_candidates(model: Model) -> list[str]:
     return deduped
 
 
-def parse_requested_models(text: str, models: list[Model]) -> list[RequestedModel]:
-    lookup = build_model_lookup(models)
-    requested: list[RequestedModel] = []
+def parse_requested_cards(text: str, cards: list[Model | CrewCard]) -> list[RequestedCard]:
+    lookup = build_card_lookup(cards)
+    requested: list[RequestedCard] = []
 
     for raw_line in text.splitlines():
         cleaned_line = clean_input_line(raw_line)
         if not cleaned_line:
             continue
 
-        resolved_line = resolve_requested_model(cleaned_line, lookup)
+        resolved_line = resolve_requested_card(cleaned_line, lookup)
         if resolved_line is not None:
             requested.append(resolved_line)
             continue
 
         parts = [part.strip() for part in cleaned_line.split(",") if part.strip()]
         if len(parts) > 1:
-            resolved_parts = [resolve_requested_model(part, lookup) for part in parts]
+            resolved_parts = [resolve_requested_card(part, lookup) for part in parts]
             if all(resolved_parts):
                 requested.extend(
                     resolved_part
@@ -133,32 +135,35 @@ def clean_input_line(raw_line: str) -> str:
     return re.sub(r"^[\-\*\u2022]+\s*", "", line).strip()
 
 
-def resolve_requested_model(raw_name: str, lookup: dict[str, Model]) -> RequestedModel | None:
+def resolve_requested_card(
+    raw_name: str,
+    lookup: dict[str, Model | CrewCard],
+) -> RequestedCard | None:
     normalized_name = normalize_name(raw_name)
     if not normalized_name:
         return None
 
-    model = lookup.get(normalized_name)
-    if model is not None:
-        return RequestedModel(raw_name=raw_name, model=model)
+    card = lookup.get(normalized_name)
+    if card is not None:
+        return RequestedCard(raw_name=raw_name, card=card)
 
     match = TRAILING_VARIANT_PATTERN.match(raw_name)
     if not match:
-        return resolve_requested_model_without_parenthetical(raw_name, lookup)
+        return resolve_requested_card_without_parenthetical(raw_name, lookup)
 
     variant = match.group("variant")
     base_name = match.group("name").strip()
-    model = lookup.get(normalize_name(base_name))
-    if model is None:
-        return resolve_requested_model_without_parenthetical(raw_name, lookup)
+    card = lookup.get(normalize_name(base_name))
+    if card is None:
+        return resolve_requested_card_without_parenthetical(raw_name, lookup)
 
-    return RequestedModel(raw_name=raw_name, model=model, variant=variant)
+    return RequestedCard(raw_name=raw_name, card=card, variant=variant)
 
 
-def resolve_requested_model_without_parenthetical(
+def resolve_requested_card_without_parenthetical(
     raw_name: str,
-    lookup: dict[str, Model],
-) -> RequestedModel | None:
+    lookup: dict[str, Model | CrewCard],
+) -> RequestedCard | None:
     match = TRAILING_PARENTHETICAL_PATTERN.match(raw_name)
     if not match:
         return None
@@ -167,7 +172,7 @@ def resolve_requested_model_without_parenthetical(
     if stripped_name == raw_name:
         return None
 
-    return resolve_requested_model(stripped_name, lookup)
+    return resolve_requested_card(stripped_name, lookup)
 
 
 def compose_model_pdf(
@@ -177,8 +182,14 @@ def compose_model_pdf(
     cut_lines: bool = False,
     sheet_size: str = "a4",
 ) -> bytes:
-    requested_models = parse_requested_models(text, list(Model.objects.exclude(pdf="")))
-    placements = resolve_pdf_placements(requested_models)
+    requested_cards = parse_requested_cards(
+        text,
+        [
+            *list(Model.objects.exclude(pdf="")),
+            *list(CrewCard.objects.exclude(pdf="")),
+        ],
+    )
+    placements = resolve_pdf_placements(requested_cards)
     return render_composed_pdf(
         placements,
         sheet_layout=build_sheet_layout(sheet_size),
@@ -187,36 +198,36 @@ def compose_model_pdf(
     )
 
 
-def resolve_pdf_placements(requested_models: list[RequestedModel]) -> list[PdfPlacement]:
+def resolve_pdf_placements(requested_cards: list[RequestedCard]) -> list[PdfPlacement]:
     counters: dict[int, int] = {}
     placements: list[PdfPlacement] = []
 
-    for requested_model in requested_models:
-        pdf_path, variants = resolve_pdf_path_and_variants(requested_model.model.pdf)
+    for requested_card in requested_cards:
+        pdf_path, variants = resolve_pdf_path_and_variants(requested_card.card.pdf)
         chosen_variant: str | None = None
         if variants:
-            if requested_model.variant is not None:
-                if requested_model.variant not in variants:
+            if requested_card.variant is not None:
+                if requested_card.variant not in variants:
                     raise PdfCompositionError(
-                        f"{requested_model.raw_name} requested variant {requested_model.variant}, "
+                        f"{requested_card.raw_name} requested variant {requested_card.variant}, "
                         f"but available variants are {', '.join(variants)}."
                     )
-                chosen_variant = requested_model.variant
+                chosen_variant = requested_card.variant
             else:
-                current_index = counters.get(requested_model.model.pk or -1, 0)
+                current_index = counters.get(requested_card.card.pk or -1, 0)
                 chosen_variant = variants[current_index % len(variants)]
-                counters[requested_model.model.pk or -1] = current_index + 1
+                counters[requested_card.card.pk or -1] = current_index + 1
 
         resolved_path = build_variant_pdf_path(pdf_path, chosen_variant)
         if not resolved_path.exists():
             raise PdfCompositionError(
-                f"Missing PDF for {requested_model.raw_name}: {resolved_path}"
+                f"Missing PDF for {requested_card.raw_name}: {resolved_path}"
             )
 
         reader = PdfReader(str(resolved_path))
         if len(reader.pages) < 2:
             raise PdfCompositionError(
-                f"PDF for {requested_model.raw_name} must contain at least two pages."
+                f"PDF for {requested_card.raw_name} must contain at least two pages."
             )
 
         placements.append(PdfPlacement(source_path=resolved_path, page_indexes=(0, 1)))

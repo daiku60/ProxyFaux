@@ -20,6 +20,7 @@ type RawCatalogModel = {
 };
 
 type RawCatalog = {
+  crewCards?: Record<string, RawCatalogModel>;
   models?: Record<string, RawCatalogModel>;
 };
 
@@ -36,7 +37,11 @@ type CatalogEntry = {
   title?: string;
 };
 
-const catalog = buildCatalog((cardsData as RawCatalog).models ?? {});
+const rawCatalog = cardsData as RawCatalog;
+const catalog = buildCatalog({
+  ...(rawCatalog.models ?? {}),
+  ...(rawCatalog.crewCards ?? {}),
+});
 
 export function parseRosterPreview(text: string): PreviewCard[] {
   const previews: PreviewCard[] = [];
