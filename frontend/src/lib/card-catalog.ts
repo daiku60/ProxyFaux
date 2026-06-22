@@ -13,6 +13,7 @@ type CardFiles = {
 };
 
 type RawCatalogModel = {
+  alternates?: string[];
   crewCard?: string;
   faction?: string;
   files?: CardFiles;
@@ -46,6 +47,7 @@ export type CatalogSuggestion = {
 
 type CatalogEntry = {
   aliases: string[];
+  alternateIds: string[];
   crewCardId?: string;
   fronts: string[];
   id: string;
@@ -66,6 +68,7 @@ export function parseRosterPreview(
 ): PreviewCard[] {
   const { includeCrewCards = false, includeUpgradesFromKeywords = false } = options;
   const previews: PreviewCard[] = [];
+  const autoCrewCardIds = new Set<string>();
   const counters = new Map<string, number>();
   const autoUpgradeIds = new Set<string>();
   const modelKeywordSet = new Set<string>();
@@ -92,9 +95,12 @@ export function parseRosterPreview(
     }
 
     if (includeCrewCards && entry.kind === "model" && entry.crewCardId) {
-      const crewCardEntry = entriesById.get(entry.crewCardId);
-      if (crewCardEntry && crewCardEntry.fronts.length > 0) {
+      for (const crewCardEntry of collectCrewCardEntries(entry.crewCardId)) {
+        if (autoCrewCardIds.has(crewCardEntry.id)) {
+          continue;
+        }
         previews.push(buildPreviewCard(crewCardEntry, counters));
+        autoCrewCardIds.add(crewCardEntry.id);
       }
     }
   }
@@ -215,6 +221,12 @@ function buildCatalogEntry(
 
   return {
     aliases: buildAliases(model),
+    alternateIds: Array.isArray(model.alternates)
+      ? model.alternates.filter(
+          (alternateId): alternateId is string =>
+            typeof alternateId === "string" && alternateId.trim().length > 0,
+        )
+      : [],
     crewCardId: model.crewCard,
     fronts,
     id,
@@ -260,6 +272,34 @@ function buildAliases(model: RawCatalogModel): string[] {
     candidates.push(model.name);
   }
   return candidates;
+}
+
+function collectCrewCardEntries(crewCardId: string): CatalogEntry[] {
+  const seen = new Set<string>();
+  const collected: CatalogEntry[] = [];
+  const pendingIds = [crewCardId];
+
+  while (pendingIds.length > 0) {
+    const currentId = pendingIds.shift();
+    if (!currentId || seen.has(currentId)) {
+      continue;
+    }
+    seen.add(currentId);
+
+    const entry = entriesById.get(currentId);
+    if (!entry || entry.kind !== "crewCard" || entry.fronts.length === 0) {
+      continue;
+    }
+
+    collected.push(entry);
+    for (const alternateId of entry.alternateIds) {
+      if (!seen.has(alternateId)) {
+        pendingIds.push(alternateId);
+      }
+    }
+  }
+
+  return collected;
 }
 
 function scoreSuggestion(entry: CatalogEntry, normalizedQuery: string): number {
