@@ -8,7 +8,7 @@ from pypdf import PdfReader, PdfWriter, Transformation
 from reportlab.lib.colors import black
 from reportlab.pdfgen import canvas
 
-from api.models import CrewCard, Model
+from api.models import CrewCard, Model, Upgrade
 
 MM_TO_POINTS = 72 / 25.4
 CARD_WIDTH_MM = 70
@@ -32,7 +32,7 @@ class PdfCompositionError(ValueError):
 @dataclass(frozen=True)
 class RequestedCard:
     raw_name: str
-    card: Model | CrewCard
+    card: Model | CrewCard | Upgrade
     variant: str | None = None
 
 
@@ -54,15 +54,17 @@ def normalize_name(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", value.lower()).strip()
 
 
-def build_card_lookup(cards: list[Model | CrewCard]) -> dict[str, Model | CrewCard]:
-    lookup: dict[str, Model | CrewCard] = {}
+def build_card_lookup(
+    cards: list[Model | CrewCard | Upgrade],
+) -> dict[str, Model | CrewCard | Upgrade]:
+    lookup: dict[str, Model | CrewCard | Upgrade] = {}
     for card in cards:
         for candidate in iter_card_name_candidates(card):
             lookup.setdefault(normalize_name(candidate), card)
     return lookup
 
 
-def iter_card_name_candidates(card: Model | CrewCard) -> list[str]:
+def iter_card_name_candidates(card: Model | CrewCard | Upgrade) -> list[str]:
     candidates: list[str] = []
 
     files = card.files if isinstance(card.files, dict) else {}
@@ -92,7 +94,10 @@ def iter_card_name_candidates(card: Model | CrewCard) -> list[str]:
     return deduped
 
 
-def parse_requested_cards(text: str, cards: list[Model | CrewCard]) -> list[RequestedCard]:
+def parse_requested_cards(
+    text: str,
+    cards: list[Model | CrewCard | Upgrade],
+) -> list[RequestedCard]:
     lookup = build_card_lookup(cards)
     requested: list[RequestedCard] = []
 
@@ -137,7 +142,7 @@ def clean_input_line(raw_line: str) -> str:
 
 def resolve_requested_card(
     raw_name: str,
-    lookup: dict[str, Model | CrewCard],
+    lookup: dict[str, Model | CrewCard | Upgrade],
 ) -> RequestedCard | None:
     normalized_name = normalize_name(raw_name)
     if not normalized_name:
@@ -162,7 +167,7 @@ def resolve_requested_card(
 
 def resolve_requested_card_without_parenthetical(
     raw_name: str,
-    lookup: dict[str, Model | CrewCard],
+    lookup: dict[str, Model | CrewCard | Upgrade],
 ) -> RequestedCard | None:
     match = TRAILING_PARENTHETICAL_PATTERN.match(raw_name)
     if not match:
@@ -187,6 +192,7 @@ def compose_model_pdf(
         [
             *list(Model.objects.exclude(pdf="")),
             *list(CrewCard.objects.exclude(pdf="")),
+            *list(Upgrade.objects.exclude(pdf="")),
         ],
     )
     placements = resolve_pdf_placements(requested_cards)

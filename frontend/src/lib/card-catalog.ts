@@ -23,6 +23,7 @@ type RawCatalogModel = {
 type RawCatalog = {
   crewCards?: Record<string, RawCatalogModel>;
   models?: Record<string, RawCatalogModel>;
+  upgrades?: Record<string, RawCatalogModel>;
 };
 
 type ParseRosterPreviewOptions = {
@@ -40,7 +41,7 @@ type CatalogEntry = {
   crewCardId?: string;
   fronts: string[];
   id: string;
-  kind: "crewCard" | "model";
+  kind: "crewCard" | "model" | "upgrade";
   label: string;
   title?: string;
 };
@@ -103,6 +104,14 @@ function buildCatalog(rawCatalog: RawCatalog): {
     entriesById.set(id, entry);
   }
 
+  for (const [id, upgrade] of Object.entries(rawCatalog.upgrades ?? {})) {
+    const entry = buildCatalogEntry(id, upgrade, "upgrade");
+    if (!entry) {
+      continue;
+    }
+    entriesById.set(id, entry);
+  }
+
   for (const entry of entriesById.values()) {
     for (const candidate of buildCandidates(entry)) {
       const normalized = normalize(candidate);
@@ -118,11 +127,11 @@ function buildCatalog(rawCatalog: RawCatalog): {
 function buildCatalogEntry(
   id: string,
   model: RawCatalogModel,
-  kind: "crewCard" | "model",
+  kind: "crewCard" | "model" | "upgrade",
 ): CatalogEntry | undefined {
   const fronts = (model.files?.versions ?? [])
-      .map((version) => version.front)
-      .filter((frontPath): frontPath is string => typeof frontPath === "string" && frontPath.length > 0);
+    .map((version) => version.front)
+    .filter((frontPath): frontPath is string => typeof frontPath === "string" && frontPath.length > 0);
   if (fronts.length === 0 || !model.name) {
     return undefined;
   }
