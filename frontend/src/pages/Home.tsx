@@ -52,6 +52,7 @@ export default function Home() {
   const [suggestions, setSuggestions] = useState<CatalogSuggestion[]>([]);
   const [highlightedSuggestionIndex, setHighlightedSuggestionIndex] = useState(0);
   const [suggestionPosition, setSuggestionPosition] = useState({ left: 20, top: 20 });
+  const [suggestionsDismissed, setSuggestionsDismissed] = useState(false);
 
   const deferredRosterText = useDeferredValue(rosterText);
   const previewCards = useMemo(
@@ -131,6 +132,11 @@ export default function Home() {
     selectionStart: number,
     textarea: HTMLTextAreaElement | null,
   ) {
+    if (suggestionsDismissed) {
+      setSuggestions([]);
+      return;
+    }
+
     const lineInfo = getCurrentLineInfo(value, selectionStart);
     if (!lineInfo) {
       setSuggestions([]);
@@ -162,6 +168,7 @@ export default function Home() {
 
     setRosterText(nextValue);
     setSuggestions([]);
+    setSuggestionsDismissed(false);
 
     window.requestAnimationFrame(() => {
       if (!textareaRef.current) {
@@ -212,6 +219,7 @@ export default function Home() {
                   placeholder={SAMPLE_TEXT}
                   value={rosterText}
                   onChange={(event) => {
+                    setSuggestionsDismissed(false);
                     setRosterText(event.target.value);
                     updateSuggestions(
                       event.target.value,
@@ -226,13 +234,16 @@ export default function Home() {
                       event.currentTarget,
                     )
                   }
-                  onKeyUp={(event) =>
+                  onKeyUp={(event) => {
+                    if (["ArrowDown", "ArrowUp", "Enter", "Tab", "Escape"].includes(event.key)) {
+                      return;
+                    }
                     updateSuggestions(
                       event.currentTarget.value,
                       event.currentTarget.selectionStart,
                       event.currentTarget,
-                    )
-                  }
+                    );
+                  }}
                   onBlur={() => {
                     window.setTimeout(() => setSuggestions([]), 120);
                   }}
@@ -257,6 +268,7 @@ export default function Home() {
                         applySuggestion(suggestion);
                       }
                     } else if (event.key === "Escape") {
+                      setSuggestionsDismissed(true);
                       setSuggestions([]);
                     }
                   }}
