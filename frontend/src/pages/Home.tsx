@@ -184,11 +184,6 @@ export default function Home() {
       <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
         <Card className="overflow-hidden">
           <CardHeader>
-            <div className="flex items-center gap-3 text-primary">
-              <span className="text-xs font-semibold uppercase tracking-[0.28em]">
-                Main Sheet
-              </span>
-            </div>
             <CardTitle>Paste a crew list and export printable proxies</CardTitle>
             <CardDescription>
               The text parser matches model names and titles, previews the front cards,
@@ -315,51 +310,61 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-4">
-              <div className="space-y-3">
-                <Label htmlFor="sheet-size">Sheet size</Label>
-                <Select value={sheetSize} onValueChange={(value) => setSheetSize(value as SheetSize)}>
-                  <SelectTrigger id="sheet-size">
-                    <SelectValue placeholder="Select a sheet size" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="letter">Letter</SelectItem>
-                    <SelectItem value="a4">A4</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+            <div className="grid gap-4 lg:grid-cols-2">
+              <OptionSection
+                title="Layout"
+                description="Configure the sheet format and printed cut guides."
+              >
+                <div className="space-y-3">
+                  <Label htmlFor="sheet-size">Sheet size</Label>
+                  <Select value={sheetSize} onValueChange={(value) => setSheetSize(value as SheetSize)}>
+                    <SelectTrigger id="sheet-size">
+                      <SelectValue placeholder="Select a sheet size" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="letter">Letter</SelectItem>
+                      <SelectItem value="a4">A4</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
 
-              <OptionToggle
-                checked={border}
-                description="Draw one outer border around each front/back pair."
-                id="include-border"
-                label="Include border"
-                onCheckedChange={setBorder}
-              />
+                <OptionToggle
+                  checked={border}
+                  description="Draw one outer border around each front/back pair."
+                  id="include-border"
+                  label="Include border"
+                  onCheckedChange={setBorder}
+                />
 
-              <OptionToggle
-                checked={cutLines}
-                description="Extend cut guides from the card edges to the sheet border."
-                id="include-cut-lines"
-                label="Include cut lines"
-                onCheckedChange={setCutLines}
-              />
+                <OptionToggle
+                  checked={cutLines}
+                  description="Extend cut guides from the card edges to the sheet border."
+                  id="include-cut-lines"
+                  label="Include cut lines"
+                  onCheckedChange={setCutLines}
+                />
+              </OptionSection>
 
-              <OptionToggle
-                checked={includeCrewCards}
-                description="Automatically add linked crew cards when matched models have one."
-                id="include-crew-cards"
-                label="Include crew cards"
-                onCheckedChange={setIncludeCrewCards}
-              />
+              <OptionSection
+                title="Options"
+                description="Expand the card list with related crew cards and upgrades."
+              >
+                <OptionToggle
+                  checked={includeCrewCards}
+                  description="Automatically add linked crew cards when matched models have one."
+                  id="include-crew-cards"
+                  label="Include crew cards"
+                  onCheckedChange={setIncludeCrewCards}
+                />
 
-              <OptionToggle
-                checked={includeUpgradesFromKeywords}
-                description="Automatically add upgrades tied to the keywords of included models."
-                id="include-upgrades-from-keywords"
-                label="Include upgrades from keywords"
-                onCheckedChange={setIncludeUpgradesFromKeywords}
-              />
+                <OptionToggle
+                  checked={includeUpgradesFromKeywords}
+                  description="Automatically add upgrades tied to the keywords of included models."
+                  id="include-upgrades-from-keywords"
+                  label="Include upgrades from keywords"
+                  onCheckedChange={setIncludeUpgradesFromKeywords}
+                />
+              </OptionSection>
             </div>
 
             {errorMessage ? (
@@ -384,7 +389,7 @@ export default function Home() {
                 )}
               </Button>
               <p className="text-sm text-muted-foreground">
-                The generated PDF includes only the checked preview cards and opens in a new tab once the API returns its URL.
+                The generated PDF includes only the checked preview cards and opens in a new tab.
               </p>
             </div>
           </CardContent>
@@ -481,6 +486,26 @@ type OptionToggleProps = {
   label: string;
   onCheckedChange: (checked: boolean) => void;
 };
+
+type OptionSectionProps = {
+  children: React.ReactNode;
+  description: string;
+  title: string;
+};
+
+function OptionSection({ children, description, title }: OptionSectionProps) {
+  return (
+    <section className="space-y-4 rounded-[1.4rem] border border-border/70 bg-background/55 p-4">
+      <div className="space-y-1.5">
+        <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-primary/80">
+          {title}
+        </h3>
+        <p className="text-sm leading-5 text-muted-foreground">{description}</p>
+      </div>
+      <div className="space-y-3">{children}</div>
+    </section>
+  );
+}
 
 function OptionToggle({
   checked,
