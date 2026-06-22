@@ -23,7 +23,8 @@
                 "Instinct",
                 "Shielded",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Neverborn/Chimera/M4E_Crew_Chimera_Marcus_Alpha.pdf"
         },
         "AgeofInspiration": {
             "faction": "Explorer's Society",
@@ -49,7 +50,8 @@
                 "Staggered",
                 "Summon",
                 "Voyage"
-            ]
+            ],
+            "pdf": "pdfs/Explorer's Society/EVS/M4E_Crew_EVS_Maxine_Agassiz_The_Renowned.pdf"
         },
         "AggressiveLegislation": {
             "faction": "Arcanists",
@@ -74,7 +76,8 @@
                 "Shielded",
                 "Slow",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Arcanists/M&SU/M4E_Crew_MSU_Toni_Ironsides_Union_President.pdf"
         },
         "AntiqueDealer": {
             "faction": "Explorer's Society",
@@ -97,7 +100,8 @@
                 "Focused",
                 "Replica",
                 "Slow"
-            ]
+            ],
+            "pdf": "pdfs/Explorer's Society/Wastrel/M4E_Crew_Wastrel_Lucas_McCabe_Relic_Hunter_Dismounted_Hunter.pdf"
         },
         "ArmsRace": {
             "faction": "Bayou",
@@ -121,7 +125,8 @@
                 "Burning",
                 "Impact",
                 "Perforated"
-            ]
+            ],
+            "pdf": "pdfs/Bayou/Kin/M4E_Crew_Kin_Ophelia_LaCroix_Red_Cage_Raider.pdf"
         },
         "AudaciousAssault": {
             "faction": "Outcasts",
@@ -146,7 +151,8 @@
                 "Burning",
                 "Impact",
                 "Shielded"
-            ]
+            ],
+            "pdf": "pdfs/Outcasts/Freikorps/M4E_Crew_Freikorps_Von_Schill_The_Veteran.pdf"
         },
         "BeyondTime": {
             "faction": "Outcasts",
@@ -171,7 +177,8 @@
                 "Flicker",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Outcasts/Obliteration/M4E_Crew_Obliteration_Tara_Voidcaller.pdf"
         },
         "BiggerHatThanYou": {
             "faction": "Bayou",
@@ -196,7 +203,8 @@
                 "Stunned",
                 "Summon",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Bayou/Big Hat/M4E_Crew_Big-Hat_Som'er_Teeth_Jones_Bayou_Boss.pdf"
         },
         "BloodandHunger": {
             "faction": "Arcanists",
@@ -220,7 +228,8 @@
                 "Shielded",
                 "Slow",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Arcanists/December/M4E_Crew_December_Rasputina_Winter's_Teeth.pdf"
         },
         "BloodlessTirade": {
             "faction": "Neverborn",
@@ -239,7 +248,8 @@
             ],
             "name": "Bloodless Tirade",
             "text": "Kastore (Fervent)\t5\t6\t6\t3\t-\t13\tReturned\tMaster\tNeverborn\t\tUrnbearer\tBloodless Tirade",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Neverborn/Returned/M4E_Crew_Returned_Kastore_Fervent_1.pdf"
         },
         "BoostedHandSignals": {
             "alternates": [
@@ -267,7 +277,8 @@
                 "Hidden",
                 "Impact",
                 "Insight"
-            ]
+            ],
+            "pdf": "pdfs/Guild/Cavalier/M4E_Crew_Cavalier_Harold_Tull_Dead_Silent_2.pdf"
         },
         "BoostedHeavySalvo": {
             "alternates": [
@@ -295,7 +306,8 @@
                 "Hidden",
                 "Impact",
                 "Insight"
-            ]
+            ],
+            "pdf": ""
         },
         "BoundByBlood": {
             "faction": "Guild",
@@ -321,7 +333,8 @@
                 "New Blood",
                 "Reload",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Guild/Family/M4E_Crew_Family_Perdita_Ortega_La_Diabla.pdf"
         },
         "BountyHunt": {
             "faction": "Outcasts",
@@ -347,7 +360,8 @@
                 "Impact",
                 "Slow",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Outcasts/Mercenary/M4E_Crew_Mercenary_Viktoria_Chambers_Ashes_and_Blood.pdf"
         },
         "BrackishBully": {
             "faction": "Bayou",
@@ -372,7 +386,8 @@
                 "Entranced",
                 "Hastened",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Bayou/Angler/M4E_Crew_Angler_The_Clampetts_Fisherfolk.pdf"
         },
         "BreatheTheAether": {
             "faction": "Arcanists",
@@ -399,7 +414,8 @@
                 "Slow",
                 "Staggered",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Arcanists/Academic/M4E_Crew_Academic_Sandeep_Font_of_Magic.pdf"
         },
         "BurningMansPrayer": {
             "faction": "Arcanists",
@@ -423,7 +439,8 @@
                 "Hastened",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Arcanists/Wildfire/M4E_Crew_Wildfire_Kaeris_Reborn.pdf"
         },
         "CarefullyLaidPlans": {
             "faction": "Bayou",
@@ -448,7 +465,8 @@
                 "Injured",
                 "Shielded",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Bayou/Tricksy/M4E_Crew_Tricksy_Mah_Tucket_Metal_Magpie.pdf"
         },
         "Cheeseit": {
             "faction": "Outcasts",
@@ -472,7 +490,8 @@
                 "Challenged",
                 "Entranced",
                 "Hastened"
-            ]
+            ],
+            "pdf": "pdfs/Outcasts/Infamous/M4E_Crew_Infamous_Captain_Zipp_Dread_Pirate.pdf"
         },
         "ClearMind": {
             "alternates": [
@@ -500,7 +519,8 @@
                 "Incurable",
                 "Insight",
                 "Stunned"
-            ]
+            ],
+            "pdf": "pdfs/Neverborn/Returned/M4E_Crew_Returned_Kastore_Awakened_2.pdf"
         },
         "CloseOversight": {
             "faction": "Ten Thunders",
@@ -526,7 +546,8 @@
                 "Slow",
                 "Stunned",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Ten Thunders/Foundry/M4E_Crew_Foundry_Mei_Feng_Foreman.pdf"
         },
         "CloudedMind": {
             "alternates": [
@@ -554,7 +575,8 @@
                 "Incurable",
                 "Insight",
                 "Stunned"
-            ]
+            ],
+            "pdf": "pdfs/Neverborn/Returned/M4E_Crew_Returned_Kastore_Awakened_1.pdf"
         },
         "ContagionsKiss": {
             "faction": "Outcasts",
@@ -579,7 +601,8 @@
                 "Slow",
                 "Stunned",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Outcasts/Plague/M4E_Crew_Plague_Hamelin_Plaguebringer.pdf"
         },
         "CoordinatedEffort": {
             "faction": "Outcasts",
@@ -605,7 +628,8 @@
                 "Impact",
                 "Slow",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Outcasts/Mercenary/M4E_Crew_Mercenary_Viktoria_Chambers_Twin_Blades.pdf"
         },
         "Coronation": {
             "faction": "Neverborn",
@@ -628,7 +652,8 @@
                 "Hastened",
                 "Injured",
                 "Shielded"
-            ]
+            ],
+            "pdf": "pdfs/Neverborn/Banished/M4E_Crew_Banished_Silken_King_Colossus.pdf"
         },
         "CourtroomDrama": {
             "faction": "Guild",
@@ -652,7 +677,8 @@
                 "Adaptable",
                 "Aura (Negligent)",
                 "Slow"
-            ]
+            ],
+            "pdf": "pdfs/Guild/Elite/M4E_Crew_Elite_Lucius_Mattheson_In_Plain_Sight.pdf"
         },
         "CrawlingHex": {
             "faction": "Bayou",
@@ -676,7 +702,8 @@
                 "Craven",
                 "Poison",
                 "Stunned"
-            ]
+            ],
+            "pdf": "pdfs/Bayou/Swampfiend/M4E_Crew_Swampfiend_Zoraida_Bog_Witch.pdf"
         },
         "CunningPatience": {
             "faction": "Ten Thunders",
@@ -700,7 +727,8 @@
                 "Focused",
                 "Insight",
                 "Slow"
-            ]
+            ],
+            "pdf": "pdfs/Ten Thunders/Qi and Gong/M4E_Crew_Qi-and-Gong_Youko_Hamasaki_Unseen.pdf"
         },
         "CursedRelics": {
             "faction": "Explorer's Society",
@@ -723,7 +751,8 @@
                 "Focused",
                 "Replica",
                 "Slow"
-            ]
+            ],
+            "pdf": "pdfs/Explorer's Society/Wastrel/M4E_Crew_Wastrel_Lucas_McCabe_Tomb_Delver.pdf"
         },
         "DarkThoughts": {
             "faction": "Neverborn",
@@ -749,7 +778,8 @@
                 "Paranoia",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Neverborn/Woe/M4E_Crew_Woe_Pandora_Despair's_Desire.pdf"
         },
         "DevotedtotheBrew": {
             "faction": "Bayou",
@@ -774,7 +804,8 @@
                 "Distracted",
                 "Insight",
                 "Poison"
-            ]
+            ],
+            "pdf": "pdfs/Bayou/Tri-Chi/M4E_Crew_Tri-Chi_The_Brewmaster_Proof-Prophet.pdf"
         },
         "DropthePianos": {
             "faction": "Outcasts",
@@ -798,7 +829,8 @@
                 "Craven",
                 "Entranced",
                 "Hastened"
-            ]
+            ],
+            "pdf": "pdfs/Outcasts/Infamous/M4E_Crew_Infamous_Captain_Zipp_Cloudchaser.pdf"
         },
         "DustboundOath": {
             "faction": "Arcanists",
@@ -823,7 +855,8 @@
                 "Hidden",
                 "Staggered",
                 "Stunned"
-            ]
+            ],
+            "pdf": "pdfs/Arcanists/Frontier/M4E_Crew_Frontier_Cornelius_Basse_Lone_Verdict.pdf"
         },
         "EliteEquipment": {
             "faction": "Explorer's Society",
@@ -847,7 +880,8 @@
                 "Aura (Concealment)",
                 "Distracted",
                 "Reload"
-            ]
+            ],
+            "pdf": "pdfs/Explorer's Society/Apex/M4E_Crew_Apex_Lord_Cooper_Manhunter.pdf"
         },
         "EmbraceTechnology": {
             "faction": "Explorer's Society",
@@ -873,7 +907,8 @@
                 "Slow",
                 "Staggered",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Explorer's Society/Bygone/M4E_Crew_Bygone_Tiri_The_Architect.pdf"
         },
         "EmpoweringTome": {
             "faction": "Guild",
@@ -899,7 +934,8 @@
                 "Slow",
                 "Summon",
                 "Suppressed"
-            ]
+            ],
+            "pdf": "pdfs/Guild/Witch Hunter/M4E_Crew_Witch-Hunter_Sonnia_Criid_Unmasked.pdf"
         },
         "EngulfingFlames": {
             "faction": "Guild",
@@ -925,7 +961,8 @@
                 "Slow",
                 "Summon",
                 "Suppressed"
-            ]
+            ],
+            "pdf": "pdfs/Guild/Witch Hunter/M4E_Crew_Witch-Hunter_Sonnia_Criid_Unrelenting.pdf"
         },
         "EntangledSpirits": {
             "faction": "Ten Thunders",
@@ -951,7 +988,8 @@
                 "Slow",
                 "Stunned",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Ten Thunders/Oni/M4E_Crew_Oni_Asami_Tanaka_Shintaku.pdf"
         },
         "EntranceExamination": {
             "faction": "Resurrectionist",
@@ -977,7 +1015,8 @@
                 "Slow",
                 "Stunned",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Resurrectionists/Transmortis/M4E_Crew_Transmortis_Prof_Von_Schtook_Admissions_Executive.pdf"
         },
         "EternalPilgrimage": {
             "faction": "Explorer's Society",
@@ -1002,7 +1041,8 @@
                 "Life",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Explorer's Society/Seeker/M4E_Crew_Seeker_Jedza_the_Wanderer.pdf"
         },
         "ExcessiveViolence": {
             "faction": "Guild",
@@ -1027,7 +1067,8 @@
                 "Entranced",
                 "Injured",
                 "Promoted"
-            ]
+            ],
+            "pdf": "pdfs/Guild/Guard/M4E_Crew_Guard_Dashel_Barker_Butcher.pdf"
         },
         "EyesintheWall": {
             "faction": "Outcasts",
@@ -1053,7 +1094,8 @@
                 "Slow",
                 "Stunned",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Outcasts/Plague/M4E_Crew_Plague_Hamelin_The_Piper.pdf"
         },
         "FeastingTirade": {
             "faction": "Neverborn",
@@ -1078,7 +1120,8 @@
                 "Incurable",
                 "Insight",
                 "Stunned"
-            ]
+            ],
+            "pdf": "pdfs/Neverborn/Returned/M4E_Crew_Returned_Kastore_Fevrent_2.pdf"
         },
         "FireShieldtheFaithful": {
             "faction": "Resurrectionist",
@@ -1103,7 +1146,8 @@
                 "Slow",
                 "Stunned",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Resurrectionists/Revenant/M4E_Crew_Revenant_Reva_Cortinas_Death_Shepherd.pdf"
         },
         "FireworksShow": {
             "faction": "Bayou",
@@ -1127,7 +1171,8 @@
                 "Glowy",
                 "Insight",
                 "Poison"
-            ]
+            ],
+            "pdf": "pdfs/Bayou/Wizz-Bang/M4E_Crew_Wizz-Bang_Wong_The_Wonderful.pdf"
         },
         "FleetingMoments": {
             "faction": "Outcasts",
@@ -1152,7 +1197,8 @@
                 "Flicker",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Outcasts/Obliteration/M4E_Crew_Obliteration_Tara_Timeless.pdf"
         },
         "FlickeringGrasp": {
             "faction": "Resurrectionist",
@@ -1179,7 +1225,8 @@
                 "Slow",
                 "Stunned",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Resurrectionists/Revenant/M4E_Crew_Revenant_Reva_Cortinas_Luminary.pdf"
         },
         "FlowLikeMoonshine": {
             "faction": "Bayou",
@@ -1204,7 +1251,8 @@
                 "Distracted",
                 "Insight",
                 "Poison"
-            ]
+            ],
+            "pdf": "pdfs/Bayou/Tri-Chi/M4E_Crew_Tri-Chi_The_Brewmaster_Moonshiner.pdf"
         },
         "FlushWithCash": {
             "faction": "Explorer's Society",
@@ -1229,7 +1277,8 @@
                 "Shame",
                 "Slow",
                 "Stunned"
-            ]
+            ],
+            "pdf": "pdfs/Explorer's Society/Syndicate/M4E_Crew_Syndicate_Anya_Lycarayen_The_Resolute.pdf"
         },
         "FollowTradition": {
             "faction": "Explorer's Society",
@@ -1254,7 +1303,8 @@
                 "Insight",
                 "Shielded",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Explorer's Society/Bygone/M4E_Crew_Bygone_Tiri_The_Nomad.pdf"
         },
         "FootnotesofMadness": {
             "faction": "Explorer's Society",
@@ -1280,7 +1330,8 @@
                 "Staggered",
                 "Summon",
                 "Voyage"
-            ]
+            ],
+            "pdf": "pdfs/Explorer's Society/EVS/M4E_Crew_EVS_Maxine_Agassiz_Monomaniacal.pdf"
         },
         "FreikorpsTactics": {
             "faction": "Outcasts",
@@ -1305,7 +1356,8 @@
                 "Burning",
                 "Impact",
                 "Shielded"
-            ]
+            ],
+            "pdf": "pdfs/Outcasts/Freikorps/M4E_Crew_Freikorps_Von_Schill_The_Veteran.pdf"
         },
         "FrostbittenProphecy": {
             "faction": "Neverborn",
@@ -1329,7 +1381,8 @@
                 "Insight",
                 "Numb",
                 "Slow"
-            ]
+            ],
+            "pdf": "pdfs/Neverborn/Savage/M4E_Crew_Savage_Euripides_Hierophant.pdf"
         },
         "GravePeril": {
             "faction": "Guild",
@@ -1357,7 +1410,8 @@
                 "Injured",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Guild/Marshal/M4E_Crew_Marshal_Lady_Justice_Death_Touched.pdf"
         },
         "GuardianSpirit": {
             "faction": "Resurrectionist",
@@ -1384,7 +1438,8 @@
                 "Shielded",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Resurrectionists/Ancestor/M4E_Crew_Ancestor_Yan_Lo_Pathseeker.pdf"
         },
         "GuidedEvolution": {
             "faction": "Neverborn",
@@ -1409,7 +1464,8 @@
                 "Instinct",
                 "Shielded",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Neverborn/Chimera/M4E_Crew_Chimera_Marcus_Monstermaker.pdf"
         },
         "HandSignals": {
             "alternates": [
@@ -1437,7 +1493,8 @@
                 "Hidden",
                 "Impact",
                 "Insight"
-            ]
+            ],
+            "pdf": "pdfs/Guild/Cavalier/M4E_Crew_Cavalier_Harold_Tull_Dead_Silent_1.pdf"
         },
         "HeavySalvo": {
             "alternates": [
@@ -1465,7 +1522,8 @@
                 "Hidden",
                 "Impact",
                 "Insight"
-            ]
+            ],
+            "pdf": "pdfs/Guild/Cavalier/M4E_Crew_Cavalier_Harold_Tull_Artilerist_1.pdf"
         },
         "Hivemind": {
             "faction": "Explorer's Society",
@@ -1490,7 +1548,8 @@
                 "Parasite",
                 "Poison",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Explorer's Society/Cadmus/M4E_Crew_Cadmus_Nexus_Heart_of_the_Hive.pdf"
         },
         "HouseAlwaysWins": {
             "faction": "Ten Thunders",
@@ -1515,7 +1574,8 @@
                 "Focused",
                 "Insight",
                 "Slow"
-            ]
+            ],
+            "pdf": "pdfs/Ten Thunders/Honeypot/M4E_Crew_Honeypot_Jakob_Lynch_Dark_Bet.pdf"
         },
         "HungersReach": {
             "faction": "Ten Thunders",
@@ -1541,7 +1601,8 @@
                 "Slow",
                 "Stunned",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Ten Thunders/Oni/M4E_Crew_Oni_Asami_Tanaka_Oni_Mother.pdf"
         },
         "HuntersGuile": {
             "faction": "Explorer's Society",
@@ -1565,7 +1626,8 @@
                 "Aura (Concealment)",
                 "Distracted",
                 "Reload"
-            ]
+            ],
+            "pdf": "pdfs/Explorer's Society/Apex/M4E_Crew_Apex_Lord_Cooper_Huntmaster.pdf"
         },
         "IndustryLeader": {
             "faction": "Explorer's Society",
@@ -1590,7 +1652,8 @@
                 "Shame",
                 "Slow",
                 "Stunned"
-            ]
+            ],
+            "pdf": "pdfs/Explorer's Society/Syndicate/M4E_Crew_Syndicate_Anya_Lycarayen_Rail_Magnate.pdf"
         },
         "InevitabilityofDeath": {
             "faction": "Explorer's Society",
@@ -1615,7 +1678,8 @@
                 "Life",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Explorer's Society/Seeker/M4E_Crew_Seeker_Jedza_Everlasting.pdf"
         },
         "IntoThorns": {
             "faction": "Neverborn",
@@ -1639,7 +1703,8 @@
                 "Bolstered",
                 "Injured",
                 "Suppressed"
-            ]
+            ],
+            "pdf": "pdfs/Neverborn/Fae/M4E_Crew_Fae_Titania_Withered_Rose.pdf"
         },
         "LaidtoRest": {
             "faction": "Guild",
@@ -1665,7 +1730,8 @@
                 "Injured",
                 "Fast",
                 "Focused"
-            ]
+            ],
+            "pdf": "pdfs/Guild/Marshal/M4E_Crew_Marshal_Lady_Justice_Arbiter_of_the_Undead.pdf"
         },
         "LawsReach": {
             "faction": "Arcanists",
@@ -1690,7 +1756,8 @@
                 "Hidden",
                 "Staggered",
                 "Stunned"
-            ]
+            ],
+            "pdf": "pdfs/Arcanists/Frontier/M4E_Crew_Frontier_Cornelius_Basse_Badlands_Sheriff.pdf"
         },
         "LegendaryFigures": {
             "faction": "Ten Thunders",
@@ -1716,7 +1783,8 @@
                 "Shielded",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Ten Thunders/Red Library/M4E_Stat_Red-Library_Linh_Ly_Storyteller.pdf"
         },
         "LimitTest": {
             "faction": "Arcanists",
@@ -1741,7 +1809,8 @@
                 "Hastened",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Arcanists/Wildfire/M4E_Crew_Wildfire_Kaeris_Iron-Threaded.pdf"
         },
         "LootedParts": {
             "faction": "Bayou",
@@ -1766,7 +1835,8 @@
                 "Injured",
                 "Shielded",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Bayou/Tricksy/M4E_Crew_Tricksy_Mah_Tucket_Mecha_Meemaw.pdf"
         },
         "LoyaltyRevitalized": {
             "faction": "Ten Thunders",
@@ -1792,7 +1862,8 @@
                 "Slow",
                 "Stunned",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Ten Thunders/Foundry/M4E_Crew_Foundry_Mei_Feng_Sentinel_of_Steel.pdf"
         },
         "LucidDreaming": {
             "faction": "Neverborn",
@@ -1816,7 +1887,8 @@
                 "Fright",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Neverborn/Nightmare/M4E_Crew_Nightmare_Dreamer_Fast_Asleep.pdf"
         },
         "MadnessandMalice": {
             "faction": "Resurrectionist",
@@ -1840,7 +1912,8 @@
                 "Entranced",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Resurrectionists/Redchapel/M4E_Crew_Redchapel_Seamus_The_Last_Breath.pdf"
         },
         "MarshbornMalice": {
             "faction": "Bayou",
@@ -1865,7 +1938,8 @@
                 "Craven",
                 "Poison",
                 "Stunned"
-            ]
+            ],
+            "pdf": "pdfs/Bayou/Swampfiend/M4E_Crew_Swampfiend_Zoraida_Swamp_Hag.pdf"
         },
         "MiseryBusiness": {
             "faction": "Neverborn",
@@ -1891,7 +1965,8 @@
                 "Paranoia",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Neverborn/Woe/M4E_Crew_Woe_Pandora_Tyrant_Torn.pdf"
         },
         "MobilizetheWatch": {
             "faction": "Guild",
@@ -1917,7 +1992,8 @@
                 "Promoted",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Guild/Guard/M4E_Crew_Guard_Dashel_Barker_The_Old_Guard.pdf"
         },
         "MorningEdition": {
             "faction": "Guild",
@@ -1941,7 +2017,8 @@
                 "Entranced",
                 "Fast",
                 "Slow"
-            ]
+            ],
+            "pdf": "pdfs/Guild/Journalist/M4E_Crew_Journalist_Nellie_Cochrane_The_Tattler.pdf"
         },
         "MortuaryAccess": {
             "faction": "Resurrectionist",
@@ -1968,7 +2045,8 @@
                 "Poison",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Resurrectionists/Experimental/M4E_Crew_Experimental_Dr_McMourning_Malpractitioner.pdf"
         },
         "MysteryBusiness": {
             "faction": "Neverborn",
@@ -1994,7 +2072,8 @@
                 "Paranoia",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Neverborn/Woe/M4E_Crew_Woe_Pandora_Tyrant_Torn.pdf"
         },
         "Oneirophobia": {
             "faction": "Neverborn",
@@ -2018,7 +2097,8 @@
                 "Fright",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Neverborn/Nightmare/M4E_Crew_Nightmare_Dreamer_Insomniac.pdf"
         },
         "OnTour": {
             "faction": "Neverborn",
@@ -2037,7 +2117,8 @@
             ],
             "name": "On Tour",
             "text": "On Tour",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Neverborn/Versatile - Neverborn/M4E_Crew_Crossroads_Wrath.pdf"
         },
         "ParadeoftheDead": {
             "faction": "Resurrectionist",
@@ -2063,7 +2144,8 @@
                 "Entranced",
                 "Focused",
                 "Slow"
-            ]
+            ],
+            "pdf": "pdfs/Resurrectionists/Forgotten/M4E_Crew_Forgotten_Molly_Squidpiddge_Chaotic_Conductor.pdf"
         },
         "Parasitoidism": {
             "faction": "Explorer's Society",
@@ -2082,7 +2164,8 @@
             ],
             "name": "Parasitoidism",
             "text": "Nexus (One of Many)\t5\t5\t6\t1\t*\t7\tCadmus\tMaster\tExplorer's Society\t3\t\tParasitoidism",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Explorer's Society/Cadmus/M4E_Crew_Cadmus_Nexus_One_of_Many.pdf"
         },
         "PigsofFire": {
             "faction": "Bayou",
@@ -2107,7 +2190,8 @@
                 "Glutted",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Bayou/Sooey/M4E_Crew_Sooey_Ulix_Turner_Porkbelly_Protector.pdf"
         },
         "Pitborne": {
             "faction": "Neverborn",
@@ -2133,7 +2217,8 @@
                 "Glutted",
                 "Injured",
                 "Slow"
-            ]
+            ],
+            "pdf": "pdfs/Neverborn/Brood/M4E_Crew_Brood_Nekima_Broodmother.pdf"
         },
         "PowerUnleashed": {
             "faction": "Arcanists",
@@ -2159,7 +2244,8 @@
                 "Staggered",
                 "Stunned",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Arcanists/Witness/M4E_Crew_Witness_Damian_Ravencroft_Unbound.pdf"
         },
         "PursuitofKnowledge": {
             "faction": "Arcanists",
@@ -2185,7 +2271,8 @@
                 "Staggered",
                 "Stunned",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Arcanists/Witness/M4E_Crew_Witness_Damian_Ravencroft_Aspirant.pdf"
         },
         "RepairBay": {
             "faction": "Outcasts",
@@ -2208,7 +2295,8 @@
                 "Bolstered",
                 "Impact",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Outcasts/Ampersand/M4E_Crew_Ampersand_Clockwork_Queen_Matriarch_of_the_Machine.pdf"
         },
         "RepeatUntilPerfect": {
             "faction": "Ten Thunders",
@@ -2234,7 +2322,8 @@
                 "Fast",
                 "Hastened",
                 "Slow"
-            ]
+            ],
+            "pdf": "pdfs/Ten Thunders/Monk/M4E_Crew_Monk_Shenlong_The_Teacher.pdf"
         },
         "RidersofFate": {
             "alternates": [
@@ -2262,7 +2351,8 @@
                 "Staggered",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Outcasts/Amalgam/M4E_Crew_Amalgam_Rusty_Alyce_Rider_Remade_2.pdf"
         },
         "RisingTide": {
             "faction": "Neverborn",
@@ -2285,7 +2375,8 @@
                 "Hastened",
                 "Injured",
                 "Shielded"
-            ]
+            ],
+            "pdf": "pdfs/Neverborn/Banished/M4E_Crew_Banished_Silken_King_Long_Live.pdf"
         },
         "RolltheDice": {
             "faction": "Ten Thunders",
@@ -2310,7 +2401,8 @@
                 "Focused",
                 "Insight",
                 "Slow"
-            ]
+            ],
+            "pdf": "pdfs/Ten Thunders/Honeypot/M4E_Crew_Honeypot_Jakob_Lynch_Wildcard.pdf"
         },
         "RustEatenFate": {
             "alternates": [
@@ -2338,7 +2430,8 @@
                 "Slow",
                 "Staggered",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Outcasts/Amalgam/M4E_Crew_Amalgam_Rusty_Alyce_Rider_Remade_1.pdf"
         },
         "Salvage&Logistics": {
             "faction": "Outcasts",
@@ -2363,7 +2456,8 @@
                 "Slow",
                 "Staggered",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Outcasts/Amalgam/M4E_Crew_Amalgam_Rusty_Alyce_Trigger_Happy.pdf"
         },
         "ScorchtheHeavens": {
             "faction": "Ten Thunders",
@@ -2389,7 +2483,8 @@
                 "Fast",
                 "Hastened",
                 "Slow"
-            ]
+            ],
+            "pdf": "pdfs/Ten Thunders/Monk/M4E_Crew_Monk_Shenlong_Dragon's_Breath.pdf"
         },
         "SecretsoftheRedLibrary": {
             "faction": "Ten Thunders",
@@ -2415,7 +2510,8 @@
                 "Shielded",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Ten Thunders/Red Library/M4E_Crew_Red-Library_Linh_Ly_Bibliothecary.pdf"
         },
         "ShadowofDoubt": {
             "faction": "Explorer's Society",
@@ -2439,7 +2535,8 @@
                 "Fast",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Explorer's Society/DUA/M4E_Crew_DUA_English_Ivan_Double_Agent.pdf"
         },
         "ShadowoftheNoose": {
             "faction": "Outcasts",
@@ -2463,7 +2560,8 @@
                 "Fast",
                 "Impact",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Outcasts/Bandit/M4E_Crew_Bandit_Parker_Barrows_Dead_Man_Walking.pdf"
         },
         "SilentControl": {
             "faction": "Ten Thunders",
@@ -2488,7 +2586,8 @@
                 "Insight",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Ten Thunders/Qi and Gong/M4E_Crew_Qi-and-Gong_Youko_Hamasaki_Silk_of_the_Lotus.pdf"
         },
         "SinsUnforgiven": {
             "faction": "Resurrectionist",
@@ -2513,7 +2612,8 @@
                 "Slow",
                 "Staggered",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Resurrectionists/Tormented/M4E_Crew_Tormented_Jack_Daw_Spirit_of_Betrayal.pdf"
         },
         "SmokeandShadows": {
             "faction": "Ten Thunders",
@@ -2537,7 +2637,8 @@
                 "Burning",
                 "Fast",
                 "Stunned"
-            ]
+            ],
+            "pdf": "pdfs/Ten Thunders/Last Blossom/M4E_Crew_Last-Blossom_Misaki_Katanaka_Oyabun.pdf"
         },
         "SmothertheLight": {
             "faction": "Explorer's Society",
@@ -2561,7 +2662,8 @@
                 "Fast",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Explorer's Society/DUA/M4E_Crew_DUA_English_Ivan_Obscura.pdf"
         },
         "SmugglersPath": {
             "faction": "Arcanists",
@@ -2585,7 +2687,8 @@
                 "Burning",
                 "Entranced",
                 "Slow"
-            ]
+            ],
+            "pdf": "pdfs/Arcanists/Performer/M4E_Crew_Performer_Colette_Du_Bois_Smuggler.pdf"
         },
         "SnatchnRun": {
             "faction": "Bayou",
@@ -2609,7 +2712,8 @@
                 "Impact",
                 "Staggered",
                 "Stunned"
-            ]
+            ],
+            "pdf": "pdfs/Bayou/Big Hat/M4E_Crew_Big-Hat_Som'er_Teeth_Jones_Loot_Monger.pdf"
         },
         "SomethinsAFoot": {
             "faction": "Bayou",
@@ -2633,7 +2737,8 @@
                 "Burning",
                 "Impact",
                 "Perforated"
-            ]
+            ],
+            "pdf": "pdfs/Bayou/Kin/M4E_Crew_Kin_Ophelia_LaCroix_Overloaded.pdf"
         },
         "SpiritAscendant": {
             "faction": "Resurrectionist",
@@ -2660,7 +2765,8 @@
                 "Shielded",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Resurrectionists/Ancestor/M4E_Crew_Ancestor_Yan_Lo_The_Spirit_Walker.pdf"
         },
         "SpiritualAnchor": {
             "faction": "Resurrectionist",
@@ -2685,7 +2791,8 @@
                 "Slow",
                 "Spiritual Chains",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Resurrectionists/Urami/M4E_Crew_Urami_Kirai_Ankoku_Envoy_of_the_Court.pdf"
         },
         "StarvingTirade": {
             "alternates": [
@@ -2713,7 +2820,8 @@
                 "Incurable",
                 "Insight",
                 "Stunned"
-            ]
+            ],
+            "pdf": "pdfs/Neverborn/Returned/M4E_Crew_Returned_Kastore_Fervent_1.pdf"
         },
         "StiflingThicket": {
             "faction": "Neverborn",
@@ -2737,7 +2845,8 @@
                 "Bolstered",
                 "Injured",
                 "Suppressed"
-            ]
+            ],
+            "pdf": "pdfs/Neverborn/Fae/M4E_Crew_Fae_Titania_Autumn_Queen.pdf"
         },
         "StolenLabEquipment": {
             "faction": "Resurrectionist",
@@ -2764,7 +2873,8 @@
                 "Poison",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Resurrectionists/Experimental/M4E_Crew_Experimental_Dr_McMourning_Insanitary.pdf"
         },
         "StudytheStars": {
             "faction": "Resurrectionist",
@@ -2788,7 +2898,8 @@
                 "Poison",
                 "Shielded",
                 "Stunned"
-            ]
+            ],
+            "pdf": "pdfs/Resurrectionists/Transmortis/M4E_Crew_Transmortis_Prof_Von_Schtook_Stargazer.pdf"
         },
         "SturdyCritters": {
             "faction": "Bayou",
@@ -2813,7 +2924,8 @@
                 "Glutted",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Bayou/Sooey/M4E_Crew_Sooey_Ulix_Turner_Hogfather.pdf"
         },
         "TabloidPress": {
             "faction": "Guild",
@@ -2837,7 +2949,8 @@
                 "Entranced",
                 "Fast",
                 "Slow"
-            ]
+            ],
+            "pdf": "pdfs/Guild/Journalist/M4E_Crew_Journalist_Nellie_Cochrane_Voice_of_Disorder.pdf"
         },
         "TakeBacktheNight": {
             "faction": "Resurrectionist",
@@ -2863,7 +2976,8 @@
                 "Entranced",
                 "Focused",
                 "Slow"
-            ]
+            ],
+            "pdf": "pdfs/Resurrectionists/Forgotten/M4E_Crew_Forgotten_Molly_Squidpiddge_Harbinger_of_Havoc.pdf"
         },
         "TaketheStage": {
             "faction": "Arcanists",
@@ -2888,7 +3002,8 @@
                 "Entranced",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Arcanists/Performer/M4E_Crew_Performer_Colette_Du_Bois_Star_of_the_Show.pdf"
         },
         "TeachThemFear": {
             "faction": "Neverborn",
@@ -2914,7 +3029,8 @@
                 "Glutted",
                 "Injured",
                 "Slow"
-            ]
+            ],
+            "pdf": "pdfs/Neverborn/Brood/M4E_Crew_Brood_Nekima_Nephilim_Queen.pdf"
         },
         "TemperedSteel": {
             "faction": "Guild",
@@ -2939,7 +3055,8 @@
                 "Hastened",
                 "Staggered",
                 "Stunned"
-            ]
+            ],
+            "pdf": "pdfs/Guild/Augmented/M4E_Crew_Augmented_Charles_Hoffman_Steel_Sculptor.pdf"
         },
         "TheBarrowsGang": {
             "faction": "Outcasts",
@@ -2963,7 +3080,8 @@
                 "Fast",
                 "Impact",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Outcasts/Bandit/M4E_Crew_Bandit_Parker_Barrows_Most_Wanted.pdf"
         },
         "TheFormlessMantra": {
             "faction": "Arcanists",
@@ -2990,7 +3108,8 @@
                 "Slow",
                 "Summon",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Arcanists/Academic/M4E_Crew_Academic_Sandeep_The_Quiet_Flame.pdf"
         },
         "TheLastSunrise": {
             "faction": "Guild",
@@ -3017,7 +3136,8 @@
                 "New Blood",
                 "Perforated",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Guild/Family/M4E_Crew_Family_Perdita_Ortega_Neverborn_Hunter.pdf"
         },
         "TheOfferingEndures": {
             "faction": "Neverborn",
@@ -3041,7 +3161,8 @@
                 "Insight",
                 "Numb",
                 "Slow"
-            ]
+            ],
+            "pdf": "pdfs/Neverborn/Savage/M4E_Crew_Savage_Euripides_Old_One_Eye.pdf"
         },
         "TidesofMeridion": {
             "faction": "Bayou",
@@ -3066,7 +3187,8 @@
                 "Entranced",
                 "Hastened",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Bayou/Angler/M4E_Crew_Angler_The_Clampetts_Bally-Hoo_Bucket.pdf"
         },
         "TrashHeap": {
             "faction": "Outcasts",
@@ -3092,7 +3214,8 @@
                 "Slow",
                 "Staggered",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Outcasts/Ampersand/M4E_Crew_Ampersand_Clockwork_Queen_The_Paradox.pdf"
         },
         "UltimateCreation": {
             "faction": "Guild",
@@ -3117,7 +3240,8 @@
                 "Shielded",
                 "Staggered",
                 "Stunned"
-            ]
+            ],
+            "pdf": "pdfs/Guild/Augmented/M4E_Crew_Augmented_Charles_Hoffman_Inventor.pdf"
         },
         "UnionDues": {
             "faction": "Arcanists",
@@ -3142,7 +3266,8 @@
                 "Shielded",
                 "Slow",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Arcanists/M&SU/M4E_Crew_MSU_Toni_Ironsides_Troubleshooter.pdf"
         },
         "UrbanLegend": {
             "faction": "Resurrectionist",
@@ -3166,7 +3291,8 @@
                 "Entranced",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Resurrectionists/Redchapel/M4E_Crew_Redchapel_Seamus_aka_Sebastian_Baker.pdf"
         },
         "VengefulSpirits": {
             "faction": "Resurrectionist",
@@ -3190,7 +3316,8 @@
                 "Injured",
                 "Slow",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Resurrectionists/Urami/M4E_Crew_Urami_Kirai_Ankoku_Lady_of_Vengeance.pdf"
         },
         "VigilanteJustice": {
             "faction": "Guild",
@@ -3214,7 +3341,8 @@
                 "Aura (Concealment)",
                 "Aura (Negligent)",
                 "Slow"
-            ]
+            ],
+            "pdf": "pdfs/Guild/Elite/M4E_Crew_Elite_Lucius_Mattheson_Dishonorable.pdf"
         },
         "WailingDoom": {
             "faction": "Resurrectionist",
@@ -3239,7 +3367,8 @@
                 "Slow",
                 "Staggered",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Resurrectionists/Tormented/M4E_Crew_Tormented_Jack_Daw_Ensouled.pdf"
         },
         "WeakenedResolve": {
             "faction": "Neverborn",
@@ -3258,7 +3387,8 @@
             ],
             "name": "Weakened Resolve",
             "text": "Kastore (Awakened)\t6\t5\t6\t3\t-\t13\tReturned\tMaster\tNeverborn\t\tMarathine\tWeakened Resolve",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Neverborn/Returned/M4E_Crew_Returned_Kastore_Awakened_1.pdf"
         },
         "WhimoftheHive": {
             "faction": "Explorer's Society",
@@ -3283,7 +3413,8 @@
                 "Parasite",
                 "Poison",
                 "Summon"
-            ]
+            ],
+            "pdf": "pdfs/Explorer's Society/Cadmus/M4E_Crew_Cadmus_Nexus_One_of_Many.pdf"
         },
         "WiltingTsubaki": {
             "faction": "Ten Thunders",
@@ -3308,7 +3439,8 @@
                 "Burning",
                 "Fast",
                 "Stunned"
-            ]
+            ],
+            "pdf": "pdfs/Ten Thunders/Last Blossom/M4E_Crew_Last-Blossom_Misaki_Katanaka_Fractured.pdf"
         },
         "WintersWrath": {
             "faction": "Arcanists",
@@ -3332,7 +3464,8 @@
                 "Shielded",
                 "Slow",
                 "Staggered"
-            ]
+            ],
+            "pdf": "pdfs/Arcanists/December/M4E_Crew_December_Rasputina_Abominable.pdf"
         },
         "WiseWordsofWisdom": {
             "faction": "Bayou",
@@ -3356,7 +3489,8 @@
                 "Glowy",
                 "Insight",
                 "Poison"
-            ]
+            ],
+            "pdf": "pdfs/Bayou/Wizz-Bang/M4E_Stat_Wizz-Bang_Wong_The_Enchanter.pdf"
         }
     },
     "models": {

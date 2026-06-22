@@ -1,5 +1,6 @@
 [
   {
+    "entity_type": "model",
     "source_id": "ArikSchttemer",
     "name": "Arik Sch\u00f6ttemer",
     "title": "",
@@ -11,6 +12,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "AuntiyMel",
     "name": "Auntiy Mel",
     "title": "",
@@ -22,6 +24,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "Bookkeeper",
     "name": "Bookkeeper",
     "title": "",
@@ -33,6 +36,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "Drumstick",
     "name": "Drumstick",
     "title": "",
@@ -45,6 +49,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "EddieClark",
     "name": "Eddie Clark",
     "title": "",
@@ -56,6 +61,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "Fitzsimmons",
     "name": "Fitzsimmons",
     "title": "",
@@ -67,6 +73,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "FransciscoOrtega",
     "name": "Franscisco Ortega",
     "title": "",
@@ -78,6 +85,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "Ikjas",
     "name": "Ikjas",
     "title": "",
@@ -89,6 +97,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "IntrepidEffigy",
     "name": "Intrepid Effigy",
     "title": "",
@@ -97,6 +106,7 @@
     "should_map_to": "M4E_Stat_Exs-Versatile_Intrepid_Fate_Efifgy.pdf"
   },
   {
+    "entity_type": "model",
     "source_id": "Kaltgist",
     "name": "Kaltgist",
     "title": "",
@@ -108,6 +118,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "KOTO",
     "name": "K.O.T.O.",
     "title": "",
@@ -120,6 +131,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "LadyYumi",
     "name": "Lady Yumi",
     "title": "",
@@ -131,6 +143,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "Lucy",
     "name": "Lucy",
     "title": "",
@@ -142,6 +155,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "MariyaXXXXX",
     "name": "Mariya XXXXX",
     "title": "",
@@ -153,6 +167,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "MelissaKORE",
     "name": "Melissa K.O.R.E.",
     "title": "",
@@ -164,6 +179,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "PhilipandtheNanny",
     "name": "Philip and the Nanny",
     "title": "",
@@ -175,6 +191,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "RepurposedMonstrosity",
     "name": "Repurposed Monstrosity",
     "title": "",
@@ -186,6 +203,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "Riotbreaker",
     "name": "Riotbreaker",
     "title": "",
@@ -197,6 +215,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "TheDreamer_FastAsleep",
     "name": "The Dreamer",
     "title": "Fast Asleep",
@@ -208,6 +227,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "TheDreamer_Insomniac",
     "name": "The Dreamer",
     "title": "Insomniac",
@@ -219,6 +239,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "TheSilentSiren",
     "name": "The Silent Siren",
     "title": "",
@@ -230,6 +251,7 @@
     ]
   },
   {
+    "entity_type": "model",
     "source_id": "Waldgeist",
     "name": "Waldgeist",
     "title": "",
@@ -238,6 +260,150 @@
     "should_map_to": "M4E_Stat_Swampfiend_Waldegeist_A.pdf",
     "keywords": [
       "Swampfiend"
+    ]
+  },
+  {
+    "entity_type": "crew_card",
+    "source_id": "AudaciousAssault",
+    "name": "Audacious Assault",
+    "faction": "Outcasts",
+    "reason": "Matched manually",
+    "should_map_to": "pdfs/Outcasts/Freikorps/M4E_Crew_Freikorps_Von_Schill_The_Veteran.pdf",
+    "text": "Audacious Assault",
+    "keywords": [
+      "Freikorps"
+    ]
+  },
+  {
+    "entity_type": "crew_card",
+    "source_id": "BoostedHeavySalvo",
+    "name": "Boosted Heavy Salvo",
+    "faction": "Guild",
+    "reason": "No matching PDF found",
+    "should_map_to": "",
+    "text": "Boosted Heavy Salvo",
+    "keywords": [
+      "Cavalier"
+    ]
+  },
+  {
+    "entity_type": "crew_card",
+    "source_id": "FeastingTirade",
+    "name": "Feasting Tirade",
+    "faction": "Neverborn",
+    "reason": "Matched manually",
+    "should_map_to": "pdfs/Neverborn/Returned/M4E_Crew_Returned_Kastore_Fevrent_2.pdf",
+    "text": "Feasting Tirade",
+    "keywords": [
+      "Returned"
+    ]
+  },
+  {
+    "entity_type": "crew_card",
+    "source_id": "FireShieldtheFaithful",
+    "name": "Fire Shield the Faithful",
+    "faction": "Resurrectionist",
+    "reason": "Matched manually",
+    "should_map_to": "pdfs/Resurrectionists/Revenant/M4E_Crew_Revenant_Reva_Cortinas_Death_Shepherd.pdf",
+    "text": "Fire Shield the Faithful",
+    "keywords": [
+      "Revenant"
+    ]
+  },
+  {
+    "entity_type": "crew_card",
+    "source_id": "FireworksShow",
+    "name": "Fireworks Show",
+    "faction": "Bayou",
+    "reason": "Matched manually",
+    "should_map_to": "pdfs/Bayou/Wizz-Bang/M4E_Crew_Wizz-Bang_Wong_The_Wonderful.pdf",
+    "text": "Fireworks Show",
+    "keywords": [
+      "Wizz-Bang"
+    ]
+  },
+  {
+    "entity_type": "crew_card",
+    "source_id": "FlushWithCash",
+    "name": "Flush With Cash",
+    "faction": "Explorer's Society",
+    "reason": "Matched manually",
+    "should_map_to": "pdfs/Explorer's Society/Syndicate/M4E_Crew_Syndicate_Anya_Lycarayen_The_Resolute.pdf",
+    "text": "Anya Lycarayen (Rail Magnate)\t6\t5\t5\t2\t*\t14\tSyndicate\tMaster\tExplorer's Society\t\tThe Brass Bull\tFlush With Cash",
+    "keywords": [
+      "Syndicate"
+    ]
+  },
+  {
+    "entity_type": "crew_card",
+    "source_id": "HeavySalvo",
+    "name": "Heavy Salvo",
+    "faction": "Guild",
+    "reason": "Matched manually",
+    "should_map_to": "pdfs/Guild/Cavalier/M4E_Crew_Cavalier_Harold_Tull_Artilerist_1.pdf",
+    "text": "Heavy Salvo",
+    "keywords": [
+      "Cavalier"
+    ]
+  },
+  {
+    "entity_type": "crew_card",
+    "source_id": "IndustryLeader",
+    "name": "Industry Leader",
+    "faction": "Explorer's Society",
+    "reason": "Matched manually",
+    "should_map_to": "pdfs/Explorer's Society/Syndicate/M4E_Crew_Syndicate_Anya_Lycarayen_Rail_Magnate.pdf",
+    "text": "Anya Lycarayen (The Resolute)\t5\t6\t7\t2\t*\t12\tSyndicate\tMaster\tExplorer's Society\t\tSovereign\tIndustry Leader",
+    "keywords": [
+      "Syndicate"
+    ]
+  },
+  {
+    "entity_type": "crew_card",
+    "source_id": "LucidDreaming",
+    "name": "Lucid Dreaming",
+    "faction": "Neverborn",
+    "reason": "Matched manually",
+    "should_map_to": "pdfs/Neverborn/Nightmare/M4E_Crew_Nightmare_Dreamer_Fast_Asleep.pdf",
+    "text": "The Dreamer (Fast Asleep)\t6\t5\t7\t2\t-\t12\tNightmare\tMaster\tNeverborn\t\tLord Chompy Bits (Dreamlord)\tLucid Dreaming\tFlicker,Fright,Slow,Summon",
+    "keywords": [
+      "Nightmare"
+    ]
+  },
+  {
+    "entity_type": "crew_card",
+    "source_id": "Oneirophobia",
+    "name": "Oneirophobia",
+    "faction": "Neverborn",
+    "reason": "Matched manually",
+    "should_map_to": "pdfs/Neverborn/Nightmare/M4E_Crew_Nightmare_Dreamer_Insomniac.pdf",
+    "text": "The Dreamer (Insomniac)\t6\t5\t6\t2\t-\t13\tNightmare\tMaster\tNeverborn\t\tLord Chompy Bits (Lurking Lullaby)\tOneirophobia\tFlicker,Fright,Slow,Summon",
+    "keywords": [
+      "Nightmare"
+    ]
+  },
+  {
+    "entity_type": "crew_card",
+    "source_id": "RepairBay",
+    "name": "Repair Bay",
+    "faction": "Outcasts",
+    "reason": "Matched manually",
+    "should_map_to": "pdfs/Outcasts/Ampersand/M4E_Crew_Ampersand_Clockwork_Queen_Matriarch_of_the_Machine.pdf",
+    "text": "Clockwork Queen (Matriarch of the Machine)\t5\t6\t7\t2\t-\t14\tAmpersand\tMaster\tOutcasts\t\tBucket Bot\tRepair Bay\tBolstered,Impact,Staggered",
+    "keywords": [
+      "Ampersand"
+    ]
+  },
+  {
+    "entity_type": "crew_card",
+    "source_id": "VigilanteJustice",
+    "name": "Vigilante Justice",
+    "faction": "Guild",
+    "reason": "Matched manually",
+    "should_map_to": "pdfs/Guild/Elite/M4E_Crew_Elite_Lucius_Mattheson_Dishonorable.pdf",
+    "text": "Vigilante Justice",
+    "keywords": [
+      "Elite"
     ]
   }
 ]
