@@ -24,3 +24,20 @@ class Model(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+
+class CrewCard(models.Model):
+    source_id = models.CharField(max_length=255, unique=True)
+    name = models.CharField(max_length=255)
+    faction = models.CharField(max_length=255)
+    pdf = models.CharField(max_length=512, blank=True)
+    text = models.TextField(blank=True)
+    keywords = models.JSONField(default=list, blank=True)
+    tokens = models.JSONField(default=list, blank=True)
+    files = models.JSONField(default=dict, blank=True)
+
+    class Meta:
+        ordering = ["name", "source_id"]
+
+    def __str__(self) -> str:
+        return self.name

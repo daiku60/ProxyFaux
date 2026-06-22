@@ -279,8 +279,8 @@
     "source_id": "BoostedHeavySalvo",
     "name": "Boosted Heavy Salvo",
     "faction": "Guild",
-    "reason": "No matching PDF found",
-    "should_map_to": "",
+    "reason": "Matched manually",
+    "should_map_to": "pdfs/Guild/Cavalier/M4E_Crew_Cavalier_Harold_Tull_Artilerist_2.pdf",
     "text": "Boosted Heavy Salvo",
     "keywords": [
       "Cavalier"
