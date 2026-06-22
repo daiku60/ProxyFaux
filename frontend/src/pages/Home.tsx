@@ -38,14 +38,15 @@ export default function Home() {
   const [sheetSize, setSheetSize] = useState<SheetSize>("a4");
   const [border, setBorder] = useState(false);
   const [cutLines, setCutLines] = useState(false);
+  const [includeCrewCards, setIncludeCrewCards] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isExporting, setIsExporting] = useState(false);
   const [selectedPreviewIds, setSelectedPreviewIds] = useState<Record<string, boolean>>({});
 
   const deferredRosterText = useDeferredValue(rosterText);
   const previewCards = useMemo(
-    () => parseRosterPreview(deferredRosterText),
-    [deferredRosterText],
+    () => parseRosterPreview(deferredRosterText, { includeCrewCards }),
+    [deferredRosterText, includeCrewCards],
   );
   const selectedPreviewCards = useMemo(
     () => previewCards.filter((previewCard) => selectedPreviewIds[previewCard.id] !== false),
@@ -147,7 +148,7 @@ export default function Home() {
               />
             </div>
 
-            <div className="grid gap-4 md:grid-cols-3">
+            <div className="flex flex-col gap-4">
               <div className="space-y-3">
                 <Label htmlFor="sheet-size">Sheet size</Label>
                 <Select value={sheetSize} onValueChange={(value) => setSheetSize(value as SheetSize)}>
@@ -175,6 +176,14 @@ export default function Home() {
                 id="include-cut-lines"
                 label="Include cut lines"
                 onCheckedChange={setCutLines}
+              />
+
+              <OptionToggle
+                checked={includeCrewCards}
+                description="Automatically add linked crew cards when matched models have one."
+                id="include-crew-cards"
+                label="Include crew cards"
+                onCheckedChange={setIncludeCrewCards}
               />
             </div>
 

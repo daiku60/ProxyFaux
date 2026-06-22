@@ -13,6 +13,7 @@ type CardFiles = {
 };
 
 type RawCatalogModel = {
+  crewCard?: string;
   faction?: string;
   files?: CardFiles;
   name?: string;
@@ -24,6 +25,10 @@ type RawCatalog = {
   models?: Record<string, RawCatalogModel>;
 };
 
+type ParseRosterPreviewOptions = {
+  includeCrewCards?: boolean;
+};
+
 export type PreviewCard = {
   frontPath: string;
   id: string;
@@ -31,19 +36,23 @@ export type PreviewCard = {
 };
 
 type CatalogEntry = {
+  aliases: string[];
+  crewCardId?: string;
   fronts: string[];
   id: string;
+  kind: "crewCard" | "model";
   label: string;
   title?: string;
 };
 
 const rawCatalog = cardsData as RawCatalog;
-const catalog = buildCatalog({
-  ...(rawCatalog.models ?? {}),
-  ...(rawCatalog.crewCards ?? {}),
-});
+const { entriesById, lookup } = buildCatalog(rawCatalog);
 
-export function parseRosterPreview(text: string): PreviewCard[] {
+export function parseRosterPreview(
+  text: string,
+  options: ParseRosterPreviewOptions = {},
+): PreviewCard[] {
+  const { includeCrewCards = false } = options;
   const previews: PreviewCard[] = [];
   const counters = new Map<string, number>();
 
@@ -58,40 +67,44 @@ export function parseRosterPreview(text: string): PreviewCard[] {
       continue;
     }
 
-    const currentIndex = counters.get(entry.id) ?? 0;
-    const frontPath = entry.fronts[Math.min(currentIndex, entry.fronts.length - 1)];
-    counters.set(entry.id, currentIndex + 1);
+    previews.push(buildPreviewCard(entry, counters));
 
-    previews.push({
-      frontPath,
-      id: `${entry.id}-${currentIndex}`,
-      label: entry.label,
-    });
+    if (includeCrewCards && entry.kind === "model" && entry.crewCardId) {
+      const crewCardEntry = entriesById.get(entry.crewCardId);
+      if (crewCardEntry && crewCardEntry.fronts.length > 0) {
+        previews.push(buildPreviewCard(crewCardEntry, counters));
+      }
+    }
   }
 
   return previews;
 }
 
-function buildCatalog(models: Record<string, RawCatalogModel>): Map<string, CatalogEntry> {
+function buildCatalog(rawCatalog: RawCatalog): {
+  entriesById: Map<string, CatalogEntry>;
+  lookup: Map<string, CatalogEntry>;
+} {
+  const entriesById = new Map<string, CatalogEntry>();
   const lookup = new Map<string, CatalogEntry>();
 
-  for (const [id, model] of Object.entries(models)) {
-    const fronts = (model.files?.versions ?? [])
-      .map((version) => version.front)
-      .filter((frontPath): frontPath is string => typeof frontPath === "string" && frontPath.length > 0);
-    if (fronts.length === 0 || !model.name) {
+  for (const [id, model] of Object.entries(rawCatalog.models ?? {})) {
+    const entry = buildCatalogEntry(id, model, "model");
+    if (!entry) {
       continue;
     }
+    entriesById.set(id, entry);
+  }
 
-    const label = model.title ? `${model.name}, ${model.title}` : model.name;
-    const entry: CatalogEntry = {
-      fronts,
-      id,
-      label,
-      title: model.title,
-    };
+  for (const [id, crewCard] of Object.entries(rawCatalog.crewCards ?? {})) {
+    const entry = buildCatalogEntry(id, crewCard, "crewCard");
+    if (!entry) {
+      continue;
+    }
+    entriesById.set(id, entry);
+  }
 
-    for (const candidate of buildCandidates(model)) {
+  for (const entry of entriesById.values()) {
+    for (const candidate of buildCandidates(entry)) {
       const normalized = normalize(candidate);
       if (normalized && !lookup.has(normalized)) {
         lookup.set(normalized, entry);
@@ -99,10 +112,49 @@ function buildCatalog(models: Record<string, RawCatalogModel>): Map<string, Cata
     }
   }
 
-  return lookup;
+  return { entriesById, lookup };
 }
 
-function buildCandidates(model: RawCatalogModel): string[] {
+function buildCatalogEntry(
+  id: string,
+  model: RawCatalogModel,
+  kind: "crewCard" | "model",
+): CatalogEntry | undefined {
+  const fronts = (model.files?.versions ?? [])
+      .map((version) => version.front)
+      .filter((frontPath): frontPath is string => typeof frontPath === "string" && frontPath.length > 0);
+  if (fronts.length === 0 || !model.name) {
+    return undefined;
+  }
+
+  return {
+    aliases: buildAliases(model),
+    crewCardId: model.crewCard,
+    fronts,
+    id,
+    kind,
+    label: model.title ? `${model.name}, ${model.title}` : model.name,
+    title: model.title,
+  };
+}
+
+function buildCandidates(entry: CatalogEntry): string[] {
+  return entry.aliases;
+}
+
+function buildPreviewCard(entry: CatalogEntry, counters: Map<string, number>): PreviewCard {
+  const currentIndex = counters.get(entry.id) ?? 0;
+  const frontPath = entry.fronts[Math.min(currentIndex, entry.fronts.length - 1)];
+  counters.set(entry.id, currentIndex + 1);
+
+  return {
+    frontPath,
+    id: `${entry.id}-${currentIndex}`,
+    label: entry.label,
+  };
+}
+
+function buildAliases(model: RawCatalogModel): string[] {
   const candidates: string[] = [];
   if (model.files?.versions) {
     for (const version of model.files.versions) {
@@ -139,7 +191,7 @@ function cleanInputLine(rawLine: string): string {
 }
 
 function resolveEntry(rawName: string): CatalogEntry | undefined {
-  const direct = catalog.get(normalize(rawName));
+  const direct = lookup.get(normalize(rawName));
   if (direct) {
     return direct;
   }
