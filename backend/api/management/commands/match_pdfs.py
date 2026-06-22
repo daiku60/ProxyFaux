@@ -122,6 +122,32 @@ def build_crew_card_failure_entry(
     return entry
 
 
+def build_upgrade_failure_entry(
+    source_id: str,
+    upgrade_data: dict[str, Any],
+    reason: str,
+    should_map_to: str = "",
+) -> dict[str, object]:
+    entry: dict[str, object] = {
+        "entity_type": "upgrade",
+        "source_id": source_id,
+        "name": upgrade_data.get("name", ""),
+        "faction": upgrade_data.get("faction", ""),
+        "reason": reason,
+        "should_map_to": should_map_to,
+    }
+
+    text = upgrade_data.get("text")
+    if isinstance(text, str) and text.strip():
+        entry["text"] = text
+
+    keywords = upgrade_data.get("keywords")
+    if isinstance(keywords, list) and keywords:
+        entry["keywords"] = keywords
+
+    return entry
+
+
 def build_model_name_candidates(model: Model) -> list[str]:
     candidates: list[str] = []
 
@@ -224,6 +250,32 @@ def build_crew_card_name_candidates(source_id: str, card_data: dict[str, Any]) -
     return dedupe_candidates(candidates)
 
 
+def build_upgrade_name_candidates(source_id: str, upgrade_data: dict[str, Any]) -> list[str]:
+    candidates: list[str] = []
+
+    name = upgrade_data.get("name")
+    if isinstance(name, str) and name.strip():
+        candidates.append(name.strip())
+
+    text = upgrade_data.get("text")
+    if isinstance(text, str) and text.strip():
+        candidates.append(text.strip())
+
+    files = upgrade_data.get("files")
+    if isinstance(files, dict):
+        versions = files.get("versions")
+        if isinstance(versions, list):
+            for version in versions:
+                if not isinstance(version, dict):
+                    continue
+                display_name = version.get("displayName")
+                if isinstance(display_name, str) and display_name.strip():
+                    candidates.append(display_name.strip())
+
+    candidates.append(source_id)
+    return dedupe_candidates(candidates)
+
+
 def extract_candidates_from_front_path(front_path: str) -> list[str]:
     stem = Path(front_path).stem
     if stem.endswith("-front"):
@@ -261,6 +313,14 @@ def prefer_crew_card_pdf_candidate(candidate: Path, current_best: Path | None) -
     if current_best is None:
         return True
     return candidate.name.startswith("M4E_Crew_") and not current_best.name.startswith("M4E_Crew_")
+
+
+def prefer_upgrade_pdf_candidate(candidate: Path, current_best: Path | None) -> bool:
+    if current_best is None:
+        return True
+    return candidate.name.startswith("M4E_Upgrade_") and not current_best.name.startswith(
+        "M4E_Upgrade_"
+    )
 
 
 def prefer_stat_pdf_path(path: Path) -> Path:
@@ -393,6 +453,23 @@ def iter_crew_card_search_dirs(
     keywords = [
         keyword.strip()
         for keyword in (card_data.get("keywords") if isinstance(card_data.get("keywords"), list) else [])
+        if isinstance(keyword, str) and keyword.strip()
+    ]
+    return iter_search_dirs_for_keywords(keywords, pdf_root, faction_dir)
+
+
+def iter_upgrade_search_dirs(
+    upgrade_data: dict[str, Any],
+    pdf_root: Path,
+    faction_dir: Path,
+) -> list[Path]:
+    keywords = [
+        keyword.strip()
+        for keyword in (
+            upgrade_data.get("keywords")
+            if isinstance(upgrade_data.get("keywords"), list)
+            else []
+        )
         if isinstance(keyword, str) and keyword.strip()
     ]
     return iter_search_dirs_for_keywords(keywords, pdf_root, faction_dir)
@@ -628,10 +705,132 @@ def match_crew_card_pdfs(
     return matched, failures
 
 
+def match_upgrade_pdfs(
+    cards_json_path: Path,
+    pdf_root: Path,
+    pdf_data_root: Path,
+    manual_overrides: dict[str, str],
+) -> tuple[int, list[dict[str, object]]]:
+    cards_data = json.loads(cards_json_path.read_text())
+    upgrades = cards_data.get("upgrades")
+    if not isinstance(upgrades, dict):
+        return 0, []
+
+    failures: list[dict[str, object]] = []
+    matched = 0
+
+    for source_id, raw_upgrade_data in upgrades.items():
+        if not isinstance(source_id, str) or not isinstance(raw_upgrade_data, dict):
+            continue
+
+        upgrade_data = raw_upgrade_data
+        override_key = build_override_key("upgrade", source_id)
+        faction = upgrade_data.get("faction")
+        faction_dir = resolve_faction_dir(pdf_root, faction) if isinstance(faction, str) else None
+
+        if not faction_dir:
+            upgrade_data["pdf"] = ""
+            failures.append(
+                build_upgrade_failure_entry(
+                    source_id,
+                    upgrade_data,
+                    f"Faction directory not found: {faction}",
+                    manual_overrides.get(override_key, ""),
+                )
+            )
+            continue
+
+        search_dirs = iter_upgrade_search_dirs(upgrade_data, pdf_root, faction_dir)
+        if not search_dirs:
+            upgrade_data["pdf"] = ""
+            failures.append(
+                build_upgrade_failure_entry(
+                    source_id,
+                    upgrade_data,
+                    "Keyword directory not found",
+                    manual_overrides.get(override_key, ""),
+                )
+            )
+            continue
+
+        manual_override = manual_overrides.get(override_key, "")
+        if manual_override:
+            resolved_override = None
+            for search_dir in search_dirs:
+                resolved_override = resolve_manual_override(
+                    manual_override,
+                    search_dir,
+                    faction_dir,
+                    pdf_data_root,
+                )
+                if resolved_override:
+                    break
+
+            if resolved_override:
+                upgrade_data["pdf"] = build_pdf_storage_path(resolved_override, pdf_data_root)
+                matched += 1
+                failures.append(
+                    build_upgrade_failure_entry(
+                        source_id,
+                        upgrade_data,
+                        "Matched manually",
+                        manual_override,
+                    )
+                )
+                continue
+
+            upgrade_data["pdf"] = ""
+            failures.append(
+                build_upgrade_failure_entry(
+                    source_id,
+                    upgrade_data,
+                    f"Manual override did not resolve to a PDF: {manual_override}",
+                    manual_override,
+                )
+            )
+            continue
+
+        keywords = [
+            keyword
+            for keyword in upgrade_data.get("keywords", [])
+            if isinstance(keyword, str) and keyword.strip()
+        ]
+        name_candidates = build_upgrade_name_candidates(source_id, upgrade_data)
+        best_match: Path | None = None
+        best_score = -1
+
+        for search_dir in search_dirs:
+            for pdf_path in sorted(search_dir.glob("*.pdf")):
+                score, _ = score_candidate(name_candidates, keywords, pdf_path.stem)
+                if score > best_score:
+                    best_score = score
+                    best_match = pdf_path
+                elif (
+                    score == best_score
+                    and score >= 0
+                    and prefer_upgrade_pdf_candidate(pdf_path, best_match)
+                ):
+                    best_match = pdf_path
+
+        if not best_match:
+            upgrade_data["pdf"] = ""
+            failures.append(
+                build_upgrade_failure_entry(source_id, upgrade_data, "No matching PDF found")
+            )
+            continue
+
+        upgrade_data["pdf"] = build_pdf_storage_path(best_match, pdf_data_root)
+        matched += 1
+
+    cards_json_path.write_text(json.dumps(cards_data, indent=4))
+    return matched, failures
+
+
 class Command(BaseCommand):
     help = (
-        "Match model PDFs into the database and crew-card PDFs into backend/data/cards.json, "
-        "then write unresolved/manual entries to backend/data/match_pdfs_failures.json."
+        "Match model PDFs into the database plus crew-card and upgrade PDFs into "
+        "backend/data/cards.json, then write unresolved/manual entries to "
+        "backend/data/match_pdfs_failures.json."
     )
 
     def handle(self, *args, **options) -> None:
@@ -653,15 +852,22 @@ class Command(BaseCommand):
             pdf_data_root=pdf_data_root,
             manual_overrides=manual_overrides,
         )
+        upgrade_matched, upgrade_failures = match_upgrade_pdfs(
+            cards_json_path=cards_json_path,
+            pdf_root=pdf_root,
+            pdf_data_root=pdf_data_root,
+            manual_overrides=manual_overrides,
+        )
 
-        failures = model_failures + crew_card_failures
+        failures = model_failures + crew_card_failures + upgrade_failures
         report_path.write_text(json.dumps(failures, indent=2))
 
         self.stdout.write(
             self.style.SUCCESS(
                 "Matched "
                 f"{model_matched} model PDFs and "
-                f"{crew_card_matched} crew-card PDFs. "
+                f"{crew_card_matched} crew-card PDFs and "
+                f"{upgrade_matched} upgrade PDFs. "
                 f"Failures: {len(failures)}. "
                 f"Report written to {report_path}"
             )

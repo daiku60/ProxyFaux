@@ -405,5 +405,17 @@
     "keywords": [
       "Elite"
     ]
+  },
+  {
+    "entity_type": "upgrade",
+    "source_id": "PetalintheWind",
+    "name": "Petal in the Wind",
+    "faction": "Ten Thunders",
+    "reason": "Matched manually",
+    "should_map_to": "pdfs/Ten Thunders/Versatile - Ten Thunders/M4E_Upgrade_TT-Versatile_Peal_in_the_Wind.pdf",
+    "text": "Petal in the Wind Petal and Blood versatile",
+    "keywords": [
+      "Qi and Gong"
+    ]
   }
 ]

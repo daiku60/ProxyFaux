@@ -34382,7 +34382,8 @@
             "keywords": [],
             "name": "Abyssal Dragon",
             "text": "Abyssal Dragon Aspect versatile",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Ten Thunders/Versatile - Ten Thunders/M4E_Upgrade_TT-Versatile_Abyssal_Dragon.pdf"
         },
         "APaleLight": {
             "faction": "Neverborn",
@@ -34399,7 +34400,8 @@
             "keywords": [],
             "name": "A Pale Light",
             "text": "A Pale Light Phases of the Moon versatile",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Neverborn/Versatile - Neverborn/M4E_Upgrade_Nvb-Versatile_A_Pale_Light.pdf"
         },
         "ArmoredPlating": {
             "faction": "Neverborn",
@@ -34418,7 +34420,8 @@
             ],
             "name": "Armored Plating",
             "text": "Armored Plating",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Neverborn/Chimera/M4E_Upgrade_Chimera_Armored_Plating.pdf"
         },
         "BellsandWhistles": {
             "faction": "Explorer's Society",
@@ -34435,7 +34438,8 @@
             "keywords": [],
             "name": "Bells and Whistles",
             "text": "Bells and Whistles Luxury versatile",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Explorer's Society/Versatile - Explorer's Society/M4E_Upgrade_Exs-Versatile_Bells_and_Whistles.pdf"
         },
         "BestialForm": {
             "faction": "Neverborn",
@@ -34454,7 +34458,8 @@
             ],
             "name": "Bestial Form",
             "text": "Bestial Form",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Neverborn/Chimera/M4E_Upgrade_Chimera_Bestial_Form.pdf"
         },
         "Brainwashed": {
             "faction": "Guild",
@@ -34471,7 +34476,8 @@
             "keywords": [],
             "name": "Brainwashed",
             "text": "Brainwashed",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Guild/Versatile - Guild/M4E_Upgrade_Gld-Versatile_Brainwashed.pdf"
         },
         "BreachingAxe": {
             "faction": "Outcasts",
@@ -34490,7 +34496,8 @@
             ],
             "name": "Breaching Axe",
             "text": "Breaching Axe Equipment",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Outcasts/Freikorps/M4E_Upgrade_Freikorps_Breaching_Axe.pdf"
         },
         "BrilliantDragon": {
             "faction": "Ten Thunders",
@@ -34507,7 +34514,8 @@
             "keywords": [],
             "name": "Brilliant Dragon",
             "text": "Brilliant Dragon Aspect versatile",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Ten Thunders/Versatile - Ten Thunders/M4E_Upgrade_TT-Versatile_Brilliant_Dragon.pdf"
         },
         "CatchoftheDay": {
             "faction": "Resurrectionist",
@@ -34526,7 +34534,8 @@
             ],
             "name": "Catch of the Day",
             "text": "Catch of the Day Waterlogged",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Resurrectionists/Tormented/M4E_Upgrade_Tormented_Catch_of_the_Day.pdf"
         },
         "Consumed": {
             "faction": "Explorer's Society",
@@ -34545,7 +34554,8 @@
             ],
             "name": "Consumed",
             "text": "Consumed",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Explorer's Society/Seeker/M4E_Upgrade_Seeker_Consumed.pdf"
         },
         "CoreStabilization": {
             "faction": "Explorer's Society",
@@ -34562,7 +34572,8 @@
             "keywords": [],
             "name": "Core Stabilization",
             "text": "Core Stabilization Luxury versatile",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Explorer's Society/Versatile - Explorer's Society/M4E_Upgrade_Exs-Versatile_Core_Stabilization.pdf"
         },
         "DashingHat": {
             "faction": "Outcasts",
@@ -34581,7 +34592,8 @@
             ],
             "name": "Dashing Hat",
             "text": "Dashing Hat Loot",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Outcasts/Infamous/M4E_Upgrade_Infamous_Dashing_Hat.pdf"
         },
         "DivulgeSecrets": {
             "faction": "Neverborn",
@@ -34600,7 +34612,8 @@
             ],
             "name": "Divulge Secrets",
             "text": "Divulge Secrets Wreathed",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Neverborn/Banished/M4E_Upgrade_Banished_Divulge_Secrets.pdf"
         },
         "FeatheredWings": {
             "faction": "Neverborn",
@@ -34619,7 +34632,8 @@
             ],
             "name": "Feathered Wings",
             "text": "Feathered Wings Mutation",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Neverborn/Chimera/M4E_Upgrade_Chimera_Feathered_Wings.pdf"
         },
         "FermentedRiverStyle": {
             "faction": "Ten Thunders",
@@ -34638,7 +34652,8 @@
             ],
             "name": "Fermented River Style",
             "text": "Fermented River Style Fighting Style",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Ten Thunders/Monk/M4E_Upgrade_Monk_Fermented_River_Style.pdf"
         },
         "FiringTurret": {
             "faction": "Explorer's Society",
@@ -34655,7 +34670,8 @@
             "keywords": [],
             "name": "Firing Turret",
             "text": "Firing Turret Luxury versatile",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Explorer's Society/Versatile - Explorer's Society/M4E_Upgrade_Exs-Versatile_Firing_Turret.pdf"
         },
         "FlamingBlade": {
             "faction": "Guild",
@@ -34674,7 +34690,8 @@
             ],
             "name": "Flaming Blade",
             "text": "Flaming Blade",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Guild/Witch Hunter/M4E_Upgrade_Witch-Hunter_Flaming_Blade.pdf"
         },
         "FlamingSack": {
             "faction": "Bayou",
@@ -34693,7 +34710,8 @@
             ],
             "name": "Flaming Sack",
             "text": "Flaming Sack",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Bayou/Kin/M4E_Upgrade_Kin_Flaming_Sack.pdf"
         },
         "GrenadeBelt": {
             "faction": "Outcasts",
@@ -34712,7 +34730,8 @@
             ],
             "name": "Grenade Belt",
             "text": "Grenade Belt Equipment",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Outcasts/Freikorps/M4E_Upgrade_Freikorps_Grenade_Belt.pdf"
         },
         "HairTrigger": {
             "faction": "Bayou",
@@ -34731,7 +34750,8 @@
             ],
             "name": "Hair Trigger",
             "text": "Hair Trigger",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Bayou/Kin/M4E_Upgrade_Kin_Hair_Trigger.pdf"
         },
         "HighRiverStyle": {
             "faction": "Ten Thunders",
@@ -34750,7 +34770,8 @@
             ],
             "name": "High River Style",
             "text": "High River Style Fighting Style",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Ten Thunders/Monk/M4E_Upgrade_Monk_High_River_Style.pdf"
         },
         "ImpendingDoom": {
             "faction": "Outcasts",
@@ -34767,7 +34788,8 @@
             "keywords": [],
             "name": "Impending Doom",
             "text": "Impending Doom versatile",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Outcasts/Versatile - Outcasts/M4E_Upgrade_Out-Versatile_Impending_Doom.pdf"
         },
         "ImposingPressure": {
             "faction": "Explorer's Society",
@@ -34784,7 +34806,8 @@
             "keywords": [],
             "name": "Imposing Pressure",
             "text": "Imposing Pressure Luxury versatile",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Explorer's Society/Versatile - Explorer's Society/M4E_Upgrade_Exs-Versatile_Imposing_Pressure.pdf"
         },
         "Indoctrinated": {
             "faction": "Guild",
@@ -34801,7 +34824,8 @@
             "keywords": [],
             "name": "Indoctrinated",
             "text": "Indoctrinated",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Guild/Versatile - Guild/M4E_Upgrade_Gld-Versatile_Indoctrinated.pdf"
         },
         "IntentionalDecay": {
             "faction": "Bayou",
@@ -34820,7 +34844,8 @@
             ],
             "name": "Intentional Decay",
             "text": "Intentional Decay",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Bayou/Tricksy/M4E_Upgrade_Tricksy_Intentional_Decay.pdf"
         },
         "KarmicFate": {
             "faction": "Ten Thunders",
@@ -34837,7 +34862,8 @@
             "keywords": [],
             "name": "Karmic Fate",
             "text": "Karmic Fate versatile",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Ten Thunders/Versatile - Ten Thunders/M4E_Upgrade_TT-Versatile_Karmic_Fate.pdf"
         },
         "LethalTantrum": {
             "faction": "Resurrectionist",
@@ -34854,7 +34880,8 @@
             "keywords": [],
             "name": "Lethal Tantrum",
             "text": "Lethal Tantrum",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Resurrectionists/Versatile - Resurrectionists/M4E_Upgrade_Res-Lethal_Tantrum.pdf"
         },
         "LowRiverStyle": {
             "faction": "Ten Thunders",
@@ -34873,7 +34900,8 @@
             ],
             "name": "Low River Style",
             "text": "Low River Style Fighting Style",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Ten Thunders/Monk/M4E_Upgrade_Monk_Low_River_Style.pdf"
         },
         "MonkeysPaw": {
             "faction": "Outcasts",
@@ -34890,7 +34918,8 @@
             "keywords": [],
             "name": "Monkey`s Paw",
             "text": "Monkey`s Paw Trinket",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Outcasts/Versatile - Outcasts/M4E_Upgrade_Out-Versatile_Monkey's_Paw.pdf"
         },
         "NaturalCamouflage": {
             "faction": "Neverborn",
@@ -34909,7 +34938,8 @@
             ],
             "name": "Natural Camouflage",
             "text": "Natural Camouflage Mutation",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Neverborn/Chimera/M4E_Upgrade_Chimera_Natural_Camouflage.pdf"
         },
         "NoOneLeftBehind": {
             "faction": "Guild",
@@ -34928,7 +34958,8 @@
             ],
             "name": "No One Left Behind",
             "text": "No One Left Behind Hermanos de Armas",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Guild/Family/M4E_Upgrade_Family_No_One_Left_Behind.pdf"
         },
         "PetalintheWind": {
             "faction": "Ten Thunders",
@@ -34947,7 +34978,8 @@
             ],
             "name": "Petal in the Wind",
             "text": "Petal in the Wind Petal and Blood versatile",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Ten Thunders/Versatile - Ten Thunders/M4E_Upgrade_TT-Versatile_Peal_in_the_Wind.pdf"
         },
         "PetrifiedProtector": {
             "faction": "Ten Thunders",
@@ -34964,7 +34996,8 @@
             "keywords": [],
             "name": "Petrified Sentinel",
             "text": "Petrified Sentinel versatile",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Ten Thunders/Versatile - Ten Thunders/M4E_Upgrade_TT-Versatile_Petrified_Sentinel.pdf"
         },
         "PhantasmalMask": {
             "faction": "Explorer's Society",
@@ -34983,7 +35016,8 @@
             ],
             "name": "Phantasmal Mask",
             "text": "Phantasmal Mask",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Explorer's Society/Wastrel/M4E_Upgrade_Wastrel_Phantasmal_Mask.pdf"
         },
         "PowderKeg": {
             "faction": "Outcasts",
@@ -35002,7 +35036,8 @@
             ],
             "name": "Powder Keg",
             "text": "Powder Keg Loot",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Outcasts/Infamous/M4E_Upgrade_Infamous_Powder_Keg.pdf"
         },
         "PrettyFloralBonnet": {
             "faction": "Outcasts",
@@ -35019,7 +35054,8 @@
             "keywords": [],
             "name": "Pretty Floral Bonnet",
             "text": "Pretty Floral Bonnet Trinket",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Outcasts/Versatile - Outcasts/M4E_Upgrade_Out-Versatile_Pretty_Floral_Bonnet.pdf"
         },
         "RatchetingLegSpring": {
             "faction": "Bayou",
@@ -35038,7 +35074,8 @@
             ],
             "name": "Ratcheting Leg Spring",
             "text": "Ratcheting Leg Spring",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Bayou/Kin/M4E_Upgrade_Kin_Ratcheting_Leg_Spring.pdf"
         },
         "RetractableClaws": {
             "faction": "Neverborn",
@@ -35057,7 +35094,8 @@
             ],
             "name": "Retractable Claws",
             "text": "Retractable Claws Mutation",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Neverborn/Chimera/M4E_Upgrade_Chimera_Retractable_Claws.pdf"
         },
         "RocketBoots": {
             "faction": "Outcasts",
@@ -35076,7 +35114,8 @@
             ],
             "name": "Rocket Boots",
             "text": "Equipment Rocket Boots",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Outcasts/Freikorps/M4E_Upgrade_Freikorps_Rocket_Boots.pdf"
         },
         "SetAdrift": {
             "faction": "Resurrectionist",
@@ -35095,7 +35134,8 @@
             ],
             "name": "Set Adrift",
             "text": "Set Adrift Waterlogged",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Resurrectionists/Tormented/M4E_Upgrade_Tormented_Set_Adrift.pdf"
         },
         "Shipwrecked": {
             "faction": "Resurrectionist",
@@ -35114,7 +35154,8 @@
             ],
             "name": "Shipwrecked",
             "text": "Shipwrecked Waterlogged",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Resurrectionists/Tormented/M4E_Upgrade_Tormented_Shipwrecked.pdf"
         },
         "SilverTongue": {
             "faction": "Guild",
@@ -35133,7 +35174,8 @@
             ],
             "name": "Silver Tongue",
             "text": "Silver Tongue Mimicry",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Guild/Elite/M4E_Upgrade_Elite_Silver_Tongue.pdf"
         },
         "SirensSway": {
             "faction": "Resurrectionist",
@@ -35152,7 +35194,8 @@
             ],
             "name": "Siren\u2019s Sway",
             "text": "Siren\u2019s Sway Waterlogged",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Resurrectionists/Tormented/M4E_Upgrade_Tormented_Siren's_Sway.pdf"
         },
         "SlipIntoObscurity": {
             "faction": "Guild",
@@ -35171,7 +35214,8 @@
             ],
             "name": "Slip Into Obscurity",
             "text": "Slip Into Obscurity Mimicry",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Guild/Elite/M4E_Upgrade_Elite_Slip_Into_Obscurity.pdf"
         },
         "SoaringDragon": {
             "faction": "Ten Thunders",
@@ -35188,7 +35232,8 @@
             "keywords": [],
             "name": "Soaring Dragon",
             "text": "Soaring Dragon Aspect versatile",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Ten Thunders/Versatile - Ten Thunders/M4E_Upgrade_TT-Versatile_Soaring_Dragon.pdf"
         },
         "SoulRestoration": {
             "faction": "Resurrectionist",
@@ -35207,7 +35252,8 @@
             ],
             "name": "Soul Restoration",
             "text": "Soul Restoration Reliquary",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Resurrectionists/Ancestor/M4E_Upgrade_Ancestor_Soul_Restoration.pdf"
         },
         "StolenLife": {
             "faction": "Neverborn",
@@ -35226,7 +35272,8 @@
             ],
             "name": "Stolen Life",
             "text": "Stolen Life Wreathed",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Neverborn/Banished/M4E_Upgrade_Banished_Stolen_Life.pdf"
         },
         "SupportShield": {
             "faction": "Outcasts",
@@ -35245,7 +35292,8 @@
             ],
             "name": "Support Shield",
             "text": "Support Shield Equipment",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Outcasts/Freikorps/M4E_Upgrade_Freikorps_Support_Shield.pdf"
         },
         "TarnishedMirror": {
             "faction": "Explorer's Society",
@@ -35264,7 +35312,8 @@
             ],
             "name": "Tarnished Mirror",
             "text": "Tarnished Mirror",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Explorer's Society/Wastrel/M4E_Upgrade_Wastrel_Tarnished_Mirror.pdf"
         },
         "Temptation": {
             "faction": "Neverborn",
@@ -35283,7 +35332,8 @@
             ],
             "name": "Temptation",
             "text": "Temptation Wreathed",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Neverborn/Banished/M4E_Upgrade_Banished_Temptation.pdf"
         },
         "TheBigGuns": {
             "faction": "Outcasts",
@@ -35302,7 +35352,8 @@
             ],
             "name": "The Big Guns",
             "text": "The Big Guns",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Outcasts/Freikorps/M4E_Upgrade_Freikorps_The_Big_Guns.pdf"
         },
         "TheDarkStone": {
             "faction": "Neverborn",
@@ -35319,7 +35370,8 @@
             "keywords": [],
             "name": "The Dark Stone",
             "text": "The Dark Stone Phases of the Moon Versatile",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Neverborn/Versatile - Neverborn/M4E_Upgrade_Nvb-Versatile_The_Dark_Stone.pdf"
         },
         "ThePathofAsh": {
             "faction": "Resurrectionist",
@@ -35338,7 +35390,8 @@
             ],
             "name": "The Path of Ash",
             "text": "The Path of Ash Reliquary",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Resurrectionists/Ancestor/M4E_Upgrade_Ancestor_The_Path_of_Ash.pdf"
         },
         "ThePathofBone": {
             "faction": "Resurrectionist",
@@ -35357,7 +35410,8 @@
             ],
             "name": "The Path of Bone",
             "text": "The Path of Bone Reliquary",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Resurrectionists/Ancestor/M4E_Upgrade_Ancestor_The_Path_of_Bone.pdf"
         },
         "ThePathofSpirit": {
             "faction": "Resurrectionist",
@@ -35376,7 +35430,8 @@
             ],
             "name": "The Path of Spirit",
             "text": "The Path of Spirit Reliquary",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Resurrectionists/Ancestor/M4E_Upgrade_Ancestor_The_Path_of_Spirit.pdf"
         },
         "TheSmileBeneath": {
             "faction": "Guild",
@@ -35395,7 +35450,8 @@
             ],
             "name": "The Smile Beneath",
             "text": "Mimicry The Smile Beneath",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Guild/Elite/M4E_Upgrade_Elite_The_Smile_Beneath.pdf"
         },
         "ThroughandThrough": {
             "faction": "Guild",
@@ -35414,7 +35470,8 @@
             ],
             "name": "Through and Through",
             "text": "Through and Through Hermanos de Armas",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Guild/Family/M4E_Upgrade_Family_Through_and_Through.pdf"
         },
         "ThroughtheBadlands": {
             "faction": "Outcasts",
@@ -35431,7 +35488,8 @@
             "keywords": [],
             "name": "Through the Badlands",
             "text": "Through the Badlands",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Outcasts/Versatile - Outcasts/M4E_Upgrade_Out-Versatile_Through_the_Badlands.pdf"
         },
         "TimewornBlade": {
             "faction": "Explorer's Society",
@@ -35450,7 +35508,8 @@
             ],
             "name": "Timeworn Blade",
             "text": "Timeworn Blade",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Explorer's Society/Wastrel/M4E_Upgrade_Wastrel_Timeworn_Blade.pdf"
         },
         "TragedyRepeats": {
             "faction": "Ten Thunders",
@@ -35469,7 +35528,8 @@
             ],
             "name": "Tragedy Repeats",
             "text": "Tragedy Repeats Petal and Blood versatile",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Ten Thunders/Versatile - Ten Thunders/M4E_Upgrade_TT-Versatile_Tragedy_Repeats.pdf"
         },
         "TreasureMap": {
             "faction": "Outcasts",
@@ -35488,7 +35548,8 @@
             ],
             "name": "Treasure Map",
             "text": "Treasure Map Loot",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Outcasts/Infamous/M4E_Upgrade_Infamous_Treasure_Map.pdf"
         },
         "UnjustlyAccused": {
             "faction": "Resurrectionist",
@@ -35507,7 +35568,8 @@
             ],
             "name": "Unjustly Accused",
             "text": "Unjustly Accused Injustice",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Resurrectionists/Tormented/M4E_Upgrade_Tormented_Unjustly_Accused.pdf"
         },
         "UpthePace": {
             "faction": "Guild",
@@ -35526,7 +35588,8 @@
             ],
             "name": "Up the Pace",
             "text": "Up the Pace Hermanos de Armas",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Guild/Family/M4E_Upgrade_Family_Up_the_Pace.pdf"
         },
         "VisionsinAir": {
             "faction": "Arcanists",
@@ -35545,7 +35608,8 @@
             ],
             "name": "Visions in Air",
             "text": "Visions in Air Elemental Binds",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Arcanists/Academic/M4E_Upgrade_Academic_Visions_in_Air.pdf"
         },
         "VisionsinHeat": {
             "faction": "Arcanists",
@@ -35564,7 +35628,8 @@
             ],
             "name": "Visions in Heat",
             "text": "Visions in Heat Elemental Binds",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Arcanists/Academic/M4E_Upgrade_Academic_Visions_in_Heat.pdf"
         },
         "VisionsinIce": {
             "faction": "Arcanists",
@@ -35583,7 +35648,8 @@
             ],
             "name": "Visions in Ice",
             "text": "Visions in Ice Elemental Binds",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Arcanists/Academic/M4E_Upgrade_Academic_Visions_in_Ice.pdf"
         },
         "Voodoo": {
             "faction": "Bayou",
@@ -35602,7 +35668,8 @@
             ],
             "name": "Voodoo",
             "text": "Voodoo",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Bayou/Swampfiend/M4E_Upgrade_Swampfiend_Voodoo.pdf"
         },
         "WanderingRiverStyle": {
             "faction": "Ten Thunders",
@@ -35621,7 +35688,8 @@
             ],
             "name": "Wandering River Style",
             "text": "Wandering River Style Fighting Style",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Ten Thunders/Monk/M4E_Upgrade_Monk_Wandering_River_Style.pdf"
         },
         "WellWornBoots": {
             "faction": "Outcasts",
@@ -35638,7 +35706,8 @@
             "keywords": [],
             "name": "Well-Worn Boots",
             "text": "Well-Worn Boots Trinket",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Outcasts/Versatile - Outcasts/M4E_Upgrade_Out-Versatile_Well-Worn_Boots.pdf"
         },
         "WhiteWhale": {
             "faction": "Bayou",
@@ -35657,7 +35726,8 @@
             ],
             "name": "White Whale",
             "text": "White Whale",
-            "tokens": []
+            "tokens": [],
+            "pdf": "pdfs/Bayou/Angler/M4E_Upgrade_Angler_White_Whale.pdf"
         }
     }
 }
