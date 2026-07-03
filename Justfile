@@ -41,5 +41,6 @@ migrate:
 test:
     {{ compose }} run --rm backend uv run pytest
 
+[positional-arguments]
 manage *args:
-    {{ compose }} run --rm backend uv run python manage.py {{ args }}
+    {{ compose }} run --rm backend uv run python manage.py "$@"
