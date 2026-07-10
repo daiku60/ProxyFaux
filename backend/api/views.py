@@ -8,7 +8,13 @@ from django.urls import reverse
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from api.pdfs import PdfCompositionError, compose_model_pdf
+from api.models import CrewCard, Model, Upgrade
+from api.pdfs import (
+    PdfCompositionError,
+    RequestedCard,
+    compose_model_pdf,
+    compose_selected_cards_pdf,
+)
 
 
 class HealthView(APIView):
@@ -25,8 +31,16 @@ class CreatePdfView(APIView):
 
     def post(self, request):  # type: ignore[override]
         text = request.data.get("text")
-        if not isinstance(text, str) or not text.strip():
-            return Response({"detail": "The `text` field is required."}, status=400)
+        selected_cards_data = request.data.get("selected_cards")
+
+        if selected_cards_data is None:
+            if not isinstance(text, str) or not text.strip():
+                return Response({"detail": "The `text` field is required."}, status=400)
+        elif not isinstance(selected_cards_data, list) or len(selected_cards_data) == 0:
+            return Response(
+                {"detail": "The `selected_cards` field must be a non-empty list."},
+                status=400,
+            )
 
         try:
             border = parse_bool_param(request.data.get("border"), field_name="border")
@@ -35,16 +49,25 @@ class CreatePdfView(APIView):
                 field_name="cut_lines",
             )
             sheet_size = parse_sheet_size_param(request.data.get("sheet_size"))
+            selected_cards = parse_selected_cards_param(selected_cards_data)
         except ValueError as exc:
             return Response({"detail": str(exc)}, status=400)
 
         try:
-            pdf_bytes = compose_model_pdf(
-                text,
-                border=border,
-                cut_lines=cut_lines,
-                sheet_size=sheet_size,
-            )
+            if selected_cards is not None:
+                pdf_bytes = compose_selected_cards_pdf(
+                    selected_cards,
+                    border=border,
+                    cut_lines=cut_lines,
+                    sheet_size=sheet_size,
+                )
+            else:
+                pdf_bytes = compose_model_pdf(
+                    text,
+                    border=border,
+                    cut_lines=cut_lines,
+                    sheet_size=sheet_size,
+                )
         except PdfCompositionError as exc:
             return Response({"detail": str(exc)}, status=400)
 
@@ -120,3 +143,59 @@ def parse_sheet_size_param(value) -> str:
         return value.lower()
 
     raise ValueError("The `sheet_size` field must be `a4` or `letter`.")
+
+
+def parse_selected_cards_param(value) -> list[RequestedCard] | None:
+    if value is None:
+        return None
+
+    if not isinstance(value, list) or len(value) == 0:
+        raise ValueError("The `selected_cards` field must be a non-empty list.")
+
+    requested_cards: list[RequestedCard] = []
+    for item in value:
+        if not isinstance(item, dict):
+            raise ValueError("Each `selected_cards` entry must be an object.")
+
+        kind = item.get("kind")
+        source_id = item.get("source_id")
+        label = item.get("label")
+        language = item.get("language", "en")
+        variant = item.get("variant")
+
+        if kind not in {"model", "crewCard", "upgrade"}:
+            raise ValueError("Each `selected_cards.kind` must be `model`, `crewCard`, or `upgrade`.")
+        if not isinstance(source_id, str) or not source_id.strip():
+            raise ValueError("Each `selected_cards.source_id` must be a non-empty string.")
+        if not isinstance(label, str) or not label.strip():
+            raise ValueError("Each `selected_cards.label` must be a non-empty string.")
+        if not isinstance(language, str) or language not in {"en", "es"}:
+            raise ValueError("Each `selected_cards.language` must be `en` or `es`.")
+        if variant is not None and not isinstance(variant, str):
+            raise ValueError("Each `selected_cards.variant` must be a string or null.")
+
+        card = resolve_card_by_kind_and_source_id(kind, source_id)
+        if card is None:
+            raise ValueError(f"Card not found for {kind}:{source_id}.")
+
+        requested_cards.append(
+            RequestedCard(
+                raw_name=label,
+                card=card,
+                variant=variant,
+                language=language,
+            )
+        )
+
+    return requested_cards
+
+
+def resolve_card_by_kind_and_source_id(
+    kind: str,
+    source_id: str,
+) -> Model | CrewCard | Upgrade | None:
+    if kind == "model":
+        return Model.objects.filter(source_id=source_id).first()
+    if kind == "crewCard":
+        return CrewCard.objects.filter(source_id=source_id).first()
+    return Upgrade.objects.filter(source_id=source_id).first()

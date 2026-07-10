@@ -34,6 +34,11 @@ class RequestedCard:
     raw_name: str
     card: Model | CrewCard | Upgrade
     variant: str | None = None
+    language: str = "en"
+
+    @property
+    def model(self) -> Model | CrewCard | Upgrade:
+        return self.card
 
 
 @dataclass(frozen=True)
@@ -204,12 +209,31 @@ def compose_model_pdf(
     )
 
 
+def compose_selected_cards_pdf(
+    requested_cards: list[RequestedCard],
+    *,
+    border: bool = False,
+    cut_lines: bool = False,
+    sheet_size: str = "a4",
+) -> bytes:
+    placements = resolve_pdf_placements(requested_cards)
+    return render_composed_pdf(
+        placements,
+        sheet_layout=build_sheet_layout(sheet_size),
+        border=border,
+        cut_lines=cut_lines,
+    )
+
+
 def resolve_pdf_placements(requested_cards: list[RequestedCard]) -> list[PdfPlacement]:
     counters: dict[int, int] = {}
     placements: list[PdfPlacement] = []
 
     for requested_card in requested_cards:
-        pdf_path, variants = resolve_pdf_path_and_variants(requested_card.card.pdf)
+        pdf_path, variants = resolve_pdf_path_and_variants(
+            requested_card.card.pdf,
+            language=requested_card.language,
+        )
         chosen_variant: str | None = None
         if variants:
             if requested_card.variant is not None:
@@ -241,8 +265,12 @@ def resolve_pdf_placements(requested_cards: list[RequestedCard]) -> list[PdfPlac
     return placements
 
 
-def resolve_pdf_path_and_variants(pdf_value: str) -> tuple[Path, list[str]]:
-    pdf_root = Path(settings.PDF_ROOT)
+def resolve_pdf_path_and_variants(
+    pdf_value: str,
+    *,
+    language: str = "en",
+) -> tuple[Path, list[str]]:
+    pdf_root = get_pdf_root_for_language(language)
     raw_path = Path(pdf_value)
     resolved_path = normalize_pdf_storage_path(raw_path, pdf_root)
     match = VARIANT_PATTERN.search(resolved_path.name)
@@ -264,6 +292,31 @@ def normalize_pdf_storage_path(pdf_path: Path, pdf_root: Path) -> Path:
         return pdf_root / Path(*pdf_path.parts[1:])
 
     return pdf_root / pdf_path
+
+
+def get_pdf_root_for_language(language: str) -> Path:
+    normalized_language = language.lower()
+    if normalized_language not in {"en", "es"}:
+        raise PdfCompositionError(
+            f"Unsupported language `{language}`. Use `en` or `es`."
+        )
+
+    pdf_data_root = Path(getattr(settings, "PDF_DATA_ROOT", Path(settings.PDF_ROOT).parent))
+    language_pdf_root = pdf_data_root / normalized_language / "pdfs"
+    if language_pdf_root.exists():
+        return language_pdf_root
+
+    if normalized_language == "en":
+        return Path(settings.PDF_ROOT)
+
+    return language_pdf_root
+
+
+def parse_requested_models(
+    text: str,
+    models: list[Model],
+) -> list[RequestedCard]:
+    return parse_requested_cards(text, models)
 
 
 def path_starts_with_parts(path: Path, prefix_parts: tuple[str, ...]) -> bool:

@@ -1,0 +1,8106 @@
+{
+  "Abomination": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ],
+      "D": [
+        "en"
+      ]
+    }
+  },
+  "AbuelaOrtega": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "AbyssalAnchor": {
+    "default": [
+      "en"
+    ]
+  },
+  "Adze": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Aeslin": {
+    "default": [
+      "en"
+    ]
+  },
+  "Agent46": {
+    "default": [
+      "en"
+    ]
+  },
+  "Ahool": {
+    "default": [
+      "en"
+    ]
+  },
+  "Aionus": {
+    "default": [
+      "en"
+    ]
+  },
+  "Akaname": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "AlanReid": {
+    "default": [
+      "en"
+    ]
+  },
+  "AlleywayEcho": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "AllisonDade": {
+    "default": [
+      "en"
+    ]
+  },
+  "Alp": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "AlphonseLeBlanc": {
+    "default": [
+      "en"
+    ]
+  },
+  "Alpinist": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "AltusKeene": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Amai": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Amanjaku": {
+    "default": [
+      "en"
+    ]
+  },
+  "AmaNoZako": {
+    "default": [
+      "en"
+    ]
+  },
+  "AminaNaidu": {
+    "default": [
+      "en"
+    ]
+  },
+  "AncientConstruct": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "AngelEyes": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "AngelicaDurand": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "AnnaLovelace": {
+    "default": [
+      "en"
+    ]
+  },
+  "AnyaLycarayen_RailMagnate": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "AnyaLycarayen_TheResolute": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ApprenticeWesley": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ArcaneEffigy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ArcaneEmissary": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ArcaneFate_Effigy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ArcaneFate_Emissary": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Archie": {
+    "default": [
+      "en"
+    ]
+  },
+  "Archivist": {
+    "default": [
+      "en"
+    ]
+  },
+  "ArikSchttemer": {
+    "default": [
+      "en"
+    ]
+  },
+  "Artemis": {
+    "default": [
+      "en"
+    ]
+  },
+  "ArunRajput": {
+    "default": [
+      "en"
+    ]
+  },
+  "AsamiTanaka_OniMother": {
+    "default": [
+      "en"
+    ]
+  },
+  "AsamiTanaka_Shintaku": {
+    "default": [
+      "en"
+    ]
+  },
+  "Ashbringer": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "AshenCore": {
+    "default": [
+      "en"
+    ]
+  },
+  "AshenEcho": {
+    "default": [
+      "en"
+    ]
+  },
+  "AshesandDust": {
+    "default": [
+      "en"
+    ]
+  },
+  "Ashigaru": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "AspiringStudent": {
+    "default": [
+      "en"
+    ]
+  },
+  "Asset17": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "AsuraRoten": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Athorak": {
+    "default": [
+      "en"
+    ]
+  },
+  "AuaWarrior": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "AugusteHart": {
+    "default": [
+      "en"
+    ]
+  },
+  "AuntiyMel": {
+    "default": [
+      "en"
+    ]
+  },
+  "AuntyMel": {
+    "default": [
+      "en"
+    ]
+  },
+  "AusteraandTwigge": {
+    "default": [
+      "en"
+    ]
+  },
+  "Austringer": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "AutumnKnight": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "AvelOrtega": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Aversion": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "BabyKade": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "BackupAssistant": {
+    "default": [
+      "en"
+    ]
+  },
+  "BadJuju": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Banasuva": {
+    "default": [
+      "en"
+    ]
+  },
+  "Bandersnatch": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Bandido": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Banying": {
+    "default": [
+      "en"
+    ]
+  },
+  "Barbaros": {
+    "default": [
+      "en"
+    ]
+  },
+  "Barrelby": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Bashe": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "BatschAmalie": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "BatteringRam": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "BayouGator": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "BayouGremlin": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "E": [
+        "en"
+      ],
+      "G": [
+        "en"
+      ]
+    }
+  },
+  "BayouSmuggler": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "BeauFishbocker": {
+    "default": [
+      "en"
+    ]
+  },
+  "Beckoner": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "BellaventineThorpe": {
+    "default": [
+      "en"
+    ]
+  },
+  "BellhopPorter": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "BennyWolcomb": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "BernadetteBasse_Bravo": {
+    "default": [
+      "en"
+    ]
+  },
+  "BernadetteBasse_Furtive": {
+    "default": [
+      "en"
+    ]
+  },
+  "BerserkerHusk": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "BeteNoire": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "BigBrainBrin": {
+    "default": [
+      "en"
+    ]
+  },
+  "BigJake": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "BillAlgren": {
+    "default": [
+      "en"
+    ]
+  },
+  "Bisection": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Bishop": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Blackbird": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "BlackBloodShaman": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "BlessedofDecember": {
+    "default": [
+      "en"
+    ]
+  },
+  "BloodHunter": {
+    "default": [
+      "en"
+    ]
+  },
+  "BloodVessel": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Bloodwretch": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Boilermaker": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "BonePile": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Bookkeeper": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "BoPeep": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Botanist": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Bracer": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Brewmaster_Moonshiner": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Brewmaster_ProofProphet": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "BrockenSpectre": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Bruce": {
+    "default": [
+      "en"
+    ]
+  },
+  "BrutalEffigy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "BrutalEmissary": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "BrutalFate_Effigy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "BrutalFate_Emissary": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Buckaroo": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "BucketBot": {
+    "default": [
+      "en"
+    ]
+  },
+  "Bultungin": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Bunraku": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "BurtJebsen": {
+    "default": [
+      "en"
+    ]
+  },
+  "Calligrapher": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "CalypsoMkII": {
+    "default": [
+      "en"
+    ]
+  },
+  "Camerabot": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Candy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "CaptainZipp_Cloudchaser": {
+    "default": [
+      "en"
+    ]
+  },
+  "CaptainZipp_DreadPirate": {
+    "default": [
+      "en"
+    ]
+  },
+  "CarlosVasquez": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "CarnivorousWyrdwood": {
+    "default": [
+      "en"
+    ]
+  },
+  "CarrionEffigy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "CarrionEmissary": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "CarrionFate_Effigy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "CarrionFate_Emissary": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "CassandraFelton": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "CatalanBrawler": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "CatalanRifleman": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Cavatica": {
+    "default": [
+      "en"
+    ]
+  },
+  "CavernNephilim": {
+    "default": [
+      "en"
+    ]
+  },
+  "CayceJones": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Ceddra_SightlessSnow": {
+    "default": [
+      "en"
+    ]
+  },
+  "Ceddra_WhiteStag": {
+    "default": [
+      "en"
+    ]
+  },
+  "Changeling": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "CharlesHoffman_Inventor": {
+    "default": [
+      "en"
+    ]
+  },
+  "CharlesHoffman_SteelSculptor": {
+    "default": [
+      "en"
+    ]
+  },
+  "CharmWarder": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "ChiakitheBeacon": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ChiyoHamasaki": {
+    "default": [
+      "en"
+    ]
+  },
+  "Clipper": {
+    "default": [
+      "en"
+    ]
+  },
+  "ClockworkQueen_MatriarchoftheMachine": {
+    "default": [
+      "en"
+    ]
+  },
+  "ClockworkQueen_TheParadox": {
+    "default": [
+      "en"
+    ]
+  },
+  "ClockworkTrap": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ],
+      "D": [
+        "en"
+      ]
+    }
+  },
+  "Cojo": {
+    "default": [
+      "en"
+    ]
+  },
+  "ColetteduBois_Smuggler": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ColetteduBois_StaroftheShow": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "CommanderBura": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ConvictGunslinger": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "CooperJones": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Coppelius": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "CopycatKiller": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "CorneliusBasse_BadlandsSheriff": {
+    "default": [
+      "en"
+    ]
+  },
+  "CorneliusBasse_LoneVerdict": {
+    "default": [
+      "en"
+    ]
+  },
+  "CoronatoroftheCrown": {
+    "default": [
+      "en"
+    ]
+  },
+  "CorpseCandle": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "CorpseCurator": {
+    "default": [
+      "en"
+    ]
+  },
+  "CorruptedHound": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ],
+      "D": [
+        "en"
+      ]
+    }
+  },
+  "CorvisRook": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Coryphee": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "CorypheeDuet": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Courtesan": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "CrookedMan": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Crookskin": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Crooligan": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Crumb": {
+    "default": [
+      "en"
+    ]
+  },
+  "CrypsisCorps": {
+    "default": [
+      "en"
+    ]
+  },
+  "Cryptologist": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Cyclops": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Dabbler": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Daeva": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "DamianRavencroft_Aspirant": {
+    "default": [
+      "en"
+    ]
+  },
+  "DamianRavencroft_Unbound": {
+    "default": [
+      "en"
+    ]
+  },
+  "Dapperling": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "DashelBarker_Butcher": {
+    "default": [
+      "en"
+    ]
+  },
+  "DashelBarker_TheOldGuard": {
+    "default": [
+      "en"
+    ]
+  },
+  "DatsueBa": {
+    "default": [
+      "en"
+    ]
+  },
+  "Daydream": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "DeaconHillcrest": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "DeadDandy": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "DeadDoxy": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "DeadOutlaw": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "DeadRider": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "DeathMarshal": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "DecemberAcolyte": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "DeliriousThrall": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Delirium": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "DesolationEngine": {
+    "default": [
+      "en"
+    ]
+  },
+  "DesperateMercenary": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "DesperLaRaux": {
+    "default": [
+      "en"
+    ]
+  },
+  "DirectorRodriguez": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "DiseaseContainmentUnit": {
+    "default": [
+      "en"
+    ]
+  },
+  "DocMitchell": {
+    "default": [
+      "en"
+    ]
+  },
+  "DomadordeCadaveres": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "DomingoMontoya": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Doppelganger": {
+    "default": [
+      "en"
+    ]
+  },
+  "DorianCrowe": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "DrachenTrooper": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Draugr": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "DrBeebe": {
+    "default": [
+      "en"
+    ]
+  },
+  "DrMcMourning_Insanitary": {
+    "default": [
+      "en"
+    ]
+  },
+  "DrMcMourning_Malpractitioner": {
+    "default": [
+      "en"
+    ]
+  },
+  "DrMeredithStanley": {
+    "default": [
+      "en"
+    ]
+  },
+  "Drowned": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Drudge": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Drumstick": {
+    "default": [
+      "en"
+    ]
+  },
+  "DustStorm": {
+    "default": [
+      "en"
+    ]
+  },
+  "DynastBram": {
+    "default": [
+      "en"
+    ]
+  },
+  "EarlBurns": {
+    "default": [
+      "en"
+    ]
+  },
+  "EddieClark": {
+    "default": [
+      "en"
+    ]
+  },
+  "EdieClark": {
+    "default": [
+      "en"
+    ]
+  },
+  "ElementalBoxer": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "ElijahBorgman": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "EllaMaeChesterfield": {
+    "default": [
+      "en"
+    ]
+  },
+  "EmpyreanEagle": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "EnglishIvan_DoubleAgent": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "EnglishIvan_Obscura": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "EnslavedSpirit": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Envy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ErymanthianBoar": {
+    "default": [
+      "en"
+    ]
+  },
+  "EssenceofPower": {
+    "default": [
+      "en"
+    ]
+  },
+  "EternalFlame": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Euripides_Hierophant": {
+    "default": [
+      "en"
+    ]
+  },
+  "Euripides_OldOneEye": {
+    "default": [
+      "en"
+    ]
+  },
+  "EvaHavenhand": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Executionier": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Exorcist": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "EyesandEars": {
+    "default": [
+      "en"
+    ]
+  },
+  "Ezekiel": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "FalseWitness": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "FerdinandVogel_SelfRighteousMan": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "FerdinandVogel_TheBeastWithin": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "FieldReporter": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "FingersLeong": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Firebranded": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "FireGamin": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "FireGolem": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Firestarter": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Fitzsimmons": {
+    "default": [
+      "en"
+    ]
+  },
+  "FleshConstruct": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Fluffernutter": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "FlyingPiglet": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Forgeling": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "FourWindsGolem": {
+    "default": [
+      "en"
+    ]
+  },
+  "FranciscoOrtega": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "FrancoisLaCroix": {
+    "default": [
+      "en"
+    ]
+  },
+  "FransciscoOrtega": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "FreikorpsEngineer": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Freikorpsmann": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "FreikorpsScout": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Frontiersman": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Fuhatsu": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Fumigator": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Gaki": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "GatlingGunner": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "GautraeuxBokor": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Gearling": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "GeorgyandOlaf": {
+    "default": [
+      "en"
+    ]
+  },
+  "Geryon": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "GhostEater": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "GhostLight": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "GiantLeech": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "GibsonDewalt": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "GiftofThorns": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Gigant": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Gluttony": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Gokudo": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "GoodOlBoy": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Goop": {
+    "default": [
+      "en"
+    ]
+  },
+  "Gorar": {
+    "default": [
+      "en"
+    ]
+  },
+  "Goryo": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Gracie": {
+    "default": [
+      "en"
+    ]
+  },
+  "Gravedigger": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "GraveGolem": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "GraveGoo": {
+    "default": [
+      "en"
+    ]
+  },
+  "Greed": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "GremlinCrier": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Grootslang": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Guardian": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "GuildHound": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ],
+      "D": [
+        "en"
+      ]
+    }
+  },
+  "GuildLawyer": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "GuildMage": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Guilty": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Gunsmith": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Gupps": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Gwisin": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Gwyll": {
+    "default": [
+      "en"
+    ]
+  },
+  "GwynethMaddox": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "HabberDasher": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Hamelin_Piper": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Hamelin_Plaguebringer": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "HandofJanus": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Hanged": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "HannahLovelace": {
+    "default": [
+      "en"
+    ]
+  },
+  "Hans": {
+    "default": [
+      "en"
+    ]
+  },
+  "HarataNgaatoro": {
+    "default": [
+      "en"
+    ]
+  },
+  "HardStopHerbert": {
+    "default": [
+      "en"
+    ]
+  },
+  "HaroldTull_Artillerist": {
+    "default": [
+      "en"
+    ]
+  },
+  "HaroldTull_DeadSilent": {
+    "default": [
+      "en"
+    ]
+  },
+  "Harpooner": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "HarrisJ5": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "HarrisonFrodsham": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Hayreddin": {
+    "default": [
+      "en"
+    ]
+  },
+  "Herbie": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Hermits": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "HexBow": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Hildegard": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Hinamatsu": {
+    "default": [
+      "en"
+    ]
+  },
+  "HodgepodgeEffigy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "HodgepodgeEmissary": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "HodgepodgeFate_Effigy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "HodgepodgeFate_Emissary": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "HogOilSalesman": {
+    "default": [
+      "en"
+    ]
+  },
+  "HogWhisperer": {
+    "default": [
+      "en"
+    ]
+  },
+  "HollowWaif": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Hoochdini": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "HoodedRider": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "HopefulProspect": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Hopscotch": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "HostDucat": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "HowardLangston": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Huckster": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "HungeringDarkness_BeneaththeBets": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "HungeringDarkness_Eclipse": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Hunter": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "IceGamin": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "IceGolem": {
+    "default": [
+      "en"
+    ]
+  },
+  "Iggy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Ikiryo_SpiritofVengeance": {
+    "default": [
+      "en"
+    ]
+  },
+  "Ikiryo_TheHeartthatLeft": {
+    "default": [
+      "en"
+    ]
+  },
+  "Ikjas": {
+    "default": [
+      "en"
+    ]
+  },
+  "Illuminated": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "InsidiousMadness": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "IntrepidEffigy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "IntrepidEmissary": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "IntrepidFate_Effigy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "IntrepidFate_Emissary": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Investigator": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "IrenaKeene": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "IronWing": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Ithanna": {
+    "default": [
+      "en"
+    ]
+  },
+  "IzamutheArmor": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "JaakunaUbume": {
+    "default": [
+      "en"
+    ]
+  },
+  "Jackalope": {
+    "default": [
+      "en"
+    ]
+  },
+  "JackDaw_Ensouled": {
+    "default": [
+      "en"
+    ]
+  },
+  "JackDaw_SpiritofBetrayal": {
+    "default": [
+      "en"
+    ]
+  },
+  "JadeRabbit": {
+    "default": [
+      "en"
+    ]
+  },
+  "JakobLynch_DarkBet": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "JakobLynch_Wildcard": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "JaneDoe": {
+    "default": [
+      "en"
+    ]
+  },
+  "JasperGray": {
+    "default": [
+      "en"
+    ]
+  },
+  "JebediahJones": {
+    "default": [
+      "en"
+    ]
+  },
+  "Jedza_Everlasting": {
+    "default": [
+      "en"
+    ]
+  },
+  "Jedza_TheWanderer": {
+    "default": [
+      "en"
+    ]
+  },
+  "JessieHalliday": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "JinBaccara": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "JohanCreedy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "JohnWatson": {
+    "default": [
+      "en"
+    ]
+  },
+  "JonathanReichart": {
+    "default": [
+      "en"
+    ]
+  },
+  "Jorogumo": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Joss": {
+    "default": [
+      "en"
+    ]
+  },
+  "JuddHoney": {
+    "default": [
+      "en"
+    ]
+  },
+  "KabukiWarrior": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Kaeris_IronThreaded": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Kaeris_Reborn": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Kainhearse": {
+    "default": [
+      "en"
+    ]
+  },
+  "Kaltgeist": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Kaltgist": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Kamaitachi": {
+    "default": [
+      "en"
+    ]
+  },
+  "Kandara": {
+    "default": [
+      "en"
+    ]
+  },
+  "Kang": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Kara": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Karina": {
+    "default": [
+      "en"
+    ]
+  },
+  "KariZotiko": {
+    "default": [
+      "en"
+    ]
+  },
+  "Kastore_Awakened": {
+    "default": [
+      "en"
+    ]
+  },
+  "Kastore_Fervent": {
+    "default": [
+      "en"
+    ]
+  },
+  "KatanakaCrimeBoss": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "KatanakaSniper": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Katashiro": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Kazamir": {
+    "default": [
+      "en"
+    ]
+  },
+  "KeepsideStrangers": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Kenshiro": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Kentauroi": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Kett": {
+    "default": [
+      "en"
+    ]
+  },
+  "Killjoy": {
+    "default": [
+      "en"
+    ]
+  },
+  "KingsWall": {
+    "default": [
+      "en"
+    ]
+  },
+  "KiraiAnkoku_EnvoyoftheCourt": {
+    "default": [
+      "en"
+    ]
+  },
+  "KiraiAnkoku_LadyofVengeance": {
+    "default": [
+      "en"
+    ]
+  },
+  "KittyDumont": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "KiyaManimi": {
+    "default": [
+      "en"
+    ]
+  },
+  "KlausNorwood": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Koji": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Komainu": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "KOTO": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "KuchisakeOnna": {
+    "default": [
+      "en"
+    ]
+  },
+  "Kudra": {
+    "default": [
+      "en"
+    ]
+  },
+  "Kunoichi": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "LaCroixRaider": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "LadyJustice_ArbiteroftheUndead": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "LadyJustice_DeathTouched": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "LadyLigeia": {
+    "default": [
+      "en"
+    ]
+  },
+  "LadyYume": {
+    "default": [
+      "en"
+    ]
+  },
+  "LadyYumi": {
+    "default": [
+      "en"
+    ]
+  },
+  "Lampad": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Lamplighter": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "LastBite": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ],
+      "D": [
+        "en"
+      ]
+    }
+  },
+  "Lazarus": {
+    "default": [
+      "en"
+    ]
+  },
+  "LeechKing": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Leftovers": {
+    "default": [
+      "en"
+    ]
+  },
+  "LegerDeMain": {
+    "default": [
+      "en"
+    ]
+  },
+  "Lelu": {
+    "default": [
+      "en"
+    ]
+  },
+  "LennyJones": {
+    "default": [
+      "en"
+    ]
+  },
+  "LightningBug": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Lilitu": {
+    "default": [
+      "en"
+    ]
+  },
+  "LinhLy_Bibliothecary": {
+    "default": [
+      "en"
+    ]
+  },
+  "LinhLy_Storyteller": {
+    "default": [
+      "en"
+    ]
+  },
+  "LittleGasser": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Lohith": {
+    "default": [
+      "en"
+    ]
+  },
+  "LordChompyBits_Dreamlord": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "LordChompyBits_LurkingLullaby": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "LordCooper_Huntmaster": {
+    "default": [
+      "en"
+    ]
+  },
+  "LordCooper_Manhunter": {
+    "default": [
+      "en"
+    ]
+  },
+  "LostLove": {
+    "default": [
+      "en"
+    ]
+  },
+  "LotusEater": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "LouisaFusi": {
+    "default": [
+      "en"
+    ]
+  },
+  "LucasMcCabe_DismountedHunter": {
+    "default": [
+      "en"
+    ]
+  },
+  "LucasMcCabe_RelicHunter": {
+    "default": [
+      "en"
+    ]
+  },
+  "LucasMcCabe_TombDelver": {
+    "default": [
+      "en"
+    ]
+  },
+  "LuciusMattheson_Dishonorable": {
+    "default": [
+      "en"
+    ]
+  },
+  "LuciusMattheson_InPlainSight": {
+    "default": [
+      "en"
+    ]
+  },
+  "LuckyEffigy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "LuckyEmissary": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "LuckyFate_Effigy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "LuckyFate_Emissary": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Lucy": {
+    "default": [
+      "en"
+    ]
+  },
+  "Luna": {
+    "default": [
+      "en"
+    ]
+  },
+  "Lust": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Lyssa": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Machinist": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "MadameSybelle": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MadDogBrackett": {
+    "default": [
+      "en"
+    ]
+  },
+  "MahTucket_MechaMeeMaw": {
+    "default": [
+      "en"
+    ]
+  },
+  "MahTucket_MetalMagpie": {
+    "default": [
+      "en"
+    ]
+  },
+  "MalifauxRat": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ],
+      "D": [
+        "en",
+        "es"
+      ],
+      "E": [
+        "en",
+        "es"
+      ],
+      "F": [
+        "en",
+        "es"
+      ],
+      "G": [
+        "en",
+        "es"
+      ],
+      "H": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "MalisaurusRex": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ManchaRoja": {
+    "default": [
+      "en"
+    ]
+  },
+  "ManostheRisen": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MapMap": {
+    "default": [
+      "en"
+    ]
+  },
+  "Mara": {
+    "default": [
+      "en"
+    ]
+  },
+  "Marathine": {
+    "default": [
+      "en"
+    ]
+  },
+  "MarcoBonatti": {
+    "default": [
+      "en"
+    ]
+  },
+  "Marcus_Alpha": {
+    "default": [
+      "en"
+    ]
+  },
+  "Marcus_Monstermaker": {
+    "default": [
+      "en"
+    ]
+  },
+  "MariyaDyatlov": {
+    "default": [
+      "en"
+    ]
+  },
+  "MariyaXXXXX": {
+    "default": [
+      "en"
+    ]
+  },
+  "MarlenaWebster": {
+    "default": [
+      "en"
+    ]
+  },
+  "MatureNephilim": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Maurice": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MaxineAgassiz_Monomaniacal": {
+    "default": [
+      "en"
+    ]
+  },
+  "MaxineAgassiz_TheRenowned": {
+    "default": [
+      "en"
+    ]
+  },
+  "McTavish": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MechanicalAttendant": {
+    "default": [
+      "en"
+    ]
+  },
+  "MechanicalDove": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "MechanicalMisfit": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "MechanicalRider": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MechanizedPorkchop": {
+    "default": [
+      "en"
+    ]
+  },
+  "Mecharachnid": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "MeiFeng_Foreman": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MeiFeng_SentinelofSteel": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MelissaKORE": {
+    "default": [
+      "en"
+    ]
+  },
+  "MerrisLacroix": {
+    "default": [
+      "en"
+    ]
+  },
+  "MetalGamin": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "MetalGolem": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MikhailXVI": {
+    "default": [
+      "en"
+    ]
+  },
+  "MinakoRei": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MindlessZombie": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ],
+      "D": [
+        "en",
+        "es"
+      ],
+      "E": [
+        "en",
+        "es"
+      ],
+      "F": [
+        "en",
+        "es"
+      ],
+      "G": [
+        "en",
+        "es"
+      ],
+      "H": [
+        "en",
+        "es"
+      ],
+      "I": [
+        "en",
+        "es"
+      ],
+      "J": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Mirewing": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MisakiKatanaka_Fractured": {
+    "default": [
+      "en"
+    ]
+  },
+  "MisakiKatanaka_Oyabun": {
+    "default": [
+      "en"
+    ]
+  },
+  "MiyaMurakami": {
+    "default": [
+      "en"
+    ]
+  },
+  "Model9": {
+    "default": [
+      "en"
+    ]
+  },
+  "Moleman": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "MollySquidpiddge_ChaoticConductor": {
+    "default": [
+      "en"
+    ]
+  },
+  "MollySquidpiddge_HarbingerofHavoc": {
+    "default": [
+      "en"
+    ]
+  },
+  "MonsterHunter": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Montresor": {
+    "default": [
+      "en"
+    ]
+  },
+  "MoonShinobi": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Moorwraith": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Mortimer": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Mossbeard": {
+    "default": [
+      "en"
+    ]
+  },
+  "MountedGuard": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Mourner": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Mouse": {
+    "default": [
+      "en"
+    ]
+  },
+  "MrAmbrose": {
+    "default": [
+      "en"
+    ]
+  },
+  "MrGraves": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MrMordrake_BumpintheNight": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MrMordrake_SilentWitness": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MrNgaatoro": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MrTannen": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MsWeiss": {
+    "default": [
+      "en"
+    ]
+  },
+  "MuLong": {
+    "default": [
+      "en"
+    ]
+  },
+  "Myranda": {
+    "default": [
+      "en"
+    ]
+  },
+  "MysteriousEffigy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MysteriousEmissary": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MysteriousFate_Effigy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MysteriousFate_Emissary": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Necropunk": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "NecroticMachine": {
+    "default": [
+      "en"
+    ]
+  },
+  "NeilHenry": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Nekima_Broodmother": {
+    "default": [
+      "en"
+    ]
+  },
+  "Nekima_NephilimQueen": {
+    "default": [
+      "en"
+    ]
+  },
+  "NellieCochrane_TheTattler": {
+    "default": [
+      "en"
+    ]
+  },
+  "NellieCochrane_VoiceofDisorder": {
+    "default": [
+      "en"
+    ]
+  },
+  "Newsie": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Nexus_HeartoftheHive": {
+    "default": [
+      "en"
+    ]
+  },
+  "Nexus_OneofMany": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Nia_FracturedFuture": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Nia_LifeoftheParty": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "NightcrawlerNetwork": {
+    "default": [
+      "en"
+    ]
+  },
+  "NightsilkCreeper": {
+    "default": [
+      "en"
+    ]
+  },
+  "NightTerror": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "NinoOrtega": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Nix": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Nocturne": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "NoxiousNephilim": {
+    "default": [
+      "en"
+    ]
+  },
+  "ObedientWretch": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ObsidianOni": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "ObsidianStatue": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "OhaguroBettari": {
+    "default": [
+      "en"
+    ]
+  },
+  "OldCranky": {
+    "default": [
+      "en"
+    ]
+  },
+  "OldHob": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "OldMajor": {
+    "default": [
+      "en"
+    ]
+  },
+  "OliviaBernard": {
+    "default": [
+      "en"
+    ]
+  },
+  "Operative": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "OpheliaLaCroix_Overloaded": {
+    "default": [
+      "en"
+    ]
+  },
+  "OpheliaLaCroix_RedCageRaider": {
+    "default": [
+      "en"
+    ]
+  },
+  "OrderInitiate": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "OroBoro": {
+    "default": [
+      "en"
+    ]
+  },
+  "OrvilleAgassiz": {
+    "default": [
+      "en"
+    ]
+  },
+  "Oskar": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Ototo": {
+    "default": [
+      "en"
+    ]
+  },
+  "OxfordianMage": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "PaleRider": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Pandora_DespairsDesire": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Pandora_TyrantTorn": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "PapaLoco": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "PaperTiger": {
+    "default": [
+      "en"
+    ]
+  },
+  "ParkerBarrows_DeadManWalking": {
+    "default": [
+      "en"
+    ]
+  },
+  "ParkerBarrows_MostWanted": {
+    "default": [
+      "en"
+    ]
+  },
+  "Parson": {
+    "default": [
+      "en"
+    ]
+  },
+  "PaulCrockett": {
+    "default": [
+      "en"
+    ]
+  },
+  "Peacekeeper": {
+    "default": [
+      "en"
+    ]
+  },
+  "PearlMusgrove": {
+    "default": [
+      "en"
+    ]
+  },
+  "Penelope": {
+    "default": [
+      "en"
+    ]
+  },
+  "PerditaOrtega_LaDiabla": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "PerditaOrtega_NeverbornHunter": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "PereRavage": {
+    "default": [
+      "en"
+    ]
+  },
+  "PhilipandtheNanny": {
+    "default": [
+      "en"
+    ]
+  },
+  "PhionaGage": {
+    "default": [
+      "en"
+    ]
+  },
+  "Pigapult": {
+    "default": [
+      "en"
+    ]
+  },
+  "Piglet": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ],
+      "D": [
+        "en"
+      ]
+    }
+  },
+  "PistolerodeLatigo": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Poltergeist": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "PopcornTurner": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Pride": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "PrimordialMagic": {
+    "default": [
+      "en"
+    ]
+  },
+  "ProfVonSchtook_AdmissionsExecutive": {
+    "default": [
+      "en"
+    ]
+  },
+  "ProfVonSchtook_Stargazer": {
+    "default": [
+      "en"
+    ]
+  },
+  "Propagandist": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Prospector": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "PurifyingFlame": {
+    "default": [
+      "en"
+    ]
+  },
+  "RabbleRiser": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Rafkin": {
+    "default": [
+      "en"
+    ]
+  },
+  "Rami": {
+    "default": [
+      "en"
+    ]
+  },
+  "RamiLaCroix": {
+    "default": [
+      "en"
+    ]
+  },
+  "Raphael": {
+    "default": [
+      "en"
+    ]
+  },
+  "RaphaelLaCroix": {
+    "default": [
+      "en"
+    ]
+  },
+  "Rasputina_Abominable": {
+    "default": [
+      "en"
+    ]
+  },
+  "Rasputina_WintersTeeth": {
+    "default": [
+      "en"
+    ]
+  },
+  "RatCatcher": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "RatKing": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "RazorspineRattler": {
+    "default": [
+      "en"
+    ]
+  },
+  "Redcap": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "RepurposedMonstrosity": {
+    "default": [
+      "en"
+    ]
+  },
+  "ResearchAssistant": {
+    "default": [
+      "en"
+    ]
+  },
+  "RestlessSpirit": {
+    "default": [
+      "en"
+    ]
+  },
+  "RevaCortinas_DeathShepherd": {
+    "default": [
+      "en"
+    ]
+  },
+  "RevaCortinas_Luminary": {
+    "default": [
+      "en"
+    ]
+  },
+  "Rifleman": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Riotbreaker": {
+    "default": [
+      "en"
+    ]
+  },
+  "RiverMonk": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Rocketeer": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "RockHopper": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "RogueNecromancy": {
+    "default": [
+      "en"
+    ]
+  },
+  "Ronin": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "RoosterRider": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "RosieHill": {
+    "default": [
+      "en"
+    ]
+  },
+  "Rougarou": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "RoughRider": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Ruffian": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Ruffles": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Runaway": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "RustyAlyce_RidersRemade": {
+    "default": [
+      "en"
+    ]
+  },
+  "RustyAlyce_TriggerHappy": {
+    "default": [
+      "en"
+    ]
+  },
+  "SabertoothCerberus": {
+    "default": [
+      "en"
+    ]
+  },
+  "Saboteur": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "SamaelHopkins": {
+    "default": [
+      "en"
+    ]
+  },
+  "SammyLaCroix": {
+    "default": [
+      "en"
+    ]
+  },
+  "SandeepDesai_FontOfMagic": {
+    "default": [
+      "en"
+    ]
+  },
+  "SandeepDesai_TheQuietFlame": {
+    "default": [
+      "en"
+    ]
+  },
+  "SandWorm": {
+    "default": [
+      "en"
+    ]
+  },
+  "SantiagoOrtega": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Sapper": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "ScalesofJustice": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Scavenger": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "ScionoftheVoid": {
+    "default": [
+      "en"
+    ]
+  },
+  "Seamus_akaSebastianBaker": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Seamus_theLastBreath": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Sebastian": {
+    "default": [
+      "en"
+    ]
+  },
+  "Seishin": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "SelfRepairBot": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Sen": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "SenseiYu": {
+    "default": [
+      "en"
+    ]
+  },
+  "SerenaBowman": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Sergeant": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "ShadowFate_Effigy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ShadowFate_Emissary": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Shadowlark": {
+    "default": [
+      "en"
+    ]
+  },
+  "ShamblingNest": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Shang": {
+    "default": [
+      "en"
+    ]
+  },
+  "ShastarVidiyaGuard": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Shenlong_DragonsBreath": {
+    "default": [
+      "en"
+    ]
+  },
+  "Shenlong_TheTeacher": {
+    "default": [
+      "en"
+    ]
+  },
+  "Shieldbearer": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Shikome": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Shojo": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ShoreboundSentinel": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Showgirl": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "SidirAlchibal": {
+    "default": [
+      "en"
+    ]
+  },
+  "SilentOne": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "SilkenKing_Colossus": {
+    "default": [
+      "en"
+    ]
+  },
+  "SilkenKing_LongLive": {
+    "default": [
+      "en"
+    ]
+  },
+  "Silurid": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "SirVantes": {
+    "default": [
+      "en"
+    ]
+  },
+  "SixArmedSixShooter": {
+    "default": [
+      "en"
+    ]
+  },
+  "Skeeter": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "SkulkerSkin": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "SlateRidgeMauler": {
+    "default": [
+      "en"
+    ]
+  },
+  "Slipstreamer": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "SlopHauler": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Sloth": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "SlySixShots": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Smokestack": {
+    "default": [
+      "en"
+    ]
+  },
+  "SnowStorm": {
+    "default": [
+      "en"
+    ]
+  },
+  "SomerTeethJones_BayouBoss": {
+    "default": [
+      "en"
+    ]
+  },
+  "SomerTeethJones_LootMonger": {
+    "default": [
+      "en"
+    ]
+  },
+  "SonniaCriid_Unmasked": {
+    "default": [
+      "en"
+    ]
+  },
+  "SonniaCriid_Unrelenting": {
+    "default": [
+      "en"
+    ]
+  },
+  "Sophie": {
+    "default": [
+      "en"
+    ]
+  },
+  "Sorrow": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "SoulBattery": {
+    "default": [
+      "en"
+    ]
+  },
+  "SoulPorter": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "SoulstoneGamin": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Sovereign": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "SparksLeBlanc": {
+    "default": [
+      "en"
+    ]
+  },
+  "SpawnMother": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Spelleater": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "SpitHog": {
+    "default": [
+      "en"
+    ]
+  },
+  "Squealer": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "SquishandSquash": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "SteamArachnid": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "SteamTrunk": {
+    "default": [
+      "en"
+    ]
+  },
+  "Steelworker": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Steiner": {
+    "default": [
+      "en"
+    ]
+  },
+  "StitchedTogether": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Stolen": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "StoryofRaijin": {
+    "default": [
+      "en"
+    ]
+  },
+  "StoryofSunWukong": {
+    "default": [
+      "en"
+    ]
+  },
+  "StoryofSuzaku": {
+    "default": [
+      "en"
+    ]
+  },
+  "StoryofThanhGiong": {
+    "default": [
+      "en"
+    ]
+  },
+  "StrangeLady": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Stryx": {
+    "default": [
+      "en"
+    ]
+  },
+  "StudentofConflict": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "StudentofSinew": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "StudentofSteel": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "StudentofViscera": {
+    "default": [
+      "en"
+    ]
+  },
+  "StuffedPiglet": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ],
+      "D": [
+        "en",
+        "es"
+      ],
+      "E": [
+        "en",
+        "es"
+      ],
+      "F": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Stumpy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Sue": {
+    "default": [
+      "en"
+    ]
+  },
+  "SunlessSelf": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "SunQuiang": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Surveyor": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Survivor": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Swashbuckler": {
+    "default": [
+      "en"
+    ]
+  },
+  "SwineCursed": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "SwineTwirler": {
+    "default": [
+      "en"
+    ]
+  },
+  "Taelor": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "TaggartQueeg": {
+    "default": [
+      "en"
+    ]
+  },
+  "Talos": {
+    "default": [
+      "en"
+    ]
+  },
+  "Tannenbaum": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Tanuki": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Tara_Timeless": {
+    "default": [
+      "en"
+    ]
+  },
+  "Tara_Voidcaller": {
+    "default": [
+      "en"
+    ]
+  },
+  "Taxidermist": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Teddy": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Temperance": {
+    "default": [
+      "en"
+    ]
+  },
+  "Tengu": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "TenThundersBrother": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "TerracottaWarrior": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "TerrorTot": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "TestSubject": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "ThalarianQueller": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "TheBadOmen": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "TheBrassBull": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "TheCaptain": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheCarver": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "TheClampetts_BallyHooBucket": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheClampetts_Fisherfolk": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheColony": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheCrowned": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "TheDamned": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheDispatcher": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheDreamer_FastAsleep": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "TheDreamer_Insomniac": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "TheFerryman": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheFirstLight": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheFirstMate": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheForgottenMarshal": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheFortuneTeller": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheIronMatron": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheJudge": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "TheJury": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "TheKitchenSink": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheKurgan": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheLittleLass": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheLoneMarshal": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "TheMidnightStalker": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheNothingBeast": {
+    "default": [
+      "en"
+    ]
+  },
+  "ThePrintingPress": {
+    "default": [
+      "en"
+    ]
+  },
+  "ThePuzzleBox_Solved": {
+    "default": [
+      "en"
+    ]
+  },
+  "ThePuzzleBox_Unsolved": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheScorpius": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "TheScribe": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheScribe_InPlainSight": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheSilentSiren": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheSow": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheSyzygySisters": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "TheValedictorian": {
+    "default": [
+      "en"
+    ]
+  },
+  "ThirtyThree": {
+    "default": [
+      "en"
+    ]
+  },
+  "Thoon": {
+    "default": [
+      "en"
+    ]
+  },
+  "ThunderArcher": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Tidecaller": {
+    "default": [
+      "en"
+    ]
+  },
+  "Tiri_TheArchitect": {
+    "default": [
+      "en"
+    ]
+  },
+  "Tiri_TheNomad": {
+    "default": [
+      "en"
+    ]
+  },
+  "Titania_AutumnQueen": {
+    "default": [
+      "en"
+    ]
+  },
+  "Titania_WitheredRose": {
+    "default": [
+      "en"
+    ]
+  },
+  "Toast": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ToniIronsides_Troubleshooter": {
+    "default": [
+      "en"
+    ]
+  },
+  "ToniIronsides_UnionPresident": {
+    "default": [
+      "en"
+    ]
+  },
+  "Torakage": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "ToshirotheDaimyo": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "TrainedRaptor": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Trixiebelle": {
+    "default": [
+      "en"
+    ]
+  },
+  "TucoOrtega": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "TunnelRats": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "UlixTurner_Hogfather": {
+    "default": [
+      "en"
+    ]
+  },
+  "UlixTurner_PorkbellyProtector": {
+    "default": [
+      "en"
+    ]
+  },
+  "Ullr": {
+    "default": [
+      "en"
+    ]
+  },
+  "UncleBogg": {
+    "default": [
+      "en"
+    ]
+  },
+  "UndercoverReporter": {
+    "default": [
+      "en"
+    ]
+  },
+  "Undergraduate": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "UnionJourneyman": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "UnseelieEngine": {
+    "default": [
+      "en"
+    ]
+  },
+  "Urchin": {
+    "default": [
+      "en"
+    ]
+  },
+  "Urnbearer": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "VanessaChambers": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Vasilisa": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "VatagiHuntsman": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Vee": {
+    "default": [
+      "en"
+    ]
+  },
+  "VernonandWelles": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ViktoriaChambers_AshesandBlood": {
+    "default": [
+      "en"
+    ]
+  },
+  "ViktoriaChambers_TwinBlades": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "VincentStClair": {
+    "default": [
+      "en"
+    ]
+  },
+  "VoidHunter": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "VoidWretch": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "VonSchill_IronHeart": {
+    "default": [
+      "en"
+    ]
+  },
+  "VonSchill_TheVeteran": {
+    "default": [
+      "en"
+    ]
+  },
+  "VoodooDoll": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Waldegeist": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "Waldgeist": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "WalkingCannon": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Wanyudo": {
+    "default": [
+      "en"
+    ]
+  },
+  "Warden": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "WarPig": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Watcher": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Wendigo": {
+    "default": [
+      "en"
+    ]
+  },
+  "WhiskeyGamin": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "WhiskeyGolem": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "WhiteEyes": {
+    "default": [
+      "en"
+    ]
+  },
+  "WhiteRabbitCo": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "WickedDoll": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "WidowWeaver": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "WildBoar": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Willie": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "WilloTheWisp": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en",
+        "es"
+      ],
+      "B": [
+        "en",
+        "es"
+      ],
+      "C": [
+        "en",
+        "es"
+      ]
+    }
+  },
+  "WindGamin": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "WinstonFinnegan": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "WitchlingHandler": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "WitchlingStalker": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "WitchlingThrall": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ]
+    }
+  },
+  "Wong_TheEnchanter": {
+    "default": [
+      "en"
+    ]
+  },
+  "Wong_TheWonderful": {
+    "default": [
+      "en"
+    ]
+  },
+  "Wrastler": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Wrath": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Yaksha": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "Yamaziko": {
+    "default": [
+      "en"
+    ]
+  },
+  "YanLo_Pathseeker": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "YanLo_SpiritWalker": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "YannicWaller": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Yasunori": {
+    "default": [
+      "en"
+    ]
+  },
+  "YinthePenangalan": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Yokai": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ]
+    }
+  },
+  "YoukoHamasaki_SilkoftheLotus": {
+    "default": [
+      "en"
+    ]
+  },
+  "YoukoHamasaki_Unseen": {
+    "default": [
+      "en"
+    ]
+  },
+  "YoungLacroix": {
+    "default": [
+      "en"
+    ]
+  },
+  "YoungNephilim": {
+    "default": [
+      "en"
+    ],
+    "variants": {
+      "A": [
+        "en"
+      ],
+      "B": [
+        "en"
+      ],
+      "C": [
+        "en"
+      ],
+      "D": [
+        "en"
+      ]
+    }
+  },
+  "Zheng": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ZombieChihuahua": {
+    "default": [
+      "en"
+    ]
+  },
+  "Zoraida_BogWitch": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Zoraida_SwampHag": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "AdaptiveEvolution": {
+    "default": [
+      "en"
+    ]
+  },
+  "AgeofInspiration": {
+    "default": [
+      "en"
+    ]
+  },
+  "AggressiveLegislation": {
+    "default": [
+      "en"
+    ]
+  },
+  "AntiqueDealer": {
+    "default": [
+      "en"
+    ]
+  },
+  "ArmsRace": {
+    "default": [
+      "en"
+    ]
+  },
+  "AudaciousAssault": {
+    "default": [
+      "en"
+    ]
+  },
+  "BeyondTime": {
+    "default": [
+      "en"
+    ]
+  },
+  "BiggerHatThanYou": {
+    "default": [
+      "en"
+    ]
+  },
+  "BloodandHunger": {
+    "default": [
+      "en"
+    ]
+  },
+  "BloodlessTirade": {
+    "default": [
+      "en"
+    ]
+  },
+  "BoostedHandSignals": {
+    "default": [
+      "en"
+    ]
+  },
+  "BoostedHeavySalvo": {
+    "default": [
+      "en"
+    ]
+  },
+  "BoundByBlood": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "BountyHunt": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "BrackishBully": {
+    "default": [
+      "en"
+    ]
+  },
+  "BreatheTheAether": {
+    "default": [
+      "en"
+    ]
+  },
+  "BurningMansPrayer": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "CarefullyLaidPlans": {
+    "default": [
+      "en"
+    ]
+  },
+  "Cheeseit": {
+    "default": [
+      "en"
+    ]
+  },
+  "ClearMind": {
+    "default": [
+      "en"
+    ]
+  },
+  "CloseOversight": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "CloudedMind": {
+    "default": [
+      "en"
+    ]
+  },
+  "ContagionsKiss": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "CoordinatedEffort": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Coronation": {
+    "default": [
+      "en"
+    ]
+  },
+  "CourtroomDrama": {
+    "default": [
+      "en"
+    ]
+  },
+  "CrawlingHex": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "CunningPatience": {
+    "default": [
+      "en"
+    ]
+  },
+  "CursedRelics": {
+    "default": [
+      "en"
+    ]
+  },
+  "DarkThoughts": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "DevotedtotheBrew": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "DropthePianos": {
+    "default": [
+      "en"
+    ]
+  },
+  "DustboundOath": {
+    "default": [
+      "en"
+    ]
+  },
+  "EliteEquipment": {
+    "default": [
+      "en"
+    ]
+  },
+  "EmbraceTechnology": {
+    "default": [
+      "en"
+    ]
+  },
+  "EmpoweringTome": {
+    "default": [
+      "en"
+    ]
+  },
+  "EngulfingFlames": {
+    "default": [
+      "en"
+    ]
+  },
+  "EntangledSpirits": {
+    "default": [
+      "en"
+    ]
+  },
+  "EntranceExamination": {
+    "default": [
+      "en"
+    ]
+  },
+  "EternalPilgrimage": {
+    "default": [
+      "en"
+    ]
+  },
+  "ExcessiveViolence": {
+    "default": [
+      "en"
+    ]
+  },
+  "EyesintheWall": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "FeastingTirade": {
+    "default": [
+      "en"
+    ]
+  },
+  "FireShieldtheFaithful": {
+    "default": [
+      "en"
+    ]
+  },
+  "FireworksShow": {
+    "default": [
+      "en"
+    ]
+  },
+  "FleetingMoments": {
+    "default": [
+      "en"
+    ]
+  },
+  "FlickeringGrasp": {
+    "default": [
+      "en"
+    ]
+  },
+  "FlowLikeMoonshine": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "FlushWithCash": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "FollowTradition": {
+    "default": [
+      "en"
+    ]
+  },
+  "FootnotesofMadness": {
+    "default": [
+      "en"
+    ]
+  },
+  "FreikorpsTactics": {
+    "default": [
+      "en"
+    ]
+  },
+  "FrostbittenProphecy": {
+    "default": [
+      "en"
+    ]
+  },
+  "GravePeril": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "GuardianSpirit": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "GuidedEvolution": {
+    "default": [
+      "en"
+    ]
+  },
+  "HandSignals": {
+    "default": [
+      "en"
+    ]
+  },
+  "HeavySalvo": {
+    "default": [
+      "en"
+    ]
+  },
+  "Hivemind": {
+    "default": [
+      "en"
+    ]
+  },
+  "HouseAlwaysWins": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "HungersReach": {
+    "default": [
+      "en"
+    ]
+  },
+  "HuntersGuile": {
+    "default": [
+      "en"
+    ]
+  },
+  "IndustryLeader": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "InevitabilityofDeath": {
+    "default": [
+      "en"
+    ]
+  },
+  "IntoThorns": {
+    "default": [
+      "en"
+    ]
+  },
+  "LaidtoRest": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "LawsReach": {
+    "default": [
+      "en"
+    ]
+  },
+  "LegendaryFigures": {
+    "default": [
+      "en"
+    ]
+  },
+  "LimitTest": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "LootedParts": {
+    "default": [
+      "en"
+    ]
+  },
+  "LoyaltyRevitalized": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "LucidDreaming": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MadnessandMalice": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MarshbornMalice": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MiseryBusiness": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "MobilizetheWatch": {
+    "default": [
+      "en"
+    ]
+  },
+  "MorningEdition": {
+    "default": [
+      "en"
+    ]
+  },
+  "MortuaryAccess": {
+    "default": [
+      "en"
+    ]
+  },
+  "MysteryBusiness": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Oneirophobia": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "OnTour": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ParadeoftheDead": {
+    "default": [
+      "en"
+    ]
+  },
+  "Parasitoidism": {
+    "default": [
+      "en"
+    ]
+  },
+  "PigsofFire": {
+    "default": [
+      "en"
+    ]
+  },
+  "Pitborne": {
+    "default": [
+      "en"
+    ]
+  },
+  "PowerUnleashed": {
+    "default": [
+      "en"
+    ]
+  },
+  "PursuitofKnowledge": {
+    "default": [
+      "en"
+    ]
+  },
+  "RepairBay": {
+    "default": [
+      "en"
+    ]
+  },
+  "RepeatUntilPerfect": {
+    "default": [
+      "en"
+    ]
+  },
+  "RidersofFate": {
+    "default": [
+      "en"
+    ]
+  },
+  "RisingTide": {
+    "default": [
+      "en"
+    ]
+  },
+  "RolltheDice": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "RustEatenFate": {
+    "default": [
+      "en"
+    ]
+  },
+  "Salvage&Logistics": {
+    "default": [
+      "en"
+    ]
+  },
+  "ScorchtheHeavens": {
+    "default": [
+      "en"
+    ]
+  },
+  "SecretsoftheRedLibrary": {
+    "default": [
+      "en"
+    ]
+  },
+  "ShadowofDoubt": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ShadowoftheNoose": {
+    "default": [
+      "en"
+    ]
+  },
+  "SilentControl": {
+    "default": [
+      "en"
+    ]
+  },
+  "SinsUnforgiven": {
+    "default": [
+      "en"
+    ]
+  },
+  "SmokeandShadows": {
+    "default": [
+      "en"
+    ]
+  },
+  "SmothertheLight": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "SmugglersPath": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "SnatchnRun": {
+    "default": [
+      "en"
+    ]
+  },
+  "SomethinsAFoot": {
+    "default": [
+      "en"
+    ]
+  },
+  "SpiritAscendant": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "SpiritualAnchor": {
+    "default": [
+      "en"
+    ]
+  },
+  "StarvingTirade": {
+    "default": [
+      "en"
+    ]
+  },
+  "StiflingThicket": {
+    "default": [
+      "en"
+    ]
+  },
+  "StolenLabEquipment": {
+    "default": [
+      "en"
+    ]
+  },
+  "StudytheStars": {
+    "default": [
+      "en"
+    ]
+  },
+  "SturdyCritters": {
+    "default": [
+      "en"
+    ]
+  },
+  "TabloidPress": {
+    "default": [
+      "en"
+    ]
+  },
+  "TakeBacktheNight": {
+    "default": [
+      "en"
+    ]
+  },
+  "TaketheStage": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "TeachThemFear": {
+    "default": [
+      "en"
+    ]
+  },
+  "TemperedSteel": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheBarrowsGang": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheFormlessMantra": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheLastSunrise": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "TheOfferingEndures": {
+    "default": [
+      "en"
+    ]
+  },
+  "TidesofMeridion": {
+    "default": [
+      "en"
+    ]
+  },
+  "TrashHeap": {
+    "default": [
+      "en"
+    ]
+  },
+  "UltimateCreation": {
+    "default": [
+      "en"
+    ]
+  },
+  "UnionDues": {
+    "default": [
+      "en"
+    ]
+  },
+  "UrbanLegend": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "VengefulSpirits": {
+    "default": [
+      "en"
+    ]
+  },
+  "VigilanteJustice": {
+    "default": [
+      "en"
+    ]
+  },
+  "WailingDoom": {
+    "default": [
+      "en"
+    ]
+  },
+  "WeakenedResolve": {
+    "default": [
+      "en"
+    ]
+  },
+  "WhimoftheHive": {
+    "default": [
+      "en"
+    ]
+  },
+  "WiltingTsubaki": {
+    "default": [
+      "en"
+    ]
+  },
+  "WintersWrath": {
+    "default": [
+      "en"
+    ]
+  },
+  "WiseWordsofWisdom": {
+    "default": [
+      "en"
+    ]
+  },
+  "AbyssalDragon": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "APaleLight": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ArmoredPlating": {
+    "default": [
+      "en"
+    ]
+  },
+  "BellsandWhistles": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "BestialForm": {
+    "default": [
+      "en"
+    ]
+  },
+  "Brainwashed": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "BreachingAxe": {
+    "default": [
+      "en"
+    ]
+  },
+  "BrilliantDragon": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "CatchoftheDay": {
+    "default": [
+      "en"
+    ]
+  },
+  "Consumed": {
+    "default": [
+      "en"
+    ]
+  },
+  "CoreStabilization": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "DashingHat": {
+    "default": [
+      "en"
+    ]
+  },
+  "DivulgeSecrets": {
+    "default": [
+      "en"
+    ]
+  },
+  "FeatheredWings": {
+    "default": [
+      "en"
+    ]
+  },
+  "FermentedRiverStyle": {
+    "default": [
+      "en"
+    ]
+  },
+  "FiringTurret": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "FlamingBlade": {
+    "default": [
+      "en"
+    ]
+  },
+  "FlamingSack": {
+    "default": [
+      "en"
+    ]
+  },
+  "GrenadeBelt": {
+    "default": [
+      "en"
+    ]
+  },
+  "HairTrigger": {
+    "default": [
+      "en"
+    ]
+  },
+  "HighRiverStyle": {
+    "default": [
+      "en"
+    ]
+  },
+  "ImpendingDoom": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ImposingPressure": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "Indoctrinated": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "IntentionalDecay": {
+    "default": [
+      "en"
+    ]
+  },
+  "KarmicFate": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "LethalTantrum": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "LowRiverStyle": {
+    "default": [
+      "en"
+    ]
+  },
+  "MonkeysPaw": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "NaturalCamouflage": {
+    "default": [
+      "en"
+    ]
+  },
+  "NoOneLeftBehind": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "PetalintheWind": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "PetrifiedProtector": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "PhantasmalMask": {
+    "default": [
+      "en"
+    ]
+  },
+  "PowderKeg": {
+    "default": [
+      "en"
+    ]
+  },
+  "PrettyFloralBonnet": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "RatchetingLegSpring": {
+    "default": [
+      "en"
+    ]
+  },
+  "RetractableClaws": {
+    "default": [
+      "en"
+    ]
+  },
+  "RocketBoots": {
+    "default": [
+      "en"
+    ]
+  },
+  "SetAdrift": {
+    "default": [
+      "en"
+    ]
+  },
+  "Shipwrecked": {
+    "default": [
+      "en"
+    ]
+  },
+  "SilverTongue": {
+    "default": [
+      "en"
+    ]
+  },
+  "SirensSway": {
+    "default": [
+      "en"
+    ]
+  },
+  "SlipIntoObscurity": {
+    "default": [
+      "en"
+    ]
+  },
+  "SoaringDragon": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "SoulRestoration": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "StolenLife": {
+    "default": [
+      "en"
+    ]
+  },
+  "SupportShield": {
+    "default": [
+      "en"
+    ]
+  },
+  "TarnishedMirror": {
+    "default": [
+      "en"
+    ]
+  },
+  "Temptation": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheBigGuns": {
+    "default": [
+      "en"
+    ]
+  },
+  "TheDarkStone": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ThePathofAsh": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ThePathofBone": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ThePathofSpirit": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "TheSmileBeneath": {
+    "default": [
+      "en"
+    ]
+  },
+  "ThroughandThrough": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "ThroughtheBadlands": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "TimewornBlade": {
+    "default": [
+      "en"
+    ]
+  },
+  "TragedyRepeats": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "TreasureMap": {
+    "default": [
+      "en"
+    ]
+  },
+  "UnjustlyAccused": {
+    "default": [
+      "en"
+    ]
+  },
+  "UpthePace": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "VisionsinAir": {
+    "default": [
+      "en"
+    ]
+  },
+  "VisionsinHeat": {
+    "default": [
+      "en"
+    ]
+  },
+  "VisionsinIce": {
+    "default": [
+      "en"
+    ]
+  },
+  "Voodoo": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "WanderingRiverStyle": {
+    "default": [
+      "en"
+    ]
+  },
+  "WellWornBoots": {
+    "default": [
+      "en",
+      "es"
+    ]
+  },
+  "WhiteWhale": {
+    "default": [
+      "en"
+    ]
+  }
+}

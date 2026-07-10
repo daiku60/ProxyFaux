@@ -9,7 +9,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@cards-data": ["../backend/data/cards.json"]
+      "@cards-data": ["../backend/data/cards.json"],
+      "@language-availability": ["./.generated/language-availability.json"]
     },
     "allowImportingTsExtensions": false,
     "resolveJsonModule": true,
@@ -22,5 +23,5 @@
     "noFallthroughCasesInSwitch": true,
     "types": ["vite/client"]
   },
-  "include": ["src", "../backend/data/cards.json"]
+  "include": ["src", "../backend/data/cards.json", "./.generated/language-availability.json"]
 }

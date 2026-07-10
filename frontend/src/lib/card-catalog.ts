@@ -1,6 +1,8 @@
 import cardsData from "@cards-data";
+import languageAvailabilityData from "@language-availability";
 
 export type SheetSize = "a4" | "letter";
+export type CardLanguage = "en" | "es";
 
 type CardVersion = {
   displayName?: string;
@@ -19,6 +21,7 @@ type RawCatalogModel = {
   files?: CardFiles;
   keywords?: string[];
   name?: string;
+  pdf?: string;
   title?: string;
 };
 
@@ -36,7 +39,11 @@ type ParseRosterPreviewOptions = {
 export type PreviewCard = {
   frontPath: string;
   id: string;
+  kind: "crewCard" | "model" | "upgrade";
   label: string;
+  languageOptions: CardLanguage[];
+  sourceId: string;
+  variant: string | null;
 };
 
 export type CatalogSuggestion = {
@@ -54,10 +61,18 @@ type CatalogEntry = {
   kind: "crewCard" | "model" | "upgrade";
   keywords: string[];
   label: string;
+  languageOptions: CardLanguage[];
+  pdfVariants: string[];
   title?: string;
 };
 
+type LanguageAvailabilityEntry = {
+  default?: string[];
+  variants?: Record<string, string[]>;
+};
+
 const rawCatalog = cardsData as RawCatalog;
+const rawLanguageAvailability = languageAvailabilityData as Record<string, LanguageAvailabilityEntry>;
 const { entriesById, lookup, upgradeIdsByKeyword } = buildCatalog(rawCatalog);
 
 const searchableEntries = Array.from(entriesById.values());
@@ -235,6 +250,8 @@ function buildCatalogEntry(
       ? model.keywords.filter((keyword): keyword is string => typeof keyword === "string" && keyword.trim().length > 0)
       : [],
     label: model.title ? `${model.name}, ${model.title}` : model.name,
+    languageOptions: resolveLanguageOptions(id, model.pdf),
+    pdfVariants: extractPdfVariants(model.pdf),
     title: model.title,
   };
 }
@@ -246,12 +263,17 @@ function buildCandidates(entry: CatalogEntry): string[] {
 function buildPreviewCard(entry: CatalogEntry, counters: Map<string, number>): PreviewCard {
   const currentIndex = counters.get(entry.id) ?? 0;
   const frontPath = entry.fronts[Math.min(currentIndex, entry.fronts.length - 1)];
+  const variant = entry.pdfVariants[Math.min(currentIndex, entry.pdfVariants.length - 1)] ?? null;
   counters.set(entry.id, currentIndex + 1);
 
   return {
     frontPath,
     id: `${entry.id}-${currentIndex}`,
+    kind: entry.kind,
     label: entry.label,
+    languageOptions: resolvePreviewLanguageOptions(entry, variant),
+    sourceId: entry.id,
+    variant,
   };
 }
 
@@ -328,6 +350,48 @@ function scoreSuggestion(entry: CatalogEntry, normalizedQuery: string): number {
   }
 
   return bestScore;
+}
+
+function extractPdfVariants(pdfPath: string | undefined): string[] {
+  if (!pdfPath) {
+    return [];
+  }
+
+  const match = pdfPath.match(/\{([A-Z](?:\|[A-Z])*)\}/);
+  return match ? match[1].split("|") : [];
+}
+
+function resolveLanguageOptions(id: string, pdfPath: string | undefined): CardLanguage[] {
+  const availability = rawLanguageAvailability[id];
+  if (!availability) {
+    return pdfPath ? ["en"] : [];
+  }
+
+  return normalizeLanguageList(availability.default);
+}
+
+function resolvePreviewLanguageOptions(
+  entry: CatalogEntry,
+  variant: string | null,
+): CardLanguage[] {
+  const availability = rawLanguageAvailability[entry.id];
+  if (!availability) {
+    return entry.languageOptions.length > 0 ? entry.languageOptions : ["en"];
+  }
+
+  if (variant && availability.variants?.[variant]) {
+    return normalizeLanguageList(availability.variants[variant]);
+  }
+
+  return entry.languageOptions.length > 0 ? entry.languageOptions : ["en"];
+}
+
+function normalizeLanguageList(languages: string[] | undefined): CardLanguage[] {
+  const normalized = (languages ?? []).filter(
+    (language): language is CardLanguage => language === "en" || language === "es",
+  );
+
+  return normalized.length > 0 ? normalized : ["en"];
 }
 
 function cleanInputLine(rawLine: string): string {

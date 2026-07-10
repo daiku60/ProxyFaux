@@ -15,7 +15,8 @@ SECRET_KEY = env("DJANGO_SECRET_KEY", default="django-insecure-change-me")
 DEBUG = env("DJANGO_DEBUG")
 ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
 FRONTEND_DIST_DIR = Path(env("FRONTEND_DIST_DIR", default=str(PROJECT_DIR / "frontend" / "dist")))
-PDF_ROOT = Path(env("PDF_ROOT", default=str(BASE_DIR / "data" / "pdfs")))
+PDF_DATA_ROOT = Path(env("PDF_DATA_ROOT", default=str(BASE_DIR / "data")))
+PDF_ROOT = Path(env("PDF_ROOT", default=str(PDF_DATA_ROOT / "en" / "pdfs")))
 GENERATED_PDF_ROOT = Path(
     env(
         "GENERATED_PDF_ROOT",

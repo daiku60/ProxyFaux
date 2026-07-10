@@ -15,6 +15,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { createPdf, buildCardImageUrl } from "@/lib/api";
 import {
+  type CardLanguage,
   parseRosterPreview,
   searchCatalog,
   type CatalogSuggestion,
@@ -49,6 +50,7 @@ export default function Home() {
   const [errorMessage, setErrorMessage] = useState("");
   const [isExporting, setIsExporting] = useState(false);
   const [selectedPreviewIds, setSelectedPreviewIds] = useState<Record<string, boolean>>({});
+  const [selectedPreviewLanguages, setSelectedPreviewLanguages] = useState<Record<string, CardLanguage>>({});
   const [suggestions, setSuggestions] = useState<CatalogSuggestion[]>([]);
   const [highlightedSuggestionIndex, setHighlightedSuggestionIndex] = useState(0);
   const [suggestionPosition, setSuggestionPosition] = useState({ left: 20, top: 20 });
@@ -79,6 +81,19 @@ export default function Home() {
   }, [previewCards]);
 
   useEffect(() => {
+    setSelectedPreviewLanguages((currentLanguages) => {
+      const nextLanguages: Record<string, CardLanguage> = {};
+      for (const previewCard of previewCards) {
+        const currentLanguage = currentLanguages[previewCard.id];
+        nextLanguages[previewCard.id] = previewCard.languageOptions.includes(currentLanguage as CardLanguage)
+          ? (currentLanguage as CardLanguage)
+          : "en";
+      }
+      return nextLanguages;
+    });
+  }, [previewCards]);
+
+  useEffect(() => {
     if (highlightedSuggestionIndex >= suggestions.length) {
       setHighlightedSuggestionIndex(0);
     }
@@ -101,6 +116,13 @@ export default function Home() {
       const response = await createPdf({
         border,
         cut_lines: cutLines,
+        selected_cards: selectedPreviewCards.map((previewCard) => ({
+          kind: previewCard.kind,
+          label: previewCard.label,
+          language: selectedPreviewLanguages[previewCard.id] ?? "en",
+          source_id: previewCard.sourceId,
+          variant: previewCard.variant,
+        })),
         sheet_size: sheetSize,
         text: exportText,
       });
@@ -124,6 +146,13 @@ export default function Home() {
     setSelectedPreviewIds((currentSelection) => ({
       ...currentSelection,
       [previewId]: currentSelection[previewId] === false,
+    }));
+  }
+
+  function updatePreviewLanguage(previewId: string, language: CardLanguage) {
+    setSelectedPreviewLanguages((currentLanguages) => ({
+      ...currentLanguages,
+      [previewId]: language,
     }));
   }
 
@@ -432,25 +461,41 @@ export default function Home() {
                     key={previewCard.id}
                     className="preview-card group relative overflow-hidden rounded-[1.4rem] border border-border bg-card shadow-card"
                   >
-                    <button
-                      type="button"
-                      onClick={() => togglePreviewSelection(previewCard.id)}
-                      aria-label={
-                        selectedPreviewIds[previewCard.id] === false
-                          ? `Select ${previewCard.label}`
-                          : `Deselect ${previewCard.label}`
-                      }
-                      aria-pressed={selectedPreviewIds[previewCard.id] !== false}
-                      className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-white/60 bg-background/88 text-foreground shadow-lg backdrop-blur transition hover:scale-105 hover:bg-background"
-                    >
-                      {selectedPreviewIds[previewCard.id] !== false ? (
-                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                          <Check className="h-3.5 w-3.5" />
-                        </span>
-                      ) : (
-                        <span className="h-5 w-5 rounded-full border border-border/80 bg-card" />
-                      )}
-                    </button>
+                    <div className="absolute right-3 top-3 z-10 flex items-center gap-2">
+                      <Select
+                        value={selectedPreviewLanguages[previewCard.id] ?? "en"}
+                        onValueChange={(value) => updatePreviewLanguage(previewCard.id, value as CardLanguage)}
+                      >
+                        <SelectTrigger className="h-8 w-[4.5rem] rounded-full border-white/60 bg-background/88 px-2 text-xs shadow-lg backdrop-blur">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="en">🇬🇧 EN</SelectItem>
+                          {previewCard.languageOptions.includes("es") ? (
+                            <SelectItem value="es">🇪🇸 ES</SelectItem>
+                          ) : null}
+                        </SelectContent>
+                      </Select>
+                      <button
+                        type="button"
+                        onClick={() => togglePreviewSelection(previewCard.id)}
+                        aria-label={
+                          selectedPreviewIds[previewCard.id] === false
+                            ? `Select ${previewCard.label}`
+                            : `Deselect ${previewCard.label}`
+                        }
+                        aria-pressed={selectedPreviewIds[previewCard.id] !== false}
+                        className="flex h-8 w-8 items-center justify-center rounded-full border border-white/60 bg-background/88 text-foreground shadow-lg backdrop-blur transition hover:scale-105 hover:bg-background"
+                      >
+                        {selectedPreviewIds[previewCard.id] !== false ? (
+                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                            <Check className="h-3.5 w-3.5" />
+                          </span>
+                        ) : (
+                          <span className="h-5 w-5 rounded-full border border-border/80 bg-card" />
+                        )}
+                      </button>
+                    </div>
                     <div className="aspect-[5/7] bg-muted">
                       <img
                         src={buildCardImageUrl(previewCard.frontPath)}
