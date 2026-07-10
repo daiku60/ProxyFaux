@@ -2,3 +2,5 @@ backend/data/pdfs/**/*.pdf filter=lfs diff=lfs merge=lfs -text
 backend/data/cards/**/*.jpg filter=lfs diff=lfs merge=lfs -text
 backend/data/cards/**/*.jpeg filter=lfs diff=lfs merge=lfs -text
 backend/data/cards/**/*.png filter=lfs diff=lfs merge=lfs -text
+backend/data/en/**/*.pdf filter=lfs diff=lfs merge=lfs -text
+backend/data/es/**/*.pdf filter=lfs diff=lfs merge=lfs -text
