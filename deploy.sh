@@ -26,6 +26,8 @@ if [ ! -f "$FRONTEND_ENV_FILE" ]; then
   exit 1
 fi
 
+node frontend/scripts/generate-language-availability.mjs
+
 docker compose \
   --env-file "$DEPLOY_ENV_FILE" \
   -f docker-compose.prod.yml \

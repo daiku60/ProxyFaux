@@ -25,6 +25,14 @@ function resolveLanguageAvailabilityPath(cardsDataPath: string): string {
   const backendDataDir = path.resolve(path.dirname(cardsDataPath));
   const outputDir = path.resolve(__dirname, ".generated");
   const outputPath = path.join(outputDir, "language-availability.json");
+  const hasLanguageDirs = ["en", "es"].some((language) =>
+    fs.existsSync(path.join(backendDataDir, language, "pdfs")),
+  );
+
+  if (!hasLanguageDirs && fs.existsSync(outputPath)) {
+    return outputPath;
+  }
+
   const rawCatalog = JSON.parse(fs.readFileSync(cardsDataPath, "utf8")) as {
     crewCards?: Record<string, { pdf?: string }>;
     models?: Record<string, { pdf?: string }>;
