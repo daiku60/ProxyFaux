@@ -23,6 +23,8 @@ services:
     restart: unless-stopped
     env_file:
       - ./backend/.env.prod
+    volumes:
+      - ./backend/data:/app/data:ro
     depends_on:
       db:
         condition: service_healthy

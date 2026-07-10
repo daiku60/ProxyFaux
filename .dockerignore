@@ -17,3 +17,6 @@ backend/staticfiles
 backend/.env
 deploy/.env.prod
 backend/.env.prod
+backend/data/**
+!backend/data/
+!backend/data/cards.json
