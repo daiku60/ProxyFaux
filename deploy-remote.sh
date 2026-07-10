@@ -121,6 +121,9 @@ if [ ! -d "\$APP_DIR/backend/data/cards" ]; then
   echo "Git LFS assets were not materialized at \$APP_DIR/backend/data/cards"
   exit 1
 fi
+
+\$SUDO chmod +x "\$APP_DIR/deploy/install_tmp_cleanup.sh"
+\$SUDO "\$APP_DIR/deploy/install_tmp_cleanup.sh"
 EOF
 
 ssh "$TARGET" 'sh -s' < "$REMOTE_SCRIPT"
