@@ -339,6 +339,18 @@ export default function Home() {
               </div>
             </div>
 
+            <div className="xl:hidden">
+              <PreviewPanel
+                previewCards={previewCards}
+                selectedPreviewCards={selectedPreviewCards}
+                selectedPreviewIds={selectedPreviewIds}
+                selectedPreviewLanguages={selectedPreviewLanguages}
+                setSelectedPreviewIds={setSelectedPreviewIds}
+                togglePreviewSelection={togglePreviewSelection}
+                updatePreviewLanguage={updatePreviewLanguage}
+              />
+            </div>
+
             <div className="grid gap-4 lg:grid-cols-2">
               <OptionSection
                 title="Layout"
@@ -424,103 +436,137 @@ export default function Home() {
           </CardContent>
         </Card>
 
-        <Card className="overflow-hidden bg-[image:var(--panel-gradient)]">
-          <CardHeader className="border-b border-border/60">
-            <CardTitle>Front-side preview</CardTitle>
-            <CardDescription>
-              Previewed from the local card catalog before export. Repeated models advance
-              through alternate fronts when available.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="p-6">
-            {previewCards.length === 0 ? (
-              <div className="flex min-h-[420px] items-center justify-center rounded-[1.5rem] border border-dashed border-border bg-background/50 px-8 text-center text-sm text-muted-foreground">
-                Paste a roster on the left to see matching front-card previews here.
-              </div>
-            ) : (
-              <div className="space-y-4">
-                <div className="flex items-center justify-between gap-3 rounded-[1.25rem] border border-border/70 bg-background/55 px-4 py-3 text-sm text-muted-foreground">
-                  <span>{selectedPreviewCards.length} of {previewCards.length} selected</span>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="sm"
-                    onClick={() =>
-                      setSelectedPreviewIds(
-                        Object.fromEntries(previewCards.map((previewCard) => [previewCard.id, true])),
-                      )
-                    }
-                    disabled={selectedPreviewCards.length === previewCards.length}
-                  >
-                    Select all
-                  </Button>
-                </div>
-                <div className="grid gap-4 sm:grid-cols-2">
-                {previewCards.map((previewCard) => (
-                  <figure
-                    key={previewCard.id}
-                    className="preview-card group relative overflow-hidden rounded-[1.4rem] border border-border bg-card shadow-card"
-                  >
-                    <div className="absolute right-3 top-3 z-10 flex items-center gap-2">
-                      <Select
-                        value={selectedPreviewLanguages[previewCard.id] ?? "en"}
-                        onValueChange={(value) => updatePreviewLanguage(previewCard.id, value as CardLanguage)}
-                      >
-                        <SelectTrigger className="h-8 w-[4.5rem] rounded-full border-white/60 bg-background/88 px-2 text-xs shadow-lg backdrop-blur">
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="en">🇬🇧 EN</SelectItem>
-                          {previewCard.languageOptions.includes("es") ? (
-                            <SelectItem value="es">🇪🇸 ES</SelectItem>
-                          ) : null}
-                        </SelectContent>
-                      </Select>
-                      <button
-                        type="button"
-                        onClick={() => togglePreviewSelection(previewCard.id)}
-                        aria-label={
-                          selectedPreviewIds[previewCard.id] === false
-                            ? `Select ${previewCard.label}`
-                            : `Deselect ${previewCard.label}`
-                        }
-                        aria-pressed={selectedPreviewIds[previewCard.id] !== false}
-                        className="flex h-8 w-8 items-center justify-center rounded-full border border-white/60 bg-background/88 text-foreground shadow-lg backdrop-blur transition hover:scale-105 hover:bg-background"
-                      >
-                        {selectedPreviewIds[previewCard.id] !== false ? (
-                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                            <Check className="h-3.5 w-3.5" />
-                          </span>
-                        ) : (
-                          <span className="h-5 w-5 rounded-full border border-border/80 bg-card" />
-                        )}
-                      </button>
-                    </div>
-                    <div className="aspect-[5/7] bg-muted">
-                      <img
-                        src={buildCardImageUrl(previewCard.frontPath)}
-                        alt={previewCard.label}
-                        className={
-                          selectedPreviewIds[previewCard.id] === false
-                            ? "h-full w-full object-cover opacity-45 grayscale transition"
-                            : "h-full w-full object-cover transition"
-                        }
-                        decoding="async"
-                        loading="lazy"
-                      />
-                    </div>
-                    <figcaption className="border-t border-border/70 px-4 py-3 text-sm font-medium">
-                      {previewCard.label}
-                    </figcaption>
-                  </figure>
-                ))}
-                </div>
-              </div>
-            )}
-          </CardContent>
-        </Card>
+        <div className="hidden xl:block">
+          <PreviewPanel
+            previewCards={previewCards}
+            selectedPreviewCards={selectedPreviewCards}
+            selectedPreviewIds={selectedPreviewIds}
+            selectedPreviewLanguages={selectedPreviewLanguages}
+            setSelectedPreviewIds={setSelectedPreviewIds}
+            togglePreviewSelection={togglePreviewSelection}
+            updatePreviewLanguage={updatePreviewLanguage}
+          />
+        </div>
       </div>
     </section>
+  );
+}
+
+type PreviewPanelProps = {
+  previewCards: ReturnType<typeof parseRosterPreview>;
+  selectedPreviewCards: ReturnType<typeof parseRosterPreview>;
+  selectedPreviewIds: Record<string, boolean>;
+  selectedPreviewLanguages: Record<string, CardLanguage>;
+  setSelectedPreviewIds: React.Dispatch<React.SetStateAction<Record<string, boolean>>>;
+  togglePreviewSelection: (previewId: string) => void;
+  updatePreviewLanguage: (previewId: string, language: CardLanguage) => void;
+};
+
+function PreviewPanel({
+  previewCards,
+  selectedPreviewCards,
+  selectedPreviewIds,
+  selectedPreviewLanguages,
+  setSelectedPreviewIds,
+  togglePreviewSelection,
+  updatePreviewLanguage,
+}: PreviewPanelProps) {
+  return (
+    <Card className="overflow-hidden bg-[image:var(--panel-gradient)]">
+      <CardHeader className="border-b border-border/60">
+        <CardTitle>Front-side preview</CardTitle>
+        <CardDescription>
+          Previewed from the local card catalog before export. Repeated models advance
+          through alternate fronts when available.
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="p-6">
+        {previewCards.length === 0 ? (
+          <div className="flex min-h-[420px] items-center justify-center rounded-[1.5rem] border border-dashed border-border bg-background/50 px-8 text-center text-sm text-muted-foreground">
+            Paste a roster on the left to see matching front-card previews here.
+          </div>
+        ) : (
+          <div className="space-y-4">
+            <div className="flex items-center justify-between gap-3 rounded-[1.25rem] border border-border/70 bg-background/55 px-4 py-3 text-sm text-muted-foreground">
+              <span>{selectedPreviewCards.length} of {previewCards.length} selected</span>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={() =>
+                  setSelectedPreviewIds(
+                    Object.fromEntries(previewCards.map((previewCard) => [previewCard.id, true])),
+                  )
+                }
+                disabled={selectedPreviewCards.length === previewCards.length}
+              >
+                Select all
+              </Button>
+            </div>
+            <div className="-mx-1 flex snap-x snap-mandatory gap-4 overflow-x-auto px-1 pb-2 xl:mx-0 xl:grid xl:gap-4 xl:overflow-visible xl:px-0 xl:pb-0 xl:sm:grid-cols-2">
+              {previewCards.map((previewCard) => (
+                <figure
+                  key={previewCard.id}
+                  className="preview-card group relative min-w-[15.5rem] shrink-0 snap-start overflow-hidden rounded-[1.4rem] border border-border bg-card shadow-card xl:min-w-0"
+                >
+                  <div className="absolute right-3 top-3 z-10 flex items-center gap-2">
+                    <Select
+                      value={selectedPreviewLanguages[previewCard.id] ?? "en"}
+                      onValueChange={(value) => updatePreviewLanguage(previewCard.id, value as CardLanguage)}
+                    >
+                      <SelectTrigger className="h-8 w-[4.5rem] rounded-full border-white/60 bg-background/88 px-2 text-xs shadow-lg backdrop-blur">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="en">🇬🇧 EN</SelectItem>
+                        {previewCard.languageOptions.includes("es") ? (
+                          <SelectItem value="es">🇪🇸 ES</SelectItem>
+                        ) : null}
+                      </SelectContent>
+                    </Select>
+                    <button
+                      type="button"
+                      onClick={() => togglePreviewSelection(previewCard.id)}
+                      aria-label={
+                        selectedPreviewIds[previewCard.id] === false
+                          ? `Select ${previewCard.label}`
+                          : `Deselect ${previewCard.label}`
+                      }
+                      aria-pressed={selectedPreviewIds[previewCard.id] !== false}
+                      className="flex h-8 w-8 items-center justify-center rounded-full border border-white/60 bg-background/88 text-foreground shadow-lg backdrop-blur transition hover:scale-105 hover:bg-background"
+                    >
+                      {selectedPreviewIds[previewCard.id] !== false ? (
+                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                          <Check className="h-3.5 w-3.5" />
+                        </span>
+                      ) : (
+                        <span className="h-5 w-5 rounded-full border border-border/80 bg-card" />
+                      )}
+                    </button>
+                  </div>
+                  <div className="aspect-[5/7] bg-muted">
+                    <img
+                      src={buildCardImageUrl(previewCard.frontPath)}
+                      alt={previewCard.label}
+                      className={
+                        selectedPreviewIds[previewCard.id] === false
+                          ? "h-full w-full object-cover opacity-45 grayscale transition"
+                          : "h-full w-full object-cover transition"
+                      }
+                      decoding="async"
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption className="border-t border-border/70 px-4 py-3 text-sm font-medium">
+                    {previewCard.label}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        )}
+      </CardContent>
+    </Card>
   );
 }
 
