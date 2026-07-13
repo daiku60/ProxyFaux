@@ -39,11 +39,14 @@ References:
   Whiskey Gamin
   Lucky Fate, Emissary`;
 
+const DEFAULT_LANGUAGE_STORAGE_KEY = "proxyfaux.defaultLanguage";
+
 export default function Home() {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-  const previousDefaultLanguageRef = useRef<CardLanguage>("en");
   const [rosterText, setRosterText] = useState("");
-  const [defaultLanguage, setDefaultLanguage] = useState<CardLanguage>("en");
+  const [defaultLanguage, setDefaultLanguage] = useState<CardLanguage>(() =>
+    readStoredDefaultLanguage(),
+  );
   const [sheetSize, setSheetSize] = useState<SheetSize>("a4");
   const [border, setBorder] = useState(false);
   const [cutLines, setCutLines] = useState(false);
@@ -83,30 +86,22 @@ export default function Home() {
   }, [previewCards]);
 
   useEffect(() => {
-    setSelectedPreviewLanguages((currentLanguages) => {
-      const nextLanguages: Record<string, CardLanguage> = {};
-      const defaultLanguageChanged = previousDefaultLanguageRef.current !== defaultLanguage;
-
-      for (const previewCard of previewCards) {
-        const currentLanguage = currentLanguages[previewCard.id];
-        if (
-          !defaultLanguageChanged
-          && previewCard.languageOptions.includes(currentLanguage as CardLanguage)
-        ) {
-          nextLanguages[previewCard.id] = currentLanguage as CardLanguage;
-          continue;
-        }
-
-        nextLanguages[previewCard.id] = resolveDefaultPreviewLanguage(
+    setSelectedPreviewLanguages(() =>
+      Object.fromEntries(
+        previewCards.map((previewCard) => [
+          previewCard.id,
+          resolveDefaultPreviewLanguage(
           previewCard.languageOptions,
           defaultLanguage,
-        );
-      }
-
-      previousDefaultLanguageRef.current = defaultLanguage;
-      return nextLanguages;
-    });
+          ),
+        ]),
+      ),
+    );
   }, [defaultLanguage, previewCards]);
+
+  useEffect(() => {
+    window.localStorage.setItem(DEFAULT_LANGUAGE_STORAGE_KEY, defaultLanguage);
+  }, [defaultLanguage]);
 
   useEffect(() => {
     if (highlightedSuggestionIndex >= suggestions.length) {
@@ -768,4 +763,13 @@ function resolveDefaultPreviewLanguage(
   }
 
   return "en";
+}
+
+function readStoredDefaultLanguage(): CardLanguage {
+  if (typeof window === "undefined") {
+    return "en";
+  }
+
+  const storedLanguage = window.localStorage.getItem(DEFAULT_LANGUAGE_STORAGE_KEY);
+  return storedLanguage === "es" ? "es" : "en";
 }
