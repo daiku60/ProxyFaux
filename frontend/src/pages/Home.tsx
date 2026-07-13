@@ -41,7 +41,9 @@ References:
 
 export default function Home() {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const previousDefaultLanguageRef = useRef<CardLanguage>("en");
   const [rosterText, setRosterText] = useState("");
+  const [defaultLanguage, setDefaultLanguage] = useState<CardLanguage>("en");
   const [sheetSize, setSheetSize] = useState<SheetSize>("a4");
   const [border, setBorder] = useState(false);
   const [cutLines, setCutLines] = useState(false);
@@ -83,15 +85,28 @@ export default function Home() {
   useEffect(() => {
     setSelectedPreviewLanguages((currentLanguages) => {
       const nextLanguages: Record<string, CardLanguage> = {};
+      const defaultLanguageChanged = previousDefaultLanguageRef.current !== defaultLanguage;
+
       for (const previewCard of previewCards) {
         const currentLanguage = currentLanguages[previewCard.id];
-        nextLanguages[previewCard.id] = previewCard.languageOptions.includes(currentLanguage as CardLanguage)
-          ? (currentLanguage as CardLanguage)
-          : "en";
+        if (
+          !defaultLanguageChanged
+          && previewCard.languageOptions.includes(currentLanguage as CardLanguage)
+        ) {
+          nextLanguages[previewCard.id] = currentLanguage as CardLanguage;
+          continue;
+        }
+
+        nextLanguages[previewCard.id] = resolveDefaultPreviewLanguage(
+          previewCard.languageOptions,
+          defaultLanguage,
+        );
       }
+
+      previousDefaultLanguageRef.current = defaultLanguage;
       return nextLanguages;
     });
-  }, [previewCards]);
+  }, [defaultLanguage, previewCards]);
 
   useEffect(() => {
     if (highlightedSuggestionIndex >= suggestions.length) {
@@ -338,6 +353,26 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
+            <OptionSection
+              title="Preferred Language"
+              description="Set the default language for preview and export. Note: Some cards are not yet translated to ES. Review cards in the preview for their language selection."
+            >
+              <div className="space-y-3">
+                <Select
+                  value={defaultLanguage}
+                  onValueChange={(value) => setDefaultLanguage(value as CardLanguage)}
+                >
+                  <SelectTrigger id="default-language">
+                    <SelectValue placeholder="Select a default language" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="en">🇬🇧 EN</SelectItem>
+                    <SelectItem value="es">🇪🇸 ES</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </OptionSection>
 
             <div className="xl:hidden">
               <PreviewPanel
@@ -722,4 +757,15 @@ function getLineHeight(lineHeight: string, fontSize: string): number {
     return Number.parseFloat(fontSize) * 1.4;
   }
   return 22;
+}
+
+function resolveDefaultPreviewLanguage(
+  availableLanguages: CardLanguage[],
+  defaultLanguage: CardLanguage,
+): CardLanguage {
+  if (defaultLanguage === "es" && availableLanguages.includes("es")) {
+    return "es";
+  }
+
+  return "en";
 }
