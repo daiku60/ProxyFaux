@@ -1,3 +1,4 @@
+import json
 import mimetypes
 from pathlib import Path
 from uuid import uuid4
@@ -195,7 +196,82 @@ def resolve_card_by_kind_and_source_id(
     source_id: str,
 ) -> Model | CrewCard | Upgrade | None:
     if kind == "model":
-        return Model.objects.filter(source_id=source_id).first()
+        return Model.objects.filter(source_id=source_id).first() or build_card_from_catalog(
+            kind,
+            source_id,
+        )
     if kind == "crewCard":
-        return CrewCard.objects.filter(source_id=source_id).first()
-    return Upgrade.objects.filter(source_id=source_id).first()
+        return CrewCard.objects.filter(source_id=source_id).first() or build_card_from_catalog(
+            kind,
+            source_id,
+        )
+    return Upgrade.objects.filter(source_id=source_id).first() or build_card_from_catalog(
+        kind,
+        source_id,
+    )
+
+
+def build_card_from_catalog(
+    kind: str,
+    source_id: str,
+) -> Model | CrewCard | Upgrade | None:
+    cards_json_path = settings.BASE_DIR / "data" / "cards.json"
+    if not cards_json_path.exists():
+        return None
+
+    cards_data = json.loads(cards_json_path.read_text())
+    section_name = {
+        "model": "models",
+        "crewCard": "crewCards",
+        "upgrade": "upgrades",
+    }[kind]
+    raw_section = cards_data.get(section_name)
+    if not isinstance(raw_section, dict):
+        return None
+
+    payload = raw_section.get(source_id)
+    if not isinstance(payload, dict):
+        return None
+
+    if kind == "model":
+        return Model(
+            source_id=source_id,
+            name=payload.get("name", ""),
+            faction=payload.get("faction", ""),
+            pdf=payload.get("pdf", ""),
+            station=payload.get("station", ""),
+            text=payload.get("text", ""),
+            title=payload.get("title", ""),
+            crew_card=payload.get("crewCard", ""),
+            totem_id=payload.get("totemId", ""),
+            characteristics=payload.get("characteristics", []),
+            keywords=payload.get("keywords", []),
+            tokens=payload.get("tokens", []),
+            alternates=payload.get("alternates", []),
+            meta=payload.get("meta", {}),
+            files=payload.get("files", {}),
+            stats=payload.get("stats", {}),
+        )
+
+    if kind == "crewCard":
+        return CrewCard(
+            source_id=source_id,
+            name=payload.get("name", ""),
+            faction=payload.get("faction", ""),
+            pdf=payload.get("pdf", ""),
+            text=payload.get("text", ""),
+            keywords=payload.get("keywords", []),
+            tokens=payload.get("tokens", []),
+            files=payload.get("files", {}),
+        )
+
+    return Upgrade(
+        source_id=source_id,
+        name=payload.get("name", ""),
+        faction=payload.get("faction", ""),
+        pdf=payload.get("pdf", ""),
+        text=payload.get("text", ""),
+        keywords=payload.get("keywords", []),
+        tokens=payload.get("tokens", []),
+        files=payload.get("files", {}),
+    )

@@ -113,3 +113,64 @@ def test_create_pdf_endpoint_rejects_missing_spanish_card(db, tmp_path) -> None:
 
     assert response.status_code == 400
     assert "Missing PDF for Candy" in response.json()["detail"]
+
+
+def test_create_pdf_endpoint_falls_back_to_cards_json_for_upgrade_selected_from_preview(
+    db,
+    tmp_path,
+    settings,
+) -> None:
+    pdf_data_root = tmp_path / "data"
+    generated_pdf_root = tmp_path / "generated-pdfs"
+    cards_json_path = pdf_data_root / "cards.json"
+    english_pdf = pdf_data_root / "en" / "pdfs" / "Neverborn" / "Chimera" / "ArmoredPlating.pdf"
+    create_test_pdf(english_pdf)
+    cards_json_path.parent.mkdir(parents=True, exist_ok=True)
+    cards_json_path.write_text(
+        """
+        {
+          "models": {},
+          "crewCards": {},
+          "upgrades": {
+            "ArmoredPlating": {
+              "name": "Armored Plating",
+              "faction": "Neverborn",
+              "pdf": "pdfs/Neverborn/Chimera/ArmoredPlating.pdf",
+              "text": "Armored Plating",
+              "keywords": ["Chimera"],
+              "tokens": [],
+              "files": {
+                "versions": [
+                  {
+                    "displayName": "Armored Plating"
+                  }
+                ]
+              }
+            }
+          }
+        }
+        """
+    )
+    settings.BASE_DIR = tmp_path
+
+    with override_settings(
+        PDF_DATA_ROOT=pdf_data_root,
+        PDF_ROOT=pdf_data_root / "en" / "pdfs",
+        GENERATED_PDF_ROOT=generated_pdf_root,
+    ):
+        response = APIClient().post(
+            "/api/create-pdf/",
+            {
+                "selected_cards": [
+                    {
+                        "kind": "upgrade",
+                        "label": "Armored Plating",
+                        "language": "en",
+                        "source_id": "ArmoredPlating",
+                    }
+                ],
+            },
+            format="json",
+        )
+
+    assert response.status_code == 201

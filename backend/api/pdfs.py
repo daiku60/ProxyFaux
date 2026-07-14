@@ -226,7 +226,7 @@ def compose_selected_cards_pdf(
 
 
 def resolve_pdf_placements(requested_cards: list[RequestedCard]) -> list[PdfPlacement]:
-    counters: dict[int, int] = {}
+    counters: dict[str, int] = {}
     placements: list[PdfPlacement] = []
 
     for requested_card in requested_cards:
@@ -244,9 +244,10 @@ def resolve_pdf_placements(requested_cards: list[RequestedCard]) -> list[PdfPlac
                     )
                 chosen_variant = requested_card.variant
             else:
-                current_index = counters.get(requested_card.card.pk or -1, 0)
+                counter_key = getattr(requested_card.card, "source_id", requested_card.raw_name)
+                current_index = counters.get(counter_key, 0)
                 chosen_variant = variants[current_index % len(variants)]
-                counters[requested_card.card.pk or -1] = current_index + 1
+                counters[counter_key] = current_index + 1
 
         resolved_path = build_variant_pdf_path(pdf_path, chosen_variant)
         if not resolved_path.exists():
