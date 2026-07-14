@@ -40,6 +40,9 @@ References:
   Lucky Fate, Emissary`;
 
 const DEFAULT_LANGUAGE_STORAGE_KEY = "proxyfaux.defaultLanguage";
+type LayoutMode = "mobile" | "paper";
+type MobileDevice = "phone" | "tablet";
+type TabletCardsPerPage = 1 | 2 | 3 | 4 | 6;
 
 export default function Home() {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
@@ -47,6 +50,9 @@ export default function Home() {
   const [defaultLanguage, setDefaultLanguage] = useState<CardLanguage>(() =>
     readStoredDefaultLanguage(),
   );
+  const [layoutMode, setLayoutMode] = useState<LayoutMode>("paper");
+  const [mobileDevice, setMobileDevice] = useState<MobileDevice>("phone");
+  const [tabletCardsPerPage, setTabletCardsPerPage] = useState<TabletCardsPerPage>(2);
   const [sheetSize, setSheetSize] = useState<SheetSize>("a4");
   const [border, setBorder] = useState(false);
   const [cutLines, setCutLines] = useState(false);
@@ -126,6 +132,9 @@ export default function Home() {
       const response = await createPdf({
         border,
         cut_lines: cutLines,
+        layout_mode: layoutMode,
+        mobile_cards_per_page: tabletCardsPerPage,
+        mobile_device: mobileDevice,
         selected_cards: selectedPreviewCards.map((previewCard) => ({
           kind: previewCard.kind,
           label: previewCard.label,
@@ -387,33 +396,101 @@ export default function Home() {
                 description="Configure the sheet format and printed cut guides."
               >
                 <div className="space-y-3">
-                  <Label htmlFor="sheet-size">Sheet size</Label>
-                  <Select value={sheetSize} onValueChange={(value) => setSheetSize(value as SheetSize)}>
-                    <SelectTrigger id="sheet-size">
-                      <SelectValue placeholder="Select a sheet size" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="letter">Letter</SelectItem>
-                      <SelectItem value="a4">A4</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <Label>Layout mode</Label>
+                  <div className="grid grid-cols-2 gap-2 rounded-[1.25rem] border border-border bg-background/75 p-2">
+                    <Button
+                      type="button"
+                      variant={layoutMode === "paper" ? "default" : "outline"}
+                      onClick={() => setLayoutMode("paper")}
+                    >
+                      Paper
+                    </Button>
+                    <Button
+                      type="button"
+                      variant={layoutMode === "mobile" ? "default" : "outline"}
+                      onClick={() => setLayoutMode("mobile")}
+                    >
+                      Mobile
+                    </Button>
+                  </div>
                 </div>
 
-                <OptionToggle
-                  checked={border}
-                  description="Draw one outer border around each front/back pair."
-                  id="include-border"
-                  label="Include border"
-                  onCheckedChange={setBorder}
-                />
+                {layoutMode === "mobile" ? (
+                  <div className="space-y-3">
+                    <Label htmlFor="mobile-device">Device</Label>
+                    <Select
+                      value={mobileDevice}
+                      onValueChange={(value) => setMobileDevice(value as MobileDevice)}
+                    >
+                      <SelectTrigger id="mobile-device">
+                        <SelectValue placeholder="Select a device layout" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="phone">Phone</SelectItem>
+                        <SelectItem value="tablet">Tablet</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                ) : null}
 
-                <OptionToggle
-                  checked={cutLines}
-                  description="Extend cut guides from the card edges to the sheet border."
-                  id="include-cut-lines"
-                  label="Include cut lines"
-                  onCheckedChange={setCutLines}
-                />
+                {layoutMode === "mobile" && mobileDevice === "tablet" ? (
+                  <div className="space-y-3">
+                    <Label htmlFor="tablet-cards-per-page">Cards per page</Label>
+                    <Select
+                      value={String(tabletCardsPerPage)}
+                      onValueChange={(value) =>
+                        setTabletCardsPerPage(Number(value) as TabletCardsPerPage)
+                      }
+                    >
+                      <SelectTrigger id="tablet-cards-per-page">
+                        <SelectValue placeholder="Select cards per page" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="1">1</SelectItem>
+                        <SelectItem value="2">2</SelectItem>
+                        <SelectItem value="3">3</SelectItem>
+                        <SelectItem value="4">4</SelectItem>
+                        <SelectItem value="6">6</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                ) : null}
+
+                {layoutMode === "paper" ? (
+                  <>
+                    <div className="space-y-3">
+                      <Label htmlFor="sheet-size">Sheet size</Label>
+                      <Select
+                        value={sheetSize}
+                        onValueChange={(value) => setSheetSize(value as SheetSize)}
+                      >
+                        <SelectTrigger id="sheet-size">
+                          <SelectValue placeholder="Select a sheet size" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="letter">Letter</SelectItem>
+                          <SelectItem value="a4">A4</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <OptionToggle
+                      checked={border}
+                      description="Draw one outer border around each front/back pair."
+                      id="include-border"
+                      label="Include border"
+                      onCheckedChange={setBorder}
+                    />
+
+                    <OptionToggle
+                      checked={cutLines}
+                      description="Extend cut guides from the card edges to the sheet border."
+                      id="include-cut-lines"
+                      label="Include cut lines"
+                      onCheckedChange={setCutLines}
+                    />
+                  </>
+                ) : null}
               </OptionSection>
 
               <OptionSection
@@ -603,6 +680,7 @@ function PreviewPanel({
 type OptionToggleProps = {
   checked: boolean;
   description: string;
+  disabled?: boolean;
   id: string;
   label: string;
   onCheckedChange: (checked: boolean) => void;
@@ -631,16 +709,18 @@ function OptionSection({ children, description, title }: OptionSectionProps) {
 function OptionToggle({
   checked,
   description,
+  disabled = false,
   id,
   label,
   onCheckedChange,
 }: OptionToggleProps) {
   return (
-    <div className="rounded-[1.25rem] border border-border bg-background/75 p-4">
+    <div className={disabled ? "rounded-[1.25rem] border border-border bg-background/50 p-4 opacity-60" : "rounded-[1.25rem] border border-border bg-background/75 p-4"}>
       <div className="flex items-start gap-3">
         <Checkbox
           id={id}
           checked={checked}
+          disabled={disabled}
           onCheckedChange={(value) => onCheckedChange(value === true)}
           className="mt-0.5"
         />

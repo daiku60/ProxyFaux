@@ -44,6 +44,11 @@ class CreatePdfView(APIView):
             )
 
         try:
+            layout_mode = parse_layout_mode_param(request.data.get("layout_mode"))
+            mobile_device = parse_mobile_device_param(request.data.get("mobile_device"))
+            mobile_cards_per_page = parse_mobile_cards_per_page_param(
+                request.data.get("mobile_cards_per_page")
+            )
             border = parse_bool_param(request.data.get("border"), field_name="border")
             cut_lines = parse_bool_param(
                 request.data.get("cut_lines"),
@@ -54,12 +59,19 @@ class CreatePdfView(APIView):
         except ValueError as exc:
             return Response({"detail": str(exc)}, status=400)
 
+        if layout_mode == "mobile":
+            border = True
+            cut_lines = False
+
         try:
             if selected_cards is not None:
                 pdf_bytes = compose_selected_cards_pdf(
                     selected_cards,
                     border=border,
                     cut_lines=cut_lines,
+                    layout_mode=layout_mode,
+                    mobile_cards_per_page=mobile_cards_per_page,
+                    mobile_device=mobile_device,
                     sheet_size=sheet_size,
                 )
             else:
@@ -67,6 +79,9 @@ class CreatePdfView(APIView):
                     text,
                     border=border,
                     cut_lines=cut_lines,
+                    layout_mode=layout_mode,
+                    mobile_cards_per_page=mobile_cards_per_page,
+                    mobile_device=mobile_device,
                     sheet_size=sheet_size,
                 )
         except PdfCompositionError as exc:
@@ -144,6 +159,36 @@ def parse_sheet_size_param(value) -> str:
         return value.lower()
 
     raise ValueError("The `sheet_size` field must be `a4` or `letter`.")
+
+
+def parse_layout_mode_param(value) -> str:
+    if value is None:
+        return "paper"
+
+    if isinstance(value, str) and value.lower() in {"paper", "mobile"}:
+        return value.lower()
+
+    raise ValueError("The `layout_mode` field must be `paper` or `mobile`.")
+
+
+def parse_mobile_device_param(value) -> str:
+    if value is None:
+        return "phone"
+
+    if isinstance(value, str) and value.lower() in {"phone", "tablet"}:
+        return value.lower()
+
+    raise ValueError("The `mobile_device` field must be `phone` or `tablet`.")
+
+
+def parse_mobile_cards_per_page_param(value) -> int:
+    if value is None:
+        return 1
+
+    if isinstance(value, int) and value in {1, 2, 3, 4, 6}:
+        return value
+
+    raise ValueError("The `mobile_cards_per_page` field must be 1, 2, 3, 4, or 6.")
 
 
 def parse_selected_cards_param(value) -> list[RequestedCard] | None:

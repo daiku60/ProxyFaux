@@ -48,11 +48,19 @@ class PdfPlacement:
 
 
 @dataclass(frozen=True)
+class CardSlot:
+    x: float
+    y: float
+    width: float
+    height: float
+
+
+@dataclass(frozen=True)
 class SheetLayout:
     page_width: float
     page_height: float
-    left_right_margin: float
-    top_bottom_margin: float
+    placements_per_page: int
+    slots: tuple[CardSlot, ...]
 
 
 def normalize_name(value: str) -> str:
@@ -190,6 +198,9 @@ def compose_model_pdf(
     *,
     border: bool = False,
     cut_lines: bool = False,
+    layout_mode: str = "paper",
+    mobile_cards_per_page: int = 1,
+    mobile_device: str = "phone",
     sheet_size: str = "a4",
 ) -> bytes:
     requested_cards = parse_requested_cards(
@@ -203,7 +214,12 @@ def compose_model_pdf(
     placements = resolve_pdf_placements(requested_cards)
     return render_composed_pdf(
         placements,
-        sheet_layout=build_sheet_layout(sheet_size),
+        sheet_layout=build_sheet_layout(
+            sheet_size,
+            layout_mode=layout_mode,
+            mobile_cards_per_page=mobile_cards_per_page,
+            mobile_device=mobile_device,
+        ),
         border=border,
         cut_lines=cut_lines,
     )
@@ -214,12 +230,20 @@ def compose_selected_cards_pdf(
     *,
     border: bool = False,
     cut_lines: bool = False,
+    layout_mode: str = "paper",
+    mobile_cards_per_page: int = 1,
+    mobile_device: str = "phone",
     sheet_size: str = "a4",
 ) -> bytes:
     placements = resolve_pdf_placements(requested_cards)
     return render_composed_pdf(
         placements,
-        sheet_layout=build_sheet_layout(sheet_size),
+        sheet_layout=build_sheet_layout(
+            sheet_size,
+            layout_mode=layout_mode,
+            mobile_cards_per_page=mobile_cards_per_page,
+            mobile_device=mobile_device,
+        ),
         border=border,
         cut_lines=cut_lines,
     )
@@ -302,13 +326,13 @@ def get_pdf_root_for_language(language: str) -> Path:
             f"Unsupported language `{language}`. Use `en` or `es`."
         )
 
+    if normalized_language == "en":
+        return Path(settings.PDF_ROOT)
+
     pdf_data_root = Path(getattr(settings, "PDF_DATA_ROOT", Path(settings.PDF_ROOT).parent))
     language_pdf_root = pdf_data_root / normalized_language / "pdfs"
     if language_pdf_root.exists():
         return language_pdf_root
-
-    if normalized_language == "en":
-        return Path(settings.PDF_ROOT)
 
     return language_pdf_root
 
@@ -335,7 +359,27 @@ def build_variant_pdf_path(path_with_pattern: Path, variant: str | None) -> Path
     return path_with_pattern.with_name(resolved_name)
 
 
-def build_sheet_layout(sheet_size: str) -> SheetLayout:
+def build_sheet_layout(
+    sheet_size: str,
+    *,
+    layout_mode: str = "paper",
+    mobile_cards_per_page: int = 1,
+    mobile_device: str = "phone",
+) -> SheetLayout:
+    normalized_layout_mode = layout_mode.lower()
+    if normalized_layout_mode == "mobile":
+        if mobile_device == "phone":
+            return build_phone_layout()
+        if mobile_device == "tablet":
+            return build_tablet_layout(mobile_cards_per_page)
+        raise PdfCompositionError(
+            f"Unsupported mobile device `{mobile_device}`. Use `phone` or `tablet`."
+        )
+    if normalized_layout_mode != "paper":
+        raise PdfCompositionError(
+            f"Unsupported layout mode `{layout_mode}`. Use `paper` or `mobile`."
+        )
+
     try:
         page_width_mm, page_height_mm = SHEET_SIZES_MM[sheet_size.lower()]
     except KeyError as exc:
@@ -350,8 +394,177 @@ def build_sheet_layout(sheet_size: str) -> SheetLayout:
     return SheetLayout(
         page_width=page_width,
         page_height=page_height,
-        left_right_margin=left_right_margin,
-        top_bottom_margin=top_bottom_margin,
+        placements_per_page=2,
+        slots=(
+            CardSlot(
+                x=left_right_margin,
+                y=page_height - top_bottom_margin - CARD_HEIGHT,
+                width=CARD_WIDTH,
+                height=CARD_HEIGHT,
+            ),
+            CardSlot(
+                x=left_right_margin + CARD_WIDTH,
+                y=page_height - top_bottom_margin - CARD_HEIGHT,
+                width=CARD_WIDTH,
+                height=CARD_HEIGHT,
+            ),
+            CardSlot(
+                x=left_right_margin,
+                y=page_height - top_bottom_margin - (CARD_HEIGHT * 2),
+                width=CARD_WIDTH,
+                height=CARD_HEIGHT,
+            ),
+            CardSlot(
+                x=left_right_margin + CARD_WIDTH,
+                y=page_height - top_bottom_margin - (CARD_HEIGHT * 2),
+                width=CARD_WIDTH,
+                height=CARD_HEIGHT,
+            ),
+        ),
+    )
+
+def build_phone_layout() -> SheetLayout:
+    # iPhone 16 logical viewport size in portrait orientation.
+    page_width = 393
+    page_height = 852
+    horizontal_margin = 16
+    vertical_margin = 20
+    gap = 20
+    available_width = page_width - (horizontal_margin * 2)
+    available_height = page_height - (vertical_margin * 2) - gap
+    slot_height = available_height / 2
+    slot_width = min(available_width, slot_height * (CARD_WIDTH / CARD_HEIGHT))
+
+    return SheetLayout(
+        page_width=page_width,
+        page_height=page_height,
+        placements_per_page=1,
+        slots=(
+            CardSlot(
+                x=(page_width - slot_width) / 2,
+                y=page_height - vertical_margin - slot_height,
+                width=slot_width,
+                height=slot_height,
+            ),
+            CardSlot(
+                x=(page_width - slot_width) / 2,
+                y=vertical_margin,
+                width=slot_width,
+                height=slot_height,
+            ),
+        ),
+    )
+
+
+def build_tablet_layout(cards_per_page: int) -> SheetLayout:
+    if cards_per_page not in {1, 2, 3, 4, 6}:
+        raise PdfCompositionError(
+            f"Unsupported tablet cards-per-page value `{cards_per_page}`. Use 1, 2, 3, 4, or 6."
+        )
+
+    page_width = 1194
+    page_height = 834
+    horizontal_margin = 24
+    vertical_margin = 24
+    pair_gap = 12
+    grid_gap_x = 18
+    grid_gap_y = 18
+
+    if cards_per_page in {1, 2, 3}:
+        return build_pair_grid_layout(
+            page_width=page_width,
+            page_height=page_height,
+            horizontal_margin=horizontal_margin,
+            vertical_margin=vertical_margin,
+            placements_across=cards_per_page,
+            placements_down=1,
+            pair_gap=pair_gap,
+            grid_gap_x=grid_gap_x,
+            grid_gap_y=grid_gap_y,
+        )
+
+    if cards_per_page == 4:
+        return build_pair_grid_layout(
+            page_width=page_width,
+            page_height=page_height,
+            horizontal_margin=horizontal_margin,
+            vertical_margin=vertical_margin,
+            placements_across=2,
+            placements_down=2,
+            pair_gap=pair_gap,
+            grid_gap_x=grid_gap_x,
+            grid_gap_y=grid_gap_y,
+        )
+
+    return build_pair_grid_layout(
+        page_width=page_width,
+        page_height=page_height,
+        horizontal_margin=horizontal_margin,
+        vertical_margin=vertical_margin,
+        placements_across=3,
+        placements_down=2,
+        pair_gap=pair_gap,
+        grid_gap_x=grid_gap_x,
+        grid_gap_y=grid_gap_y,
+    )
+
+
+def build_pair_grid_layout(
+    *,
+    page_width: float,
+    page_height: float,
+    horizontal_margin: float,
+    vertical_margin: float,
+    placements_across: int,
+    placements_down: int,
+    pair_gap: float,
+    grid_gap_x: float,
+    grid_gap_y: float,
+) -> SheetLayout:
+    cell_width = (
+        page_width
+        - (horizontal_margin * 2)
+        - (grid_gap_x * (placements_across - 1))
+    ) / placements_across
+    cell_height = (
+        page_height
+        - (vertical_margin * 2)
+        - (grid_gap_y * (placements_down - 1))
+    ) / placements_down
+    slot_width = (cell_width - pair_gap) / 2
+
+    slots: list[CardSlot] = []
+    for row_index in range(placements_down):
+        for column_index in range(placements_across):
+            cell_x = horizontal_margin + (column_index * (cell_width + grid_gap_x))
+            cell_y = (
+                page_height
+                - vertical_margin
+                - ((row_index + 1) * cell_height)
+                - (row_index * grid_gap_y)
+            )
+            slots.append(
+                CardSlot(
+                    x=cell_x,
+                    y=cell_y,
+                    width=slot_width,
+                    height=cell_height,
+                )
+            )
+            slots.append(
+                CardSlot(
+                    x=cell_x + slot_width + pair_gap,
+                    y=cell_y,
+                    width=slot_width,
+                    height=cell_height,
+                )
+            )
+
+    return SheetLayout(
+        page_width=page_width,
+        page_height=page_height,
+        placements_per_page=placements_across * placements_down,
+        slots=tuple(slots),
     )
 
 
@@ -365,23 +578,22 @@ def render_composed_pdf(
     writer = PdfWriter()
     readers: list[PdfReader] = []
 
-    for start_index in range(0, len(placements), 2):
-        page_placements = placements[start_index : start_index + 2]
+    for start_index in range(0, len(placements), sheet_layout.placements_per_page):
+        page_placements = placements[start_index : start_index + sheet_layout.placements_per_page]
         output_page = writer.add_blank_page(
             width=sheet_layout.page_width,
             height=sheet_layout.page_height,
         )
-        for row_index, placement in enumerate(page_placements):
+        for placement_index, placement in enumerate(page_placements):
             reader = PdfReader(str(placement.source_path))
             readers.append(reader)
-            for column_index, page_index in enumerate(placement.page_indexes):
+            for page_offset, page_index in enumerate(placement.page_indexes):
                 source_page = reader.pages[page_index]
-                place_page_on_sheet(
+                slot = sheet_layout.slots[(placement_index * 2) + page_offset]
+                place_page_in_slot(
                     output_page,
                     source_page,
-                    sheet_layout=sheet_layout,
-                    row_index=row_index,
-                    column_index=column_index,
+                    slot=slot,
                 )
 
         overlay_page = build_overlay_page(
@@ -406,14 +618,22 @@ def place_page_on_sheet(
     row_index: int,
     column_index: int,
 ) -> None:
+    slot = sheet_layout.slots[(row_index * 2) + column_index]
+    place_page_in_slot(output_page, source_page, slot=slot)
+
+
+def place_page_in_slot(
+    output_page,
+    source_page,
+    *,
+    slot: CardSlot,
+) -> None:
     source_width = float(source_page.mediabox.width)
     source_height = float(source_page.mediabox.height)
-    scale = min(CARD_WIDTH / source_width, CARD_HEIGHT / source_height)
+    scale = min(slot.width / source_width, slot.height / source_height)
 
-    x = sheet_layout.left_right_margin + (column_index * CARD_WIDTH)
-    y = sheet_layout.page_height - sheet_layout.top_bottom_margin - ((row_index + 1) * CARD_HEIGHT)
-    translate_x = x + ((CARD_WIDTH - (source_width * scale)) / 2)
-    translate_y = y + ((CARD_HEIGHT - (source_height * scale)) / 2)
+    translate_x = slot.x + ((slot.width - (source_width * scale)) / 2)
+    translate_y = slot.y + ((slot.height - (source_height * scale)) / 2)
 
     transformation = Transformation().scale(scale).translate(translate_x, translate_y)
     output_page.merge_transformed_page(source_page, transformation)
@@ -435,16 +655,15 @@ def build_overlay_page(
     pdf_canvas.setLineWidth(1)
 
     for row_index in range(pair_count):
-        x = sheet_layout.left_right_margin
-        y = (
-            sheet_layout.page_height
-            - sheet_layout.top_bottom_margin
-            - ((row_index + 1) * CARD_HEIGHT)
-        )
-        pair_width = CARD_WIDTH * 2
+        left_slot = sheet_layout.slots[row_index * 2]
+        right_slot = sheet_layout.slots[(row_index * 2) + 1]
+        x = left_slot.x
+        y = left_slot.y
+        pair_width = (right_slot.x + right_slot.width) - left_slot.x
+        pair_height = max(left_slot.height, right_slot.height)
 
         if border:
-            pdf_canvas.rect(x, y, pair_width, CARD_HEIGHT, stroke=1, fill=0)
+            pdf_canvas.rect(x, y, pair_width, pair_height, stroke=1, fill=0)
 
         if cut_lines:
             draw_cut_lines(
@@ -453,7 +672,7 @@ def build_overlay_page(
                 x=x,
                 y=y,
                 width=pair_width,
-                height=CARD_HEIGHT,
+                height=pair_height,
             )
 
     pdf_canvas.showPage()

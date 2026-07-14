@@ -12,6 +12,9 @@ export type SelectedCardPayload = {
 export type CreatePdfPayload = {
   border: boolean;
   cut_lines: boolean;
+  layout_mode?: "mobile" | "paper";
+  mobile_cards_per_page?: 1 | 2 | 3 | 4 | 6;
+  mobile_device?: "phone" | "tablet";
   selected_cards?: SelectedCardPayload[];
   sheet_size: "a4" | "letter";
   text?: string;

@@ -346,6 +346,83 @@ def test_create_pdf_endpoint_supports_letter_sheet_size(db, tmp_path) -> None:
     assert round(float(reader.pages[0].mediabox.height), 4) == round(sheet_layout.page_height, 4)
 
 
+def test_create_pdf_endpoint_supports_mobile_layout_mode(db, tmp_path) -> None:
+    pdf_root = tmp_path / "pdfs"
+    generated_pdf_root = tmp_path / "generated-pdfs"
+
+    create_test_pdf(pdf_root / "December" / "Mara.pdf", width=220, height=300)
+    Model.objects.create(
+        source_id="mara",
+        name="Mara",
+        faction="Arcanists",
+        pdf="December/Mara.pdf",
+    )
+
+    with override_settings(PDF_ROOT=pdf_root, GENERATED_PDF_ROOT=generated_pdf_root):
+        response = APIClient().post(
+            "/api/create-pdf/",
+            {
+                "text": "Mara",
+                "layout_mode": "mobile",
+                "mobile_device": "phone",
+                "border": True,
+                "cut_lines": True,
+            },
+            format="json",
+        )
+        download_response = APIClient().get(response.json()["url"])
+
+    reader = PdfReader(BytesIO(b"".join(download_response.streaming_content)))
+    page = reader.pages[0]
+    assert round(float(page.mediabox.width), 4) == 393
+    assert round(float(page.mediabox.height), 4) == 852
+
+    content = page.get_contents()
+    assert content is not None
+    page_content = content.get_data().decode("latin-1")
+    assert " re" in page_content
+
+
+def test_create_pdf_endpoint_supports_tablet_layout_with_four_cards_per_page(
+    db,
+    tmp_path,
+) -> None:
+    pdf_root = tmp_path / "pdfs"
+    generated_pdf_root = tmp_path / "generated-pdfs"
+
+    create_test_pdf(pdf_root / "December" / "Mara.pdf", width=220, height=300)
+    Model.objects.create(
+        source_id="mara",
+        name="Mara",
+        faction="Arcanists",
+        pdf="December/Mara.pdf",
+    )
+
+    with override_settings(PDF_ROOT=pdf_root, GENERATED_PDF_ROOT=generated_pdf_root):
+        response = APIClient().post(
+            "/api/create-pdf/",
+            {
+                "text": """
+                Mara
+                Mara
+                Mara
+                Mara
+                """,
+                "layout_mode": "mobile",
+                "mobile_device": "tablet",
+                "mobile_cards_per_page": 4,
+            },
+            format="json",
+        )
+        download_response = APIClient().get(response.json()["url"])
+
+    reader = PdfReader(BytesIO(b"".join(download_response.streaming_content)))
+    page = reader.pages[0]
+    assert len(reader.pages) == 1
+    assert round(float(page.mediabox.width), 4) == 1194
+    assert round(float(page.mediabox.height), 4) == 834
+
+
 def test_card_image_endpoint_serves_cards_from_backend_data(tmp_path, settings) -> None:
     data_root = tmp_path / "data" / "cards" / "Arcanists"
     data_root.mkdir(parents=True, exist_ok=True)

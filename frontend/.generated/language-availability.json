@@ -247,7 +247,8 @@
   },
   "ArunRajput": {
     "default": [
-      "en"
+      "en",
+      "es"
     ]
   },
   "AsamiTanaka_OniMother": {
@@ -440,7 +441,8 @@
   },
   "Banasuva": {
     "default": [
-      "en"
+      "en",
+      "es"
     ]
   },
   "Bandersnatch": {
@@ -1782,10 +1784,12 @@
     ],
     "variants": {
       "A": [
-        "en"
+        "en",
+        "es"
       ],
       "B": [
-        "en"
+        "en",
+        "es"
       ]
     }
   },
@@ -1854,7 +1858,8 @@
   },
   "EssenceofPower": {
     "default": [
-      "en"
+      "en",
+      "es"
     ]
   },
   "EternalFlame": {
@@ -2069,7 +2074,8 @@
   },
   "FourWindsGolem": {
     "default": [
-      "en"
+      "en",
+      "es"
     ]
   },
   "FranciscoOrtega": {
@@ -2884,19 +2890,23 @@
     ],
     "variants": {
       "A": [
-        "en"
+        "en",
+        "es"
       ],
       "B": [
-        "en"
+        "en",
+        "es"
       ],
       "C": [
-        "en"
+        "en",
+        "es"
       ]
     }
   },
   "IceGolem": {
     "default": [
-      "en"
+      "en",
+      "es"
     ]
   },
   "Iggy": {
@@ -3213,7 +3223,8 @@
   },
   "Kandara": {
     "default": [
-      "en"
+      "en",
+      "es"
     ]
   },
   "Kang": {
@@ -3395,7 +3406,8 @@
   },
   "Kudra": {
     "default": [
-      "en"
+      "en",
+      "es"
     ]
   },
   "Kunoichi": {
@@ -4566,13 +4578,16 @@
     ],
     "variants": {
       "A": [
-        "en"
+        "en",
+        "es"
       ],
       "B": [
-        "en"
+        "en",
+        "es"
       ],
       "C": [
-        "en"
+        "en",
+        "es"
       ]
     }
   },
@@ -5104,12 +5119,14 @@
   },
   "SandeepDesai_FontOfMagic": {
     "default": [
-      "en"
+      "en",
+      "es"
     ]
   },
   "SandeepDesai_TheQuietFlame": {
     "default": [
-      "en"
+      "en",
+      "es"
     ]
   },
   "SandWorm": {
@@ -5286,13 +5303,16 @@
     ],
     "variants": {
       "A": [
-        "en"
+        "en",
+        "es"
       ],
       "B": [
-        "en"
+        "en",
+        "es"
       ],
       "C": [
-        "en"
+        "en",
+        "es"
       ]
     }
   },
@@ -6807,13 +6827,16 @@
     ],
     "variants": {
       "A": [
-        "en"
+        "en",
+        "es"
       ],
       "B": [
-        "en"
+        "en",
+        "es"
       ],
       "C": [
-        "en"
+        "en",
+        "es"
       ]
     }
   },
@@ -7099,7 +7122,8 @@
   },
   "BreatheTheAether": {
     "default": [
-      "en"
+      "en",
+      "es"
     ]
   },
   "BurningMansPrayer": {
@@ -7644,7 +7668,8 @@
   },
   "TheFormlessMantra": {
     "default": [
-      "en"
+      "en",
+      "es"
     ]
   },
   "TheLastSunrise": {
@@ -8068,17 +8093,20 @@
   },
   "VisionsinAir": {
     "default": [
-      "en"
+      "en",
+      "es"
     ]
   },
   "VisionsinHeat": {
     "default": [
-      "en"
+      "en",
+      "es"
     ]
   },
   "VisionsinIce": {
     "default": [
-      "en"
+      "en",
+      "es"
     ]
   },
   "Voodoo": {
