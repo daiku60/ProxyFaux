@@ -533,11 +533,11 @@ function PreviewPanel({
                 Select all
               </Button>
             </div>
-            <div className="-mx-1 flex snap-x snap-mandatory gap-4 overflow-x-auto px-1 pb-2 xl:mx-0 xl:grid xl:gap-4 xl:overflow-visible xl:px-0 xl:pb-0 xl:sm:grid-cols-2">
+            <div className="-mx-1 flex items-start snap-x snap-mandatory gap-4 overflow-x-auto px-1 pb-2 xl:mx-0 xl:grid xl:gap-4 xl:overflow-visible xl:px-0 xl:pb-0 xl:sm:grid-cols-2">
               {previewCards.map((previewCard) => (
                 <figure
                   key={previewCard.id}
-                  className="preview-card group relative min-w-[15.5rem] shrink-0 snap-start overflow-hidden rounded-[1.4rem] border border-border bg-card shadow-card xl:min-w-0"
+                  className="preview-card group relative w-[calc((100%-1rem)/1.5)] shrink-0 snap-start overflow-hidden rounded-[1.4rem] border border-border bg-card shadow-card xl:w-auto xl:min-w-0"
                 >
                   <div className="absolute right-3 top-3 z-10 flex items-center gap-2">
                     <Select
@@ -574,7 +574,7 @@ function PreviewPanel({
                       )}
                     </button>
                   </div>
-                  <div className="aspect-[5/7] bg-muted">
+                  <div className="aspect-[5/6] bg-muted xl:aspect-[5/7]">
                     <img
                       src={buildCardImageUrl(previewCard.frontPath)}
                       alt={previewCard.label}
