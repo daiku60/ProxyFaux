@@ -56,6 +56,14 @@ class CardSlot:
 
 
 @dataclass(frozen=True)
+class PlacedRect:
+    x: float
+    y: float
+    width: float
+    height: float
+
+
+@dataclass(frozen=True)
 class SheetLayout:
     page_width: float
     page_height: float
@@ -584,20 +592,25 @@ def render_composed_pdf(
             width=sheet_layout.page_width,
             height=sheet_layout.page_height,
         )
+        page_pair_rects: list[tuple[PlacedRect, ...]] = []
         for placement_index, placement in enumerate(page_placements):
             reader = PdfReader(str(placement.source_path))
             readers.append(reader)
+            pair_rects: list[PlacedRect] = []
             for page_offset, page_index in enumerate(placement.page_indexes):
                 source_page = reader.pages[page_index]
                 slot = sheet_layout.slots[(placement_index * 2) + page_offset]
-                place_page_in_slot(
+                pair_rects.append(
+                    place_page_in_slot(
                     output_page,
                     source_page,
                     slot=slot,
+                    )
                 )
+            page_pair_rects.append(tuple(pair_rects))
 
         overlay_page = build_overlay_page(
-            len(page_placements),
+            page_pair_rects,
             sheet_layout=sheet_layout,
             border=border,
             cut_lines=cut_lines,
@@ -627,7 +640,7 @@ def place_page_in_slot(
     source_page,
     *,
     slot: CardSlot,
-) -> None:
+) -> PlacedRect:
     source_width = float(source_page.mediabox.width)
     source_height = float(source_page.mediabox.height)
     scale = min(slot.width / source_width, slot.height / source_height)
@@ -637,10 +650,16 @@ def place_page_in_slot(
 
     transformation = Transformation().scale(scale).translate(translate_x, translate_y)
     output_page.merge_transformed_page(source_page, transformation)
+    return PlacedRect(
+        x=translate_x,
+        y=translate_y,
+        width=source_width * scale,
+        height=source_height * scale,
+    )
 
 
 def build_overlay_page(
-    pair_count: int,
+    pair_rects: list[tuple[PlacedRect, ...]],
     *,
     sheet_layout: SheetLayout,
     border: bool = False,
@@ -654,13 +673,13 @@ def build_overlay_page(
     pdf_canvas.setStrokeColor(black)
     pdf_canvas.setLineWidth(1)
 
-    for row_index in range(pair_count):
-        left_slot = sheet_layout.slots[row_index * 2]
-        right_slot = sheet_layout.slots[(row_index * 2) + 1]
-        x = left_slot.x
-        y = left_slot.y
-        pair_width = (right_slot.x + right_slot.width) - left_slot.x
-        pair_height = max(left_slot.height, right_slot.height)
+    for rect_group in pair_rects:
+        x = min(rect.x for rect in rect_group)
+        y = min(rect.y for rect in rect_group)
+        right = max(rect.x + rect.width for rect in rect_group)
+        top = max(rect.y + rect.height for rect in rect_group)
+        pair_width = right - x
+        pair_height = top - y
 
         if border:
             pdf_canvas.rect(x, y, pair_width, pair_height, stroke=1, fill=0)

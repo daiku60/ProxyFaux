@@ -8,9 +8,12 @@ from rest_framework.test import APIClient
 from api.models import Model
 from api.pdfs import (
     build_overlay_page,
+    build_phone_layout,
     build_sheet_layout,
+    build_tablet_layout,
     clean_input_line,
     normalize_pdf_storage_path,
+    place_page_in_slot,
     parse_requested_models,
     resolve_pdf_placements,
 )
@@ -39,6 +42,12 @@ def create_test_pdf(path: Path, *, width: float = 200, height: float = 300) -> N
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("wb") as pdf_file:
         writer.write(pdf_file)
+
+
+def format_pdf_number(value: float) -> str:
+    if value == int(value):
+        return str(int(value))
+    return f"{value:.4f}".rstrip("0").rstrip(".")
 
 
 def test_clean_input_line_skips_headers_and_group_labels() -> None:
@@ -300,6 +309,66 @@ def test_build_overlay_page_respects_border_and_cut_line_flags() -> None:
 
     assert " re" not in cut_lines_only_content
     assert cut_lines_only_content.count(" m") >= 8
+
+
+def test_mobile_phone_overlay_border_covers_front_and_back_cards() -> None:
+    writer = PdfWriter()
+    source_page = writer.add_blank_page(width=200, height=300)
+    output_writer = PdfWriter()
+    output_page = output_writer.add_blank_page(width=393, height=852)
+    layout = build_phone_layout()
+
+    first_rect = place_page_in_slot(output_page, source_page, slot=layout.slots[0])
+    second_rect = place_page_in_slot(output_page, source_page, slot=layout.slots[1])
+    overlay = build_overlay_page([(first_rect, second_rect)], sheet_layout=layout, border=True, cut_lines=False)
+
+    overlay_content = overlay.get_contents().get_data().decode("latin-1")
+    expected_width = max(
+        first_rect.x + first_rect.width,
+        second_rect.x + second_rect.width,
+    ) - min(first_rect.x, second_rect.x)
+    expected_height = max(
+        first_rect.y + first_rect.height,
+        second_rect.y + second_rect.height,
+    ) - min(first_rect.y, second_rect.y)
+    expected_fragment = (
+        f"{format_pdf_number(min(first_rect.x, second_rect.x))} "
+        f"{format_pdf_number(min(first_rect.y, second_rect.y))} "
+        f"{format_pdf_number(expected_width)} "
+        f"{format_pdf_number(expected_height)} re"
+    )
+
+    assert expected_fragment in overlay_content
+
+
+def test_tablet_overlay_border_matches_scaled_card_pair_bounds() -> None:
+    writer = PdfWriter()
+    source_page = writer.add_blank_page(width=200, height=300)
+    layout = build_tablet_layout(4)
+    output_writer = PdfWriter()
+    output_page = output_writer.add_blank_page(width=layout.page_width, height=layout.page_height)
+
+    first_rect = place_page_in_slot(output_page, source_page, slot=layout.slots[0])
+    second_rect = place_page_in_slot(output_page, source_page, slot=layout.slots[1])
+    overlay = build_overlay_page([(first_rect, second_rect)], sheet_layout=layout, border=True, cut_lines=False)
+
+    overlay_content = overlay.get_contents().get_data().decode("latin-1")
+    expected_width = max(
+        first_rect.x + first_rect.width,
+        second_rect.x + second_rect.width,
+    ) - min(first_rect.x, second_rect.x)
+    expected_height = max(
+        first_rect.y + first_rect.height,
+        second_rect.y + second_rect.height,
+    ) - min(first_rect.y, second_rect.y)
+    expected_fragment = (
+        f"{format_pdf_number(min(first_rect.x, second_rect.x))} "
+        f"{format_pdf_number(min(first_rect.y, second_rect.y))} "
+        f"{format_pdf_number(expected_width)} "
+        f"{format_pdf_number(expected_height)} re"
+    )
+
+    assert expected_fragment in overlay_content
 
 
 def test_create_pdf_endpoint_rejects_non_boolean_flags(db) -> None:
