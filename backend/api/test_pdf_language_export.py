@@ -35,6 +35,24 @@ def test_resolve_pdf_path_and_variants_uses_language_specific_root(tmp_path) -> 
     assert variants == []
 
 
+def test_resolve_pdf_path_and_variants_falls_back_to_pdf_data_root_for_english(tmp_path) -> None:
+    pdf_data_root = tmp_path / "data"
+    english_pdf = pdf_data_root / "en" / "pdfs" / "Neverborn" / "Woe" / "Candy.pdf"
+    create_test_pdf(english_pdf)
+
+    with override_settings(
+        PDF_DATA_ROOT=pdf_data_root,
+        PDF_ROOT=pdf_data_root / "pdfs",
+    ):
+        resolved_path, variants = resolve_pdf_path_and_variants(
+            "pdfs/Neverborn/Woe/Candy.pdf",
+            language="en",
+        )
+
+    assert resolved_path == english_pdf
+    assert variants == []
+
+
 def test_create_pdf_endpoint_exports_selected_cards_in_spanish_when_available(db, tmp_path) -> None:
     pdf_data_root = tmp_path / "data"
     generated_pdf_root = tmp_path / "generated-pdfs"

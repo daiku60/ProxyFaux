@@ -334,10 +334,15 @@ def get_pdf_root_for_language(language: str) -> Path:
             f"Unsupported language `{language}`. Use `en` or `es`."
         )
 
-    if normalized_language == "en":
-        return Path(settings.PDF_ROOT)
-
     pdf_data_root = Path(getattr(settings, "PDF_DATA_ROOT", Path(settings.PDF_ROOT).parent))
+
+    if normalized_language == "en":
+        configured_pdf_root = Path(settings.PDF_ROOT)
+        if configured_pdf_root.exists():
+            return configured_pdf_root
+        fallback_english_root = pdf_data_root / "en" / "pdfs"
+        return fallback_english_root
+
     language_pdf_root = pdf_data_root / normalized_language / "pdfs"
     if language_pdf_root.exists():
         return language_pdf_root
