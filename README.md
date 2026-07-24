@@ -225,9 +225,15 @@ typically via Git LFS.
 The production stack expects:
 
 - repository-side PDF path
-  - `backend/data/pdfs`
+  - `backend/data/<language>/v0/pdfs`
+  - revised PDFs only: `backend/data/<language>/v1/pdfs`
 - container-side path from `backend/.env.prod`
-  - `PDF_ROOT=/app/data/pdfs`
+  - `PDF_DATA_ROOT=/app/data`
+
+For each requested language, the application exports a matching PDF from `v1`
+when present, then falls back to the complete `v0` baseline. Keep the paths in
+`cards.json` versionless (`pdfs/...`); only changed PDFs need to be added to
+`v1`.
 
 Deploy normally:
 

@@ -23,6 +23,7 @@ SHEET_SIZES_MM = {
 VARIANT_PATTERN = re.compile(r"\{([A-Z](?:\|[A-Z])*)\}")
 TRAILING_VARIANT_PATTERN = re.compile(r"^(?P<name>.+?)\s+(?P<variant>[A-Z])$")
 TRAILING_PARENTHETICAL_PATTERN = re.compile(r"^(?P<name>.+?)\s+\([^)]*\)$")
+PDF_VERSIONS = ("v1", "v0")
 
 
 class PdfCompositionError(ValueError):
@@ -137,9 +138,7 @@ def parse_requested_cards(
             resolved_parts = [resolve_requested_card(part, lookup) for part in parts]
             if all(resolved_parts):
                 requested.extend(
-                    resolved_part
-                    for resolved_part in resolved_parts
-                    if resolved_part is not None
+                    resolved_part for resolved_part in resolved_parts if resolved_part is not None
                 )
                 continue
 
@@ -283,9 +282,7 @@ def resolve_pdf_placements(requested_cards: list[RequestedCard]) -> list[PdfPlac
 
         resolved_path = build_variant_pdf_path(pdf_path, chosen_variant)
         if not resolved_path.exists():
-            raise PdfCompositionError(
-                f"Missing PDF for {requested_card.raw_name}: {resolved_path}"
-            )
+            raise PdfCompositionError(f"Missing PDF for {requested_card.raw_name}: {resolved_path}")
 
         reader = PdfReader(str(resolved_path))
         if len(reader.pages) < 2:
@@ -303,9 +300,15 @@ def resolve_pdf_path_and_variants(
     *,
     language: str = "en",
 ) -> tuple[Path, list[str]]:
-    pdf_root = get_pdf_root_for_language(language)
     raw_path = Path(pdf_value)
-    resolved_path = normalize_pdf_storage_path(raw_path, pdf_root)
+    resolved_paths = [
+        normalize_pdf_storage_path(raw_path, pdf_root)
+        for pdf_root in get_pdf_roots_for_language(language)
+    ]
+    resolved_path = next(
+        (candidate for candidate in resolved_paths if candidate.exists()),
+        resolved_paths[-1],
+    )
     match = VARIANT_PATTERN.search(resolved_path.name)
     if not match:
         return resolved_path, []
@@ -327,27 +330,13 @@ def normalize_pdf_storage_path(pdf_path: Path, pdf_root: Path) -> Path:
     return pdf_root / pdf_path
 
 
-def get_pdf_root_for_language(language: str) -> Path:
+def get_pdf_roots_for_language(language: str) -> tuple[Path, ...]:
     normalized_language = language.lower()
     if normalized_language not in {"en", "es"}:
-        raise PdfCompositionError(
-            f"Unsupported language `{language}`. Use `en` or `es`."
-        )
+        raise PdfCompositionError(f"Unsupported language `{language}`. Use `en` or `es`.")
 
     pdf_data_root = Path(getattr(settings, "PDF_DATA_ROOT", Path(settings.PDF_ROOT).parent))
-
-    if normalized_language == "en":
-        configured_pdf_root = Path(settings.PDF_ROOT)
-        if configured_pdf_root.exists():
-            return configured_pdf_root
-        fallback_english_root = pdf_data_root / "en" / "pdfs"
-        return fallback_english_root
-
-    language_pdf_root = pdf_data_root / normalized_language / "pdfs"
-    if language_pdf_root.exists():
-        return language_pdf_root
-
-    return language_pdf_root
+    return tuple(pdf_data_root / normalized_language / version / "pdfs" for version in PDF_VERSIONS)
 
 
 def parse_requested_models(
@@ -435,6 +424,7 @@ def build_sheet_layout(
             ),
         ),
     )
+
 
 def build_phone_layout() -> SheetLayout:
     # iPhone 16 logical viewport size in portrait orientation.
@@ -535,14 +525,10 @@ def build_pair_grid_layout(
     grid_gap_y: float,
 ) -> SheetLayout:
     cell_width = (
-        page_width
-        - (horizontal_margin * 2)
-        - (grid_gap_x * (placements_across - 1))
+        page_width - (horizontal_margin * 2) - (grid_gap_x * (placements_across - 1))
     ) / placements_across
     cell_height = (
-        page_height
-        - (vertical_margin * 2)
-        - (grid_gap_y * (placements_down - 1))
+        page_height - (vertical_margin * 2) - (grid_gap_y * (placements_down - 1))
     ) / placements_down
     slot_width = (cell_width - pair_gap) / 2
 
@@ -607,9 +593,9 @@ def render_composed_pdf(
                 slot = sheet_layout.slots[(placement_index * 2) + page_offset]
                 pair_rects.append(
                     place_page_in_slot(
-                    output_page,
-                    source_page,
-                    slot=slot,
+                        output_page,
+                        source_page,
+                        slot=slot,
                     )
                 )
             page_pair_rects.append(tuple(pair_rects))

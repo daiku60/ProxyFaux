@@ -4,6 +4,7 @@ from pathlib import Path
 
 
 VARIANT_PATTERN = re.compile(r"\{([A-Z](?:\|[A-Z])*)\}")
+PDF_VERSIONS = ("v1", "v0")
 
 
 def main() -> None:
@@ -56,7 +57,10 @@ def collect_available_languages(pdf_path: str, backend_data_dir: Path) -> list[s
     languages = [
         language
         for language in ("en", "es")
-        if (backend_data_dir / language / pdf_path).exists()
+        if any(
+            (backend_data_dir / language / version / pdf_path).exists()
+            for version in PDF_VERSIONS
+        )
     ]
     return languages or ["en"]
 

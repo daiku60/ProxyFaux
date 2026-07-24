@@ -18,38 +18,47 @@ def create_test_pdf(path: Path, *, width: float = 200, height: float = 300) -> N
         writer.write(pdf_file)
 
 
-def test_resolve_pdf_path_and_variants_uses_language_specific_root(tmp_path) -> None:
+def test_resolve_pdf_path_and_variants_prefers_version_one_for_requested_language(
+    tmp_path,
+) -> None:
     pdf_data_root = tmp_path / "data"
-    english_pdf = pdf_data_root / "en" / "pdfs" / "Neverborn" / "Woe" / "Candy.pdf"
-    spanish_pdf = pdf_data_root / "es" / "pdfs" / "Neverborn" / "Woe" / "Candy.pdf"
-    create_test_pdf(english_pdf)
-    create_test_pdf(spanish_pdf)
-
-    with override_settings(PDF_DATA_ROOT=pdf_data_root, PDF_ROOT=english_pdf.parent.parent.parent):
-        resolved_path, variants = resolve_pdf_path_and_variants(
-            "pdfs/Neverborn/Woe/Candy.pdf",
-            language="es",
-        )
-
-    assert resolved_path == spanish_pdf
-    assert variants == []
-
-
-def test_resolve_pdf_path_and_variants_falls_back_to_pdf_data_root_for_english(tmp_path) -> None:
-    pdf_data_root = tmp_path / "data"
-    english_pdf = pdf_data_root / "en" / "pdfs" / "Neverborn" / "Woe" / "Candy.pdf"
-    create_test_pdf(english_pdf)
+    version_zero_pdf = pdf_data_root / "en" / "v0" / "pdfs" / "Neverborn" / "Woe" / "Candy.pdf"
+    version_one_pdf = pdf_data_root / "en" / "v1" / "pdfs" / "Neverborn" / "Woe" / "Candy.pdf"
+    create_test_pdf(version_zero_pdf)
+    create_test_pdf(version_one_pdf)
 
     with override_settings(
         PDF_DATA_ROOT=pdf_data_root,
-        PDF_ROOT=pdf_data_root / "pdfs",
+        PDF_ROOT=version_zero_pdf.parent.parent.parent.parent,
     ):
         resolved_path, variants = resolve_pdf_path_and_variants(
             "pdfs/Neverborn/Woe/Candy.pdf",
             language="en",
         )
 
-    assert resolved_path == english_pdf
+    assert resolved_path == version_one_pdf
+    assert variants == []
+
+
+def test_resolve_pdf_path_and_variants_falls_back_to_version_zero_for_requested_language(
+    tmp_path,
+) -> None:
+    pdf_data_root = tmp_path / "data"
+    english_pdf = pdf_data_root / "en" / "v0" / "pdfs" / "Neverborn" / "Woe" / "Candy.pdf"
+    spanish_pdf = pdf_data_root / "es" / "v0" / "pdfs" / "Neverborn" / "Woe" / "Candy.pdf"
+    create_test_pdf(english_pdf)
+    create_test_pdf(spanish_pdf)
+
+    with override_settings(
+        PDF_DATA_ROOT=pdf_data_root,
+        PDF_ROOT=english_pdf.parent.parent.parent.parent,
+    ):
+        resolved_path, variants = resolve_pdf_path_and_variants(
+            "pdfs/Neverborn/Woe/Candy.pdf",
+            language="es",
+        )
+
+    assert resolved_path == spanish_pdf
     assert variants == []
 
 
